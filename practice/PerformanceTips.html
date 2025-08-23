@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Performance Optimization Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            color: #5a67d8;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        /* Demo 1: will-change optimization */
+        .hover-card {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            padding: 30px;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .hover-card.optimized {
+            will-change: transform;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* Demo 2: translateZ(0) for hardware acceleration */
+        .sliding-element {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            animation: slide 3s ease-in-out infinite;
+            margin: 20px auto;
+        }
+        
+        .hardware-accelerated {
+            transform: translateZ(0);
+            /* Alternative: will-change: transform; */
+        }
+        
+        @keyframes slide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(200px); }
+        }
+        
+        /* Demo 3: Composite layers */
+        .layer-demo {
+            position: relative;
+            height: 200px;
+            background: #f7fafc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .moving-box {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #38b2ac, #319795);
+            border-radius: 8px;
+            animation: move 4s linear infinite;
+        }
+        
+        .composite-layer {
+            will-change: transform;
+            /* Creates a new composite layer */
+        }
+        
+        @keyframes move {
+            0% { transform: translateX(0) translateY(60px); }
+            25% { transform: translateX(200px) translateY(60px); }
+            50% { transform: translateX(200px) translateY(60px) rotateZ(180deg); }
+            75% { transform: translateX(0) translateY(60px) rotateZ(180deg); }
+            100% { transform: translateX(0) translateY(60px) rotateZ(360deg); }
+        }
+        
+        /* Demo 4: GPU-accelerated properties */
+        .transform-demo {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .transform-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transform: translateZ(0); /* Hardware acceleration */
+        }
+        
+        .scale-demo {
+            background: #ed8936;
+        }
+        .scale-demo:hover {
+            transform: scale(1.2) translateZ(0);
+        }
+        
+        .rotate-demo {
+            background: #38b2ac;
+        }
+        .rotate-demo:hover {
+            transform: rotate(45deg) translateZ(0);
+        }
+        
+        .translate-demo {
+            background: #9f7aea;
+        }
+        .translate-demo:hover {
+            transform: translateY(-20px) translateZ(0);
+        }
+        
+        .opacity-demo {
+            background: #f56565;
+        }
+        .opacity-demo:hover {
+            opacity: 0.5;
+            transform: translateZ(0);
+        }
+        
+        /* Performance tips indicators */
+        .tip {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #2f855a;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #ed8936, #dd6b20);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #c05621;
+        }
+        
+        .performance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-section {
+                padding: 20px;
+            }
+            
+            .transform-demo {
+                gap: 10px;
+            }
+            
+            .transform-box {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Loading states and skeleton screens */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 CSS Performance Optimization</h1>
+            <p>Master will-change, translateZ(0), and GPU acceleration techniques</p>
+        </div>
+
+        <!-- Will-change Property -->
+        <div class="demo-section">
+            <h2 class="section-title">1. will-change Property</h2>
+            <p><strong>Purpose:</strong> Tells the browser which CSS properties will change, allowing it to optimize rendering in advance.</p>
+            
+            <div class="code-block">
+.optimized-element {
+    will-change: transform;
+    /* Browser prepares for transform changes */
+}
+
+/* Use cases */
+.hover-element {
+    will-change: transform, opacity;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.hover-element:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}</div>
+
+            <div class="demo-grid">
+                <div class="hover-card">
+                    <h3>Without will-change</h3>
+                    <p>Hover me! May cause layout shifts</p>
+                </div>
+                <div class="hover-card optimized">
+                    <h3>With will-change</h3>
+                    <p>Hover me! Optimized rendering</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Best Practice:</strong> Only use will-change when you know an animation is about to start. Remove it when animation completes to free up resources.
+            </div>
+        </div>
+
+        <!-- translateZ(0) Hack -->
+        <div class="demo-section">
+            <h2 class="section-title">2. translateZ(0) - Hardware Acceleration</h2>
+            <p><strong>Purpose:</strong> Forces browser to use GPU for rendering by creating a new composite layer.</p>
+
+            <div class="code-block">
+/* Hardware acceleration trigger */
+.gpu-accelerated {
+    transform: translateZ(0);
+    /* or */
+    transform: translate3d(0, 0, 0);
+    /* or modern approach */
+    will-change: transform;
+}</div>
+
+            <div class="demo-grid">
+                <div>
+                    <h4>CPU Rendering (Slower)</h4>
+                    <div class="sliding-element"></div>
+                </div>
+                <div>
+                    <h4>GPU Rendering (Faster)</h4>
+                    <div class="sliding-element hardware-accelerated"></div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Warning:</strong> Overusing translateZ(0) can consume excess memory. Only use when necessary for performance-critical animations.
+            </div>
+        </div>
+
+        <!-- Composite Layers -->
+        <div class="demo-section">
+            <h2 class="section-title">3. Composite Layers</h2>
+            <p><strong>Concept:</strong> Browser creates separate layers for elements that can be processed independently by GPU.</p>
+
+            <div class="code-block">
+/* Properties that create new composite layers: */
+.new-layer {
+    transform: translateZ(0);      /* 3D transform */
+    opacity: 0.99;                /* Opacity < 1 */
+    position: fixed;              /* Fixed positioning */
+    will-change: transform;       /* Explicit hint */
+    filter: blur(5px);           /* CSS filters */
+}</div>
+
+            <div class="layer-demo">
+                <div class="moving-box composite-layer"></div>
+            </div>
+
+            <div class="tip">
+                <strong>🎯 Real-world Use:</strong> Animations, modal overlays, sticky headers, and parallax effects benefit most from composite layers.
+            </div>
+        </div>
+
+        <!-- GPU-Accelerated Properties -->
+        <div class="demo-section">
+            <h2 class="section-title">4. GPU-Accelerated Properties</h2>
+            <p><strong>Fast Properties:</strong> These properties are handled by GPU and don't trigger layout or paint.</p>
+
+            <div class="code-block">
+/* GPU-accelerated properties (fast): */
+transform: translateX(100px);    /* Translation */
+transform: scale(1.5);          /* Scaling */
+transform: rotate(45deg);       /* Rotation */
+opacity: 0.5;                   /* Opacity changes */
+
+/* CPU properties (slower - avoid in animations): */
+width: 200px;                   /* Layout changes */
+height: 300px;                  /* Layout changes */
+margin: 20px;                   /* Layout changes */
+background-color: red;          /* Paint changes */</div>
+
+            <div class="transform-demo">
+                <div class="transform-box scale-demo">Scale</div>
+                <div class="transform-box rotate-demo">Rotate</div>
+                <div class="transform-box translate-demo">Move</div>
+                <div class="transform-box opacity-demo">Fade</div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="demo-section">
+            <h2 class="section-title">5. Performance Impact</h2>
+            
+            <div class="performance-stats">
+                <div class="stat-card">
+                    <div class="stat-number">60fps</div>
+                    <div>Target Frame Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">16ms</div>
+                    <div>Per Frame Budget</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3x</div>
+                    <div>GPU Speed Boost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div>Jank Reduction</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="demo-section">
+            <h2 class="section-title">6. Complete Performance Checklist</h2>
+            
+            <div class="code-block">
+/* ✅ DO: Optimize for 60fps animations */
+.smooth-animation {
+    will-change: transform;
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* ✅ DO: Use transform instead of changing layout */
+.slide-in {
+    transform: translateX(100%);
+    transition: transform 0.5s;
+}
+.slide-in.active {
+    transform: translateX(0);
+}
+
+/* ❌ DON'T: Animate layout properties */
+.bad-animation {
+    transition: width 0.5s; /* Causes layout thrashing */
+}
+
+/* ✅ DO: Batch DOM changes */
+element.style.cssText = 'transform: translateX(100px); opacity: 0.5;';
+
+/* ✅ DO: Clean up will-change after animation */
+element.addEventListener('animationend', () => {
+    element.style.willChange = 'auto';
+});</div>
+
+            <div class="tip">
+                <strong>🔧 Tools for Debugging:</strong><br>
+                • Chrome DevTools > Performance tab<br>
+                • Layers panel to visualize composite layers<br>
+                • FPS meter for real-time performance monitoring<br>
+                • Paint flashing to identify repaint areas
+            </div>
+
+            <div class="warning">
+                <strong>⚡ Memory Management:</strong><br>
+                Each composite layer uses GPU memory. Monitor with DevTools and avoid creating unnecessary layers.
+            </div>
+        </div>
+
+        <!-- Real-world Examples -->
+        <div class="demo-section">
+            <h2 class="section-title">7. Real-World Implementation</h2>
+            
+            <div class="code-block">
+/* Modal/Overlay Performance */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+/* Infinite Scroll Performance */
+.scroll-item {
+    will-change: transform;
+    backface-visibility: hidden; /* Prevents flickering */
+}
+
+/* Mobile Touch Performance */
+.touch-element {
+    touch-action: manipulation; /* Prevents 300ms delay */
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Loading Skeleton Performance */
+.skeleton {
+    will-change: background-position;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    animation: loading 1.5s infinite;
+}</div>
+        </div>
+    </div>
+
+    <script>
+        // Performance monitoring example
+        function measurePerformance(element, property, newValue) {
+            const start = performance.now();
+            element.style[property] = newValue;
+            
+            requestAnimationFrame(() => {
+                const end = performance.now();
+                console.log(`${property} change took: ${end - start}ms`);
+            });
+        }
+
+        // Example of proper will-change management
+        function optimizeAnimation(element) {
+            // Before animation
+            element.style.willChange = 'transform';
+            
+            // Perform animation
+            element.style.transform = 'translateX(200px)';
+            
+            // After animation completes
+            element.addEventListener('transitionend', function cleanup() {
+                element.style.willChange = 'auto';
+                element.removeEventListener('transitionend', cleanup);
+            });
+        }
+
+        // Intersection Observer for performance
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.willChange = 'transform';
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.style.willChange = 'auto';
+                    entry.target.classList.remove('animate');
+                }
+            });
+        });
+
+        // Demo: Click to measure performance
+        document.querySelectorAll('.transform-box').forEach(box => {
+            box.addEventListener('click', () => {
+                measurePerformance(box, 'transform', 'scale(1.1) translateZ(0)');
+            });
+        });
+
+        console.log('🚀 CSS Performance Demo Loaded');
+        console.log('💡 Open DevTools > Performance to analyze rendering performance');
+        console.log('🎯 Try the Layers panel to visualize composite layers');
+    </script>
+</body>
+</html>
