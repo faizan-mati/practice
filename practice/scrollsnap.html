@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +28,11 @@
             padding: 20px;
         }
 
-        h1,
-        h2 {
+        h1, h2 {
             color: white;
             text-align: center;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .demo-section {
@@ -55,7 +53,7 @@
             gap: 20px;
             padding: 20px 0;
             scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+            scrollbar-color: rgba(255,255,255,0.3) transparent;
         }
 
         .horizontal-container::-webkit-scrollbar {
@@ -63,12 +61,12 @@
         }
 
         .horizontal-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
 
         .horizontal-container::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             border-radius: 4px;
         }
 
@@ -84,8 +82,8 @@
             font-size: 24px;
             font-weight: bold;
             scroll-snap-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
 
@@ -93,31 +91,20 @@
             transform: translateY(-5px);
         }
 
-        .card:nth-child(2) {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-        }
-
-        .card:nth-child(3) {
-            background: linear-gradient(45deg, #845ec2, #b39bc8);
-        }
-
-        .card:nth-child(4) {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-        }
-
-        .card:nth-child(5) {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-        }
+        .card:nth-child(2) { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+        .card:nth-child(3) { background: linear-gradient(45deg, #845ec2, #b39bc8); }
+        .card:nth-child(4) { background: linear-gradient(45deg, #f093fb, #f5576c); }
+        .card:nth-child(5) { background: linear-gradient(45deg, #4facfe, #00f2fe); }
 
         /* Demo 2: Vertical Scroll Snap */
         .vertical-container {
             height: 400px;
             overflow-y: auto;
             scroll-snap-type: y mandatory;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border-radius: 10px;
             scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+            scrollbar-color: rgba(255,255,255,0.3) transparent;
         }
 
         .vertical-container::-webkit-scrollbar {
@@ -125,12 +112,12 @@
         }
 
         .vertical-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
 
         .vertical-container::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             border-radius: 4px;
         }
 
@@ -146,13 +133,13 @@
             font-size: 18px;
             font-weight: bold;
             scroll-snap-align: start;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
         }
 
         .vertical-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         .vertical-item:nth-child(odd) {
@@ -167,7 +154,7 @@
             max-height: 300px;
             overflow-y: auto;
             scroll-snap-type: y proximity;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             padding: 20px;
             border-radius: 10px;
         }
@@ -198,8 +185,8 @@
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -210,9 +197,9 @@
         }
 
         .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* Demo 4: Different scroll-snap-align values */
@@ -237,21 +224,9 @@
             flex-shrink: 0;
         }
 
-        .align-start {
-            scroll-snap-align: start;
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
-        }
-
-        .align-center {
-            scroll-snap-align: center;
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-        }
-
-        .align-end {
-            scroll-snap-align: end;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-        }
+        .align-start { scroll-snap-align: start; background: linear-gradient(45deg, #a8edea, #fed6e3); }
+        .align-center { scroll-snap-align: center; background: linear-gradient(45deg, #ffecd2, #fcb69f); }
+        .align-end { scroll-snap-align: end; background: linear-gradient(45deg, #667eea, #764ba2); color: white; }
 
         /* Code examples */
         .code-example {
@@ -284,13 +259,13 @@
             .container {
                 padding: 10px;
             }
-
+            
             .card {
                 min-width: 250px;
                 height: 150px;
                 font-size: 18px;
             }
-
+            
             .demo-section {
                 padding: 20px;
             }
@@ -310,11 +285,10 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>🚀 CSS Scroll Snap & Smooth Scrolling Demo</h1>
-
+        
         <!-- Navigation for smooth scrolling demo -->
         <div class="nav-buttons">
             <button class="nav-btn" onclick="scrollToSection('horizontal')">Horizontal Snap</button>
@@ -329,7 +303,7 @@
             <p style="color: white; margin-bottom: 20px; text-align: center;">
                 Scroll horizontally or use touch/swipe gestures. Each card will snap to center.
             </p>
-
+            
             <div class="horizontal-container">
                 <div class="card">Card 1</div>
                 <div class="card">Card 2</div>
@@ -339,19 +313,18 @@
             </div>
 
             <div class="code-example">
-                <span class="comment">/* Container with horizontal scroll snap */</span>
-                .<span class="property">horizontal-container</span> {
-                <span class="property">scroll-snap-type</span>: <span class="value">x mandatory</span>; <span
-                    class="comment">/* Horizontal snapping required */</span>
-                <span class="property">overflow-x</span>: <span class="value">auto</span>;
-                <span class="property">display</span>: <span class="value">flex</span>;
-                }
+<span class="comment">/* Container with horizontal scroll snap */</span>
+.<span class="property">horizontal-container</span> {
+  <span class="property">scroll-snap-type</span>: <span class="value">x mandatory</span>; <span class="comment">/* Horizontal snapping required */</span>
+  <span class="property">overflow-x</span>: <span class="value">auto</span>;
+  <span class="property">display</span>: <span class="value">flex</span>;
+}
 
-                <span class="comment">/* Each card snaps to center */</span>
-                .<span class="property">card</span> {
-                <span class="property">scroll-snap-align</span>: <span class="value">center</span>;
-                <span class="property">flex-shrink</span>: <span class="value">0</span>;
-                }
+<span class="comment">/* Each card snaps to center */</span>
+.<span class="property">card</span> {
+  <span class="property">scroll-snap-align</span>: <span class="value">center</span>;
+  <span class="property">flex-shrink</span>: <span class="value">0</span>;
+}
             </div>
         </div>
 
@@ -361,7 +334,7 @@
             <p style="color: white; margin-bottom: 20px; text-align: center;">
                 Scroll vertically within the container. Each item snaps to the start position.
             </p>
-
+            
             <div class="vertical-container">
                 <div class="vertical-item">Vertical Item 1</div>
                 <div class="vertical-item">Vertical Item 2</div>
@@ -372,18 +345,17 @@
             </div>
 
             <div class="code-example">
-                <span class="comment">/* Vertical scroll snap container */</span>
-                .<span class="property">vertical-container</span> {
-                <span class="property">scroll-snap-type</span>: <span class="value">y mandatory</span>; <span
-                    class="comment">/* Vertical snapping required */</span>
-                <span class="property">height</span>: <span class="value">400px</span>;
-                <span class="property">overflow-y</span>: <span class="value">auto</span>;
-                }
+<span class="comment">/* Vertical scroll snap container */</span>
+.<span class="property">vertical-container</span> {
+  <span class="property">scroll-snap-type</span>: <span class="value">y mandatory</span>; <span class="comment">/* Vertical snapping required */</span>
+  <span class="property">height</span>: <span class="value">400px</span>;
+  <span class="property">overflow-y</span>: <span class="value">auto</span>;
+}
 
-                <span class="comment">/* Items snap to start of container */</span>
-                .<span class="property">vertical-item</span> {
-                <span class="property">scroll-snap-align</span>: <span class="value">start</span>;
-                }
+<span class="comment">/* Items snap to start of container */</span>
+.<span class="property">vertical-item</span> {
+  <span class="property">scroll-snap-align</span>: <span class="value">start</span>;
+}
             </div>
         </div>
 
@@ -393,7 +365,7 @@
             <p style="color: white; margin-bottom: 20px; text-align: center;">
                 Uses "proximity" snapping - less strict, only snaps when close to snap positions.
             </p>
-
+            
             <div class="gallery">
                 <div class="gallery-item">Image 1</div>
                 <div class="gallery-item">Image 2</div>
@@ -406,17 +378,16 @@
             </div>
 
             <div class="code-example">
-                <span class="comment">/* Gallery with proximity snapping */</span>
-                .<span class="property">gallery</span> {
-                <span class="property">scroll-snap-type</span>: <span class="value">y proximity</span>; <span
-                    class="comment">/* Less strict snapping */</span>
-                <span class="property">overflow-y</span>: <span class="value">auto</span>;
-                <span class="property">display</span>: <span class="value">grid</span>;
-                }
+<span class="comment">/* Gallery with proximity snapping */</span>
+.<span class="property">gallery</span> {
+  <span class="property">scroll-snap-type</span>: <span class="value">y proximity</span>; <span class="comment">/* Less strict snapping */</span>
+  <span class="property">overflow-y</span>: <span class="value">auto</span>;
+  <span class="property">display</span>: <span class="value">grid</span>;
+}
 
-                .<span class="property">gallery-item</span> {
-                <span class="property">scroll-snap-align</span>: <span class="value">start</span>;
-                }
+.<span class="property">gallery-item</span> {
+  <span class="property">scroll-snap-align</span>: <span class="value">start</span>;
+}
             </div>
         </div>
 
@@ -426,7 +397,7 @@
             <p style="color: white; margin-bottom: 20px; text-align: center;">
                 Compare start, center, and end alignment behaviors.
             </p>
-
+            
             <div class="align-demo">
                 <div class="align-item align-start">align: start</div>
                 <div class="align-item align-center">align: center</div>
@@ -437,13 +408,10 @@
             </div>
 
             <div class="code-example">
-                <span class="comment">/* Different alignment options */</span>
-                .<span class="property">align-start</span> { <span class="property">scroll-snap-align</span>: <span
-                    class="value">start</span>; } <span class="comment">/* Snaps to start edge */</span>
-                .<span class="property">align-center</span> { <span class="property">scroll-snap-align</span>: <span
-                    class="value">center</span>; } <span class="comment">/* Snaps to center */</span>
-                .<span class="property">align-end</span> { <span class="property">scroll-snap-align</span>: <span
-                    class="value">end</span>; } <span class="comment">/* Snaps to end edge */</span>
+<span class="comment">/* Different alignment options */</span>
+.<span class="property">align-start</span> { <span class="property">scroll-snap-align</span>: <span class="value">start</span>; }   <span class="comment">/* Snaps to start edge */</span>
+.<span class="property">align-center</span> { <span class="property">scroll-snap-align</span>: <span class="value">center</span>; } <span class="comment">/* Snaps to center */</span>
+.<span class="property">align-end</span> { <span class="property">scroll-snap-align</span>: <span class="value">end</span>; }     <span class="comment">/* Snaps to end edge */</span>
             </div>
         </div>
 
@@ -451,65 +419,49 @@
         <div class="demo-section">
             <h2>✨ Smooth Scrolling Behavior</h2>
             <p style="color: white; margin-bottom: 20px; text-align: center;">
-                The navigation buttons above use smooth scrolling. Notice how the page scrolls smoothly instead of
-                jumping.
+                The navigation buttons above use smooth scrolling. Notice how the page scrolls smoothly instead of jumping.
             </p>
 
             <div class="code-example">
-                <span class="comment">/* Enable smooth scrolling for entire page */</span>
-                <span class="property">html</span> {
-                <span class="property">scroll-behavior</span>: <span class="value">smooth</span>; <span
-                    class="comment">/* Makes all scrolling smooth */</span>
-                }
+<span class="comment">/* Enable smooth scrolling for entire page */</span>
+<span class="property">html</span> {
+  <span class="property">scroll-behavior</span>: <span class="value">smooth</span>; <span class="comment">/* Makes all scrolling smooth */</span>
+}
 
-                <span class="comment">/* JavaScript smooth scrolling */</span>
-                element.<span class="property">scrollIntoView</span>({
-                <span class="property">behavior</span>: <span class="value">'smooth'</span>,
-                <span class="property">block</span>: <span class="value">'start'</span>
-                });
+<span class="comment">/* JavaScript smooth scrolling */</span>
+element.<span class="property">scrollIntoView</span>({
+  <span class="property">behavior</span>: <span class="value">'smooth'</span>,
+  <span class="property">block</span>: <span class="value">'start'</span>
+});
             </div>
         </div>
 
         <!-- Comprehensive Property Reference -->
         <div class="demo-section">
             <h2>📚 Complete Property Reference</h2>
-
+            
             <div class="code-example">
-                <span class="comment">/* scroll-snap-type values */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">none</span>; <span
-                    class="comment">/* No snapping */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">x mandatory</span>; <span
-                    class="comment">/* Must snap horizontally */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">y mandatory</span>; <span
-                    class="comment">/* Must snap vertically */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">x proximity</span>; <span
-                    class="comment">/* Optional horizontal snap */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">y proximity</span>; <span
-                    class="comment">/* Optional vertical snap */</span>
-                <span class="property">scroll-snap-type</span>: <span class="value">both mandatory</span>; <span
-                    class="comment">/* Both directions required */</span>
+<span class="comment">/* scroll-snap-type values */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">none</span>;           <span class="comment">/* No snapping */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">x mandatory</span>;    <span class="comment">/* Must snap horizontally */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">y mandatory</span>;    <span class="comment">/* Must snap vertically */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">x proximity</span>;   <span class="comment">/* Optional horizontal snap */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">y proximity</span>;   <span class="comment">/* Optional vertical snap */</span>
+<span class="property">scroll-snap-type</span>: <span class="value">both mandatory</span>; <span class="comment">/* Both directions required */</span>
 
-                <span class="comment">/* scroll-snap-align values */</span>
-                <span class="property">scroll-snap-align</span>: <span class="value">none</span>; <span
-                    class="comment">/* No alignment */</span>
-                <span class="property">scroll-snap-align</span>: <span class="value">start</span>; <span
-                    class="comment">/* Align to start edge */</span>
-                <span class="property">scroll-snap-align</span>: <span class="value">end</span>; <span
-                    class="comment">/* Align to end edge */</span>
-                <span class="property">scroll-snap-align</span>: <span class="value">center</span>; <span
-                    class="comment">/* Align to center */</span>
+<span class="comment">/* scroll-snap-align values */</span>
+<span class="property">scroll-snap-align</span>: <span class="value">none</span>;         <span class="comment">/* No alignment */</span>
+<span class="property">scroll-snap-align</span>: <span class="value">start</span>;        <span class="comment">/* Align to start edge */</span>
+<span class="property">scroll-snap-align</span>: <span class="value">end</span>;          <span class="comment">/* Align to end edge */</span>
+<span class="property">scroll-snap-align</span>: <span class="value">center</span>;       <span class="comment">/* Align to center */</span>
 
-                <span class="comment">/* scroll-behavior values */</span>
-                <span class="property">scroll-behavior</span>: <span class="value">auto</span>; <span class="comment">/*
-                    Instant scrolling */</span>
-                <span class="property">scroll-behavior</span>: <span class="value">smooth</span>; <span
-                    class="comment">/* Smooth scrolling */</span>
+<span class="comment">/* scroll-behavior values */</span>
+<span class="property">scroll-behavior</span>: <span class="value">auto</span>;           <span class="comment">/* Instant scrolling */</span>
+<span class="property">scroll-behavior</span>: <span class="value">smooth</span>;         <span class="comment">/* Smooth scrolling */</span>
 
-                <span class="comment">/* Additional properties */</span>
-                <span class="property">scroll-snap-stop</span>: <span class="value">normal</span>; <span
-                    class="comment">/* Allow passing through */</span>
-                <span class="property">scroll-snap-stop</span>: <span class="value">always</span>; <span
-                    class="comment">/* Force stop at each snap point */</span>
+<span class="comment">/* Additional properties */</span>
+<span class="property">scroll-snap-stop</span>: <span class="value">normal</span>;        <span class="comment">/* Allow passing through */</span>
+<span class="property">scroll-snap-stop</span>: <span class="value">always</span>;        <span class="comment">/* Force stop at each snap point */</span>
             </div>
         </div>
     </div>
@@ -535,5 +487,4 @@
         });
     </script>
 </body>
-
 </html>
