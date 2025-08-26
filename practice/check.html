@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masonry Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .masonry {
+      column-count: 4;   /* number of columns */
+      column-gap: 15px;  /* gap between columns */
+    }
+
+    .masonry-item {
+      background: #4a90e2;
+      color: #fff;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block; /* important for column layout */
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .masonry {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .masonry {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .masonry {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Masonry Layout Example</h1>
+  <div class="masonry">
+    <div class="masonry-item" style="height:100px;">Item 1</div>
+    <div class="masonry-item" style="height:180px;">Item 2</div>
+    <div class="masonry-item" style="height:120px;">Item 3</div>
+    <div class="masonry-item" style="height:250px;">Item 4</div>
+    <div class="masonry-item" style="height:90px;">Item 5</div>
+    <div class="masonry-item" style="height:150px;">Item 6</div>
+    <div class="masonry-item" style="height:200px;">Item 7</div>
+    <div class="masonry-item" style="height:130px;">Item 8</div>
+    <div class="masonry-item" style="height:170px;">Item 9</div>
+  </div>
+</body>
+
+</html>

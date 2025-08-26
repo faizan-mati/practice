@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox + Grid Combined: Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            color: #34495e;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin: 30px 0 15px 0;
+            font-size: 1.3rem;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Example 1: Website Layout */
+        .website-layout {
+            display: grid;
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 250px 1fr;
+            min-height: 400px;
+            gap: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            grid-area: header;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: #ecf0f1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar-item {
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .sidebar-item:hover {
+            background: #2980b9;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            grid-area: main;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            grid-area: footer;
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Example 2: E-commerce Product Grid */
+        .ecommerce-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .filters {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-group h4 {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 5px 12px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-option:hover, .filter-option.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 150px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        .buy-btn {
+            padding: 8px 16px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background: #219a52;
+            transform: scale(1.05);
+        }
+
+        /* Example 3: Dashboard Layout */
+        .dashboard {
+            display: grid;
+            grid-template-areas:
+                "stats stats stats stats"
+                "chart1 chart1 chart2 chart2"
+                "recent activity activity table";
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto 300px 250px;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stats-container {
+            grid-area: stats;
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .stat-card:nth-child(1) .stat-icon { background: #3498db; }
+        .stat-card:nth-child(2) .stat-icon { background: #e74c3c; }
+        .stat-card:nth-child(3) .stat-icon { background: #f39c12; }
+        .stat-card:nth-child(4) .stat-icon { background: #27ae60; }
+
+        .chart1 {
+            grid-area: chart1;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .chart2 {
+            grid-area: chart2;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .recent-activity {
+            grid-area: recent;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .activity-list {
+            grid-area: activity;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .activity-item:hover {
+            background: #f8f9fa;
+        }
+
+        .data-table {
+            grid-area: table;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Example 4: Card Layout with Flexbox Inside Grid */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: #e9ecef;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .website-layout {
+                grid-template-areas: 
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr;
+            }
+
+            .ecommerce-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard {
+                grid-template-areas:
+                    "stats"
+                    "chart1"
+                    "chart2"
+                    "recent"
+                    "activity"
+                    "table";
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .content-cards {
+                flex-direction: column;
+            }
+        }
+
+        .toggle-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .example-container {
+            border: 2px solid #3498db;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Flexbox + Grid Combined: Complete Guide</h1>
+
+        <div class="section">
+            <h2>📖 Introduction: When to Use What</h2>
+            <div class="explanation">
+                <p><strong>CSS Grid</strong> is perfect for 2D layouts (rows AND columns) - think of it as the foundation of your page structure. It excels at creating complex, responsive layouts with precise control.</p>
+                
+                <p><strong>Flexbox</strong> is ideal for 1D layouts (either row OR column) - perfect for aligning items within components, centering content, and distributing space.</p>
+                
+                <p><strong>The Power Combo:</strong> Use Grid for the overall page structure and Flexbox for component-level alignment and spacing!</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ Example 1: Complete Website Layout</h2>
+            <h3>Grid for Structure + Flexbox for Components</h3>
+            
+            <div class="example-container">
+                <div class="website-layout">
+                    <header class="header">
+                        <div style="font-size: 1.5rem; font-weight: bold;">💎 MyWebsite</div>
+                        <nav>
+                            <ul class="nav-menu">
+                                <li>Home</li>
+                                <li>About</li>
+                                <li>Services</li>
+                                <li>Contact</li>
+                            </ul>
+                        </nav>
+                    </header>
+                    
+                    <aside class="sidebar">
+                        <div class="sidebar-item">📊 Dashboard</div>
+                        <div class="sidebar-item">👥 Users</div>
+                        <div class="sidebar-item">📈 Analytics</div>
+                        <div class="sidebar-item">⚙️ Settings</div>
+                    </aside>
+                    
+                    <main class="main-content">
+                        <h3>Welcome to our platform!</h3>
+                        <div class="content-cards">
+                            <div class="card">
+                                <h4>🚀 Feature 1</h4>
+                                <p>Amazing functionality that helps users achieve their goals.</p>
+                            </div>
+                            <div class="card">
+                                <h4>💡 Feature 2</h4>
+                                <p>Innovative solutions for modern challenges.</p>
+                            </div>
+                            <div class="card">
+                                <h4>🎯 Feature 3</h4>
+                                <p>Targeted approaches for maximum efficiency.</p>
+                            </div>
+                        </div>
+                    </main>
+                    
+                    <footer class="footer">
+                        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+                    </footer>
+                </div>
+            </div>
+
+            <div class="code-block">
+/* Grid defines the overall layout structure */
+.website-layout {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+}
+
+/* Flexbox handles component alignment */
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo left, nav right */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px; /* Even spacing between nav items */
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Vertical spacing */
+}
+
+.content-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Responsive wrapping */
+}
+
+.card {
+    flex: 1; /* Equal width distribution */
+    min-width: 200px; /* Prevent too narrow cards */
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛒 Example 2: E-commerce Product Layout</h2>
+            <h3>Grid for Product Display + Flexbox for Filters</h3>
+
+            <div class="example-container">
+                <div class="ecommerce-layout">
+                    <div class="filters">
+                        <h3>🔍 Filters</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Category</h4>
+                            <div class="filter-options">
+                                <button class="filter-option active">All</button>
+                                <button class="filter-option">Electronics</button>
+                                <button class="filter-option">Clothing</button>
+                                <button class="filter-option">Home</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="filter-options">
+                                <button class="filter-option">$0-50</button>
+                                <button class="filter-option">$50-100</button>
+                                <button class="filter-option">$100+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Rating</h4>
+                            <div class="filter-options">
+                                <button class="filter-option">⭐⭐⭐⭐⭐</button>
+                                <button class="filter-option">⭐⭐⭐⭐</button>
+                                <button class="filter-option">⭐⭐⭐</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image">📱 Phone</div>
+                            <div class="product-info">
+                                <h4>Smartphone Pro</h4>
+                                <p>Latest technology with amazing features</p>
+                                <div class="product-actions">
+                                    <span class="price">$599</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">💻 Laptop</div>
+                            <div class="product-info">
+                                <h4>Ultra Book</h4>
+                                <p>Lightweight and powerful for professionals</p>
+                                <div class="product-actions">
+                                    <span class="price">$899</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">🎧 Headphones</div>
+                            <div class="product-info">
+                                <h4>Wireless Headphones</h4>
+                                <p>Premium sound quality and noise cancellation</p>
+                                <div class="product-actions">
+                                    <span class="price">$199</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">⌚ Watch</div>
+                            <div class="product-info">
+                                <h4>Smart Watch</h4>
+                                <p>Track your fitness and stay connected</p>
+                                <div class="product-actions">
+                                    <span class="price">$299</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">📷 Camera</div>
+                            <div class="product-info">
+                                <h4>Digital Camera</h4>
+                                <p>Capture life's moments in stunning detail</p>
+                                <div class="product-actions">
+                                    <span class="price">$749</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">🖥️ Monitor</div>
+                            <div class="product-info">
+                                <h4>4K Monitor</h4>
+                                <p>Crystal clear display for work and gaming</p>
+                                <div class="product-actions">
+                                    <span class="price">$449</span>
+                                    <button class="buy-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+/* Grid creates the main layout: filters + products */
+.ecommerce-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Fixed sidebar, flexible content */
+    gap: 30px;
+}
+
+/* Flexbox organizes filter groups vertically */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Flexbox arranges filter options horizontally with wrapping */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Grid creates responsive product layout */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Flexbox structures individual product cards */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take up remaining space */
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Example 3: Dashboard Layout</h2>
+            <h3>Complex Grid Areas + Flexbox for Data Display</h3>
+
+            <div class="example-container">
+                <div class="dashboard">
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: bold;">1,234</div>
+                                <div>Active Users</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: bold;">$45,678</div>
+                                <div>Revenue</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📈</div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: bold;">89%</div>
+                                <div>Growth Rate</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: bold;">4.8</div>
+                                <div>Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart1">
+                        <h3>📊 Sales Chart</h3>
+                        <p>Interactive chart visualization would go here</p>
+                    </div>
+                    
+                    <div class="chart2">
+                        <h3>📈 Analytics</h3>
+                        <p>Performance metrics visualization</p>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <h3>🕐 Recent Activity</h3>
+                        <div class="activity-item">
+                            <span style="color: #27ae60;">●</span>
+                            <span>User registered</span>
+                        </div>
+                        <div class="activity-item">
+                            <span style="color: #e74c3c;">●</span>
+                            <span>Payment failed</span>
+                        </div>
+                        <div class="activity-item">
+                            <span style="color: #f39c12;">●</span>
+                            <span>Order pending</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-list">
+                        <h3>📋 Activity Feed</h3>
+                        <div class="activity-item">
+                            <div>New order from John Doe</div>
+                        </div>
+                        <div class="activity-item">
+                            <div>Product review submitted</div>
+                        </div>
+                        <div class="activity-item">
+                            <div>System backup completed</div>
+                        </div>
+                        <div class="activity-item">
+                            <div>New user registration</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-table">
+                        <h3>📊 Data Overview</h3>
+                        <p>Table with important metrics and data points would be displayed here in a structured format.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+/* Complex Grid layout with named areas */
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "stats stats stats stats"
+        "chart1 chart1 chart2 chart2"
+        "recent activity activity table";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 300px 250px;
+    gap: 20px;
+}
+
+/* Flexbox for horizontal stats layout */
+.stats-container {
+    grid-area: stats;
+    display: flex;
+    gap: 20px;
+}
+
+/* Each stat card uses flexbox for internal alignment */
+.stat-card {
+    flex: 1; /* Equal width distribution */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Activity items use flexbox for alignment */
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Example 4: Blog/Article Layout</h2>
+            <h3>Auto-fitting Grid + Flexible Card Content</h3>
+
+            <div class="example-container">
+                <div class="blog-layout">
+                    <article class="blog-card">
+                        <div class="blog-image">🚀 Tech Article</div>
+                        <div class="blog-content">
+                            <h3>The Future of Web Development</h3>
+                            <p>Exploring cutting-edge technologies and trends that will shape how we build websites and applications in the coming years.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">React</span>
+                                    <span class="tag">CSS</span>
+                                </div>
+                                <small>Jan 15, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">🎨 Design Tips</div>
+                        <div class="blog-content">
+                            <h3>Modern UI/UX Design Principles</h3>
+                            <p>Learn the fundamental principles that make interfaces both beautiful and functional. Discover how to create engaging user experiences.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">Design</span>
+                                    <span class="tag">UX</span>
+                                    <span class="tag">UI</span>
+                                </div>
+                                <small>Jan 12, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">📊 Data Science</div>
+                        <div class="blog-content">
+                            <h3>Data Visualization Best Practices</h3>
+                            <p>Transform complex data into compelling visual stories. Learn techniques for creating charts and graphs that communicate effectively.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">Data</span>
+                                    <span class="tag">Visualization</span>
+                                </div>
+                                <small>Jan 10, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">🔧 Development</div>
+                        <div class="blog-content">
+                            <h3>Building Scalable Applications</h3>
+                            <p>Architecture patterns and best practices for creating applications that grow with your business needs. Performance optimization strategies included.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">Architecture</span>
+                                    <span class="tag">Performance</span>
+                                    <span class="tag">Scalability</span>
+                                </div>
+                                <small>Jan 8, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">🌐 Web APIs</div>
+                        <div class="blog-content">
+                            <h3>RESTful API Design Guidelines</h3>
+                            <p>Master the art of designing clean, efficient, and maintainable APIs. Learn industry standards and common pitfalls to avoid.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">API</span>
+                                    <span class="tag">REST</span>
+                                    <span class="tag">Backend</span>
+                                </div>
+                                <small>Jan 5, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">🛡️ Security</div>
+                        <div class="blog-content">
+                            <h3>Web Security Fundamentals</h3>
+                            <p>Essential security practices every developer should know. Protect your applications and users from common vulnerabilities and attacks.</p>
+                            <div class="blog-meta">
+                                <div class="tags">
+                                    <span class="tag">Security</span>
+                                    <span class="tag">Authentication</span>
+                                </div>
+                                <small>Jan 3, 2024</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="code-block">
+/* Auto-fitting grid for responsive blog layout */
+.blog-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Flexbox for card structure */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-content {
+    padding: 25px;
+    flex: 1; /* Takes remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Meta section pushed to bottom */
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+}
+
+/* Tags use flexbox for wrapping */
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Key Benefits of Combined Approach</h2>
+            <div class="explanation">
+                <h3>🏗️ Structural Clarity</h3>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Grid defines the overall page architecture</li>
+                    <li>Flexbox handles component-level arrangements</li>
+                    <li>Clean separation of layout concerns</li>
+                </ul>
+
+                <h3>📱 Responsive Design</h3>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Grid areas can be reorganized for mobile</li>
+                    <li>Flexbox items wrap and adjust naturally</li>
+                    <li>Combined approach handles all screen sizes</li>
+                </ul>
+
+                <h3>💪 Power & Flexibility</h3>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Grid for 2D layouts (rows + columns)</li>
+                    <li>Flexbox for 1D layouts (alignment + distribution)</li>
+                    <li>Each tool used for its strengths</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Best Practices & Guidelines</h2>
+            
+            <h3>🎯 When to Use Grid</h3>
+            <div class="explanation">
+                <strong>Perfect for:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Page layouts (header, sidebar, main, footer)</li>
+                    <li>Card grids and galleries</li>
+                    <li>Dashboard layouts with multiple areas</li>
+                    <li>Magazine-style layouts</li>
+                    <li>Any layout needing both row and column control</li>
+                </ul>
+            </div>
+
+            <h3>🎯 When to Use Flexbox</h3>
+            <div class="explanation">
+                <strong>Perfect for:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Navigation bars and menus</li>
+                    <li>Button groups and toolbars</li>
+                    <li>Centering content (horizontally/vertically)</li>
+                    <li>Card content arrangement</li>
+                    <li>Form layouts and input groups</li>
+                </ul>
+            </div>
+
+            <h3>🔥 Pro Tips</h3>
+            <div class="explanation">
+                <ol style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Start with Grid:</strong> Define your main layout structure first</li>
+                    <li><strong>Add Flexbox:</strong> Use for component-level alignment and spacing</li>
+                    <li><strong>Mobile First:</strong> Design for mobile, then enhance for larger screens</li>
+                    <li><strong>Use gap:</strong> Both Grid and Flexbox support the gap property for consistent spacing</li>
+                    <li><strong>Named Grid Areas:</strong> Use template-areas for readable, maintainable layouts</li>
+                    <li><strong>Auto-sizing:</strong> Leverage auto-fit/auto-fill for responsive grids</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Common Patterns & Snippets</h2>
+            
+            <div class="code-block">
+/* Pattern 1: Holy Grail Layout */
+.holy-grail {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 200px 1fr 200px;
+    min-height: 100vh;
+}
+
+/* Pattern 2: Card Grid with Flexible Content */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    flex: 1; /* Grows to fill space */
+}
+
+.card-actions {
+    margin-top: auto; /* Pushed to bottom */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Pattern 3: Responsive Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Pattern 4: Dashboard Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Pattern 5: Form Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📱 Responsive Design Strategies</h2>
+            
+            <div class="code-block">
+/* Mobile-First Grid Layout */
+.responsive-layout {
+    display: grid;
+    gap: 1rem;
+    
+    /* Mobile: Single column */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+}
+
+/* Tablet: Two columns */
+@media (min-width: 768px) {
+    .responsive-layout {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+}
+
+/* Desktop: Three columns */
+@media (min-width: 1024px) {
+    .responsive-layout {
+        grid-template-columns: 250px 1fr 200px;
+        grid-template-areas:
+            "header header header"
+            "sidebar main aside"
+            "footer footer footer";
+    }
+}
+
+/* Responsive Flexbox Navigation */
+.responsive-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .responsive-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Auto-responsive Card Grid */
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* This automatically adjusts columns based on available space */
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎉 Conclusion</h2>
+            <div class="explanation">
+                <p><strong>The magic happens when you combine Grid and Flexbox strategically:</strong></p>
+                
+                <p>✅ Use <strong>CSS Grid</strong> for your page structure and 2D layouts<br>
+                ✅ Use <strong>Flexbox</strong> for component alignment and 1D arrangements<br>
+                ✅ Combine them for powerful, responsive, and maintainable layouts</p>
+                
+                <p>This approach gives you the best of both worlds: Grid's structural power and Flexbox's alignment flexibility. Start with the big picture (Grid) and refine the details (Flexbox)!</p>
+                
+                <p><strong>Try resizing your browser window</strong> to see how these examples adapt responsively! 🎯</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity to demonstrate responsive behavior
+        const cards = document.querySelectorAll('.card, .product-card, .blog-card, .stat-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = this.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        // Filter functionality for e-commerce example
+        const filterOptions = document.querySelectorAll('.filter-option');
+        
+        filterOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from siblings
+                this.parentElement.querySelectorAll('.filter-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                // Add active class to clicked option
+                this.classList.add('active');
+            });
+        });
+
+        // Show responsive behavior info
+        function showResponsiveInfo() {
+            const width = window.innerWidth;
+            let device = '';
+            
+            if (width < 768) {
+                device = 'Mobile';
+            } else if (width < 1024) {
+                device = 'Tablet';
+            } else {
+                device = 'Desktop';
+            }
+            
+            console.log(`Current layout: ${device} (${width}px)`);
+        }
+        
+        window.addEventListener('resize', showResponsiveInfo);
+        showResponsiveInfo(); // Show initial info
+    </script>
+</body>
+</html>
