@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A semantically structured portfolio showcasing HTML5 features and web development skills">
+    <meta name="keywords" content="HTML5, semantic web, portfolio, web development">
+    <meta name="author" content="Web Developer">
+    <link rel="canonical" href="https://example.com/portfolio">
+    <title>John Doe - Web Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: #2c3e50;
+            outline: 2px solid #3498db;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .about {
+            background: #ecf0f1;
+        }
+
+        .portfolio {
+            background: #e8f6f3;
+        }
+
+        .contact {
+            background: #fef9e7;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 0.75rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover,
+        button:focus {
+            background: #2980b9;
+            outline: 2px solid #1abc9c;
+        }
+
+        figure {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        figure img,
+        figure video {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            margin-top: 0.5rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .multimedia-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: #34495e;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            background: #3498db;
+            outline: 2px solid white;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>John Doe</h1>
+            <p>Full-Stack Web Developer & UI/UX Designer</p>
+        </header>
+
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="#home" tabindex="1">Home</a></li>
+                <li><a href="#about" tabindex="2">About</a></li>
+                <li><a href="#portfolio" tabindex="3">Portfolio</a></li>
+                <li><a href="#contact" tabindex="4">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="home" class="hero">
+                <h2>Welcome to My Digital World</h2>
+                <p>Crafting beautiful, functional, and accessible web experiences that make a difference.</p>
+                <figure>
+                    <video width="400" height="200" controls aria-label="Portfolio showcase video">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Portfolio showcase highlighting recent projects</figcaption>
+                </figure>
+            </section>
+
+            <section id="about" class="about">
+                <h2>About Me</h2>
+                <article>
+                    <p>I'm a passionate web developer with over 5 years of experience creating innovative digital
+                        solutions. My expertise spans across modern web technologies, and I'm committed to building
+                        accessible, performant, and beautiful websites.</p>
+
+                    <aside class="skills-list" role="complementary" aria-label="Technical skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Git</span>
+                    </aside>
+                </article>
+
+                <div class="multimedia-section">
+                    <h3>My Development Journey</h3>
+                    <figure>
+                        <picture>
+                            <source srcset="https://via.placeholder.com/600x300/3498db/ffffff?text=Coding+Setup"
+                                media="(min-width: 600px)">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="My development workspace setup" loading="lazy">
+                        </picture>
+                        <figcaption>My current development setup where the magic happens</figcaption>
+                    </figure>
+
+                    <audio controls aria-label="Podcast about web development">
+                        <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p><em>Listen to my recent podcast interview about modern web development trends</em></p>
+                </div>
+            </section>
+
+            <section id="portfolio" class="portfolio">
+                <h2>My Portfolio</h2>
+                <p>Here are some of my recent projects that showcase different aspects of web development:</p>
+
+                <div class="portfolio-grid">
+                    <article class="project-card">
+                        <h3>E-Commerce Platform</h3>
+                        <figure>
+                            <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=E-Commerce"
+                                alt="Screenshot of e-commerce platform" loading="lazy">
+                            <figcaption>Modern e-commerce solution with payment integration</figcaption>
+                        </figure>
+                        <p>A full-featured online shopping platform built with React and Node.js, featuring secure
+                            payments and inventory management.</p>
+                        <details>
+                            <summary>Technical Details</summary>
+                            <p>Built using React, Express.js, MongoDB, and Stripe API for payments. Includes real-time
+                                inventory updates and admin dashboard.</p>
+                        </details>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Weather App</h3>
+                        <figure>
+                            <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Weather+App"
+                                alt="Weather application interface" loading="lazy">
+                            <figcaption>Real-time weather tracking application</figcaption>
+                        </figure>
+                        <p>A responsive weather application that provides real-time weather data with beautiful
+                            visualizations and forecasts.</p>
+                        <iframe src="https://example.com/weather-demo" width="300" height="200" title="Weather App Demo"
+                            style="border: none; border-radius: 5px;"></iframe>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Task Management System</h3>
+                        <figure>
+                            <img src="https://via.placeholder.com/300x200/9b59b6/ffffff?text=Task+Manager"
+                                alt="Task management interface" loading="lazy">
+                            <figcaption>Collaborative task management platform</figcaption>
+                        </figure>
+                        <p>A collaborative project management tool with real-time updates, team collaboration features,
+                            and progress tracking.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your next project? Let's work together to bring your ideas to life!</p>
+
+                <form action="#" method="post" aria-label="Contact form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required aria-describedby="name-help" tabindex="5">
+                        <small id="name-help">Please enter your full name</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required aria-describedby="email-help" tabindex="6">
+                        <small id="email-help">We'll never share your email address</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Project Type</label>
+                        <datalist id="project-options">
+                            <option value="Website Design">
+                            <option value="E-commerce Development">
+                            <option value="Web Application">
+                            <option value="Mobile App">
+                            <option value="Consultation">
+                        </datalist>
+                        <input type="text" id="project-type" name="project-type" list="project-options"
+                            placeholder="Select or type project type" tabindex="7">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget" tabindex="8">
+                            <option value="">Select budget range</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-plus">$25,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" rows="5" required
+                            placeholder="Tell me about your project..." tabindex="9"></textarea>
+                    </div>
+
+                    <button type="submit" tabindex="10">Send Message</button>
+                    <output id="form-status" role="status" aria-live="polite"></output>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 John Doe. All rights reserved.</p>
+            <nav class="social-links" role="navigation" aria-label="Social media links">
+                <a href="https://linkedin.com/in/johndoe" aria-label="LinkedIn Profile" tabindex="11">in</a>
+                <a href="https://github.com/johndoe" aria-label="GitHub Profile" tabindex="12">gh</a>
+                <a href="https://twitter.com/johndoe" aria-label="Twitter Profile" tabindex="13">tw</a>
+                <a href="mailto:john@example.com" aria-label="Send Email" tabindex="14">@</a>
+            </nav>
+            <address>
+                <p>Based in New York, NY | Available for remote work worldwide</p>
+            </address>
+        </footer>
+    </div>
+
+    <script>
+        // Simple form validation and interaction
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const output = document.getElementById('form-status');
+            output.textContent = 'Thank you for your message! I\'ll get back to you soon.';
+            output.style.color = 'green';
+            output.style.fontWeight = 'bold';
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
