@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Product Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 2rem;
+        }
+
+        /* Filter Controls */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* CSS Grid Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Featured products span multiple columns on larger screens */
+        .product-card.featured {
+            grid-column: span 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card.featured .product-image {
+            height: 300px;
+        }
+
+        /* Placeholder image styling */
+        .product-image::before {
+            content: '📷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-card.featured .product-title {
+            font-size: 1.5rem;
+        }
+
+        .product-category {
+            color: #667eea;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Design with Media Queries */
+        
+        /* Mobile First Approach */
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+                grid-gap: 1rem;
+            }
+            
+            .product-card.featured {
+                grid-column: span 1;
+            }
+            
+            .filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-card.featured {
+                grid-column: span 2;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1025px) {
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 2rem;
+            }
+        }
+
+        /* Orientation-based adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .product-image {
+                height: 200px;
+            }
+            
+            .product-card.featured .product-image {
+                height: 220px;
+            }
+        }
+
+        /* Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .product-card,
+            .filter-btn,
+            .btn {
+                transition: none;
+            }
+            
+            .product-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Dark mode preference */
+        @media (prefers-color-scheme: dark) {
+            .product-card {
+                background: rgba(40, 40, 40, 0.95);
+                color: #e0e0e0;
+            }
+            
+            .product-title {
+                color: #e0e0e0;
+            }
+            
+            .product-description {
+                color: #b0b0b0;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .product-card {
+                border: 2px solid #333;
+            }
+            
+            .filter-btn {
+                border-width: 3px;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .product-card:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+
+        /* Sale badge */
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4757;
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Premium Product Gallery</h1>
+            <p class="subtitle">Discover our latest collection with responsive CSS Grid design</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="electronics">Electronics</button>
+            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="home">Home & Garden</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+        </div>
+
+        <div class="gallery">
+            <div class="product-card featured" data-category="electronics">
+                <div class="product-image">
+                    <div class="sale-badge">SALE</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Premium Wireless Headphones</h3>
+                    <p class="product-description">Experience crystal-clear audio with our latest noise-canceling technology. Perfect for music lovers and professionals alike.</p>
+                    <div class="product-price">$299.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fashion">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Fashion</div>
+                    <h3 class="product-title">Designer Leather Jacket</h3>
+                    <p class="product-description">Premium genuine leather jacket with modern styling. A timeless piece for your wardrobe.</p>
+                    <div class="product-price">$199.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Home & Garden</div>
+                    <h3 class="product-title">Smart Plant Monitor</h3>
+                    <p class="product-description">Keep your plants healthy with automated monitoring and smartphone notifications.</p>
+                    <div class="product-price">$89.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Wireless Charging Pad</h3>
+                    <p class="product-description">Fast wireless charging for all compatible devices. Sleek design that fits any workspace.</p>
+                    <div class="product-price">$49.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card featured" data-category="sports">
+                <div class="product-image">
+                    <div class="sale-badge">NEW</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Sports</div>
+                    <h3 class="product-title">Professional Yoga Mat</h3>
+                    <p class="product-description">Extra-thick, non-slip yoga mat made from eco-friendly materials. Perfect grip for all yoga styles and fitness routines.</p>
+                    <div class="product-price">$79.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="fashion">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Fashion</div>
+                    <h3 class="product-title">Vintage Sunglasses</h3>
+                    <p class="product-description">Classic design with UV protection. Style meets functionality in these timeless frames.</p>
+                    <div class="product-price">$129.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Home & Garden</div>
+                    <h3 class="product-title">Ceramic Coffee Mug Set</h3>
+                    <p class="product-description">Handcrafted ceramic mugs with unique glazing. Perfect for your morning coffee ritual.</p>
+                    <div class="product-price">$39.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Bluetooth Speaker</h3>
+                    <p class="product-description">Portable speaker with 360-degree sound and waterproof design. Take your music anywhere.</p>
+                    <div class="product-price">$159.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="sports">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Sports</div>
+                    <h3 class="product-title">Fitness Tracker</h3>
+                    <p class="product-description">Track your daily activities, heart rate, and sleep patterns with this advanced fitness companion.</p>
+                    <div class="product-price">$249.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="home">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">Home & Garden</div>
+                    <h3 class="product-title">LED Desk Lamp</h3>
+                    <p class="product-description">Adjustable LED lamp with multiple brightness levels and color temperatures. Perfect for work or study.</p>
+                    <div class="product-price">$69.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeInUp 0.6s ease forwards';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Add to cart functionality
+        const addToCartBtns = document.querySelectorAll('.btn');
+        
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Added! ✓';
+                btn.style.background = '#10ac84';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        productCards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
