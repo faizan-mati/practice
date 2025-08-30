@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Transitions, Transforms & Animations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .demo-section h2 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* Loading Spinner Styles */
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner-variations {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .spinner-pulse {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .spinner-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite both;
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Hover Card Flip Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 200px;
+            margin: 20px auto;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(45deg, #48cae4, #023e8a);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Animated Menu Styles */
+        .animated-menu {
+            margin: 20px auto;
+        }
+
+        .menu-toggle {
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+
+        .menu-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .menu-items {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .menu-items.open {
+            max-height: 300px;
+        }
+
+        .menu-item {
+            padding: 15px 25px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .menu-items.open .menu-item {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .menu-item:nth-child(1) { transition-delay: 0.1s; }
+        .menu-item:nth-child(2) { transition-delay: 0.2s; }
+        .menu-item:nth-child(3) { transition-delay: 0.3s; }
+        .menu-item:nth-child(4) { transition-delay: 0.4s; }
+
+        .menu-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(10px);
+            padding-left: 35px;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Bonus 3D Effects */
+        .bonus-section {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .transform-showcase {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .transform-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .transform-box:nth-child(1):hover {
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .transform-box:nth-child(2):hover {
+            transform: skew(15deg) translateY(-10px);
+        }
+
+        .transform-box:nth-child(3):hover {
+            transform: perspective(300px) rotateX(45deg);
+        }
+
+        .transform-box:nth-child(4):hover {
+            transform: scale(0.8) rotate(-10deg);
+        }
+
+        /* Performance optimized animations */
+        .will-change {
+            will-change: transform;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .transform-showcase {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Day 4: CSS Animations & Transitions</h1>
+        
+        <div class="demo-grid">
+            <!-- Loading Spinner Section -->
+            <div class="demo-section">
+                <h2>Loading Spinners</h2>
+                <p>Various animated loading indicators</p>
+                
+                <div class="spinner will-change"></div>
+                <p>Classic Spinner</p>
+                
+                <div class="spinner-variations">
+                    <div class="spinner-pulse will-change"></div>
+                    <div class="spinner-dots">
+                        <div class="dot will-change"></div>
+                        <div class="dot will-change"></div>
+                        <div class="dot will-change"></div>
+                    </div>
+                </div>
+                <p>Pulse & Dots</p>
+            </div>
+
+            <!-- Hover Card Flip Section -->
+            <div class="demo-section">
+                <h2>Hover Card Flip</h2>
+                <p>3D card flip effect on hover</p>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner will-change">
+                        <div class="flip-card-front">
+                            <div>
+                                <h3>Front Side</h3>
+                                <p>Hover to flip!</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div>
+                                <h3>Back Side</h3>
+                                <p>Amazing 3D effect!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Menu Section -->
+            <div class="demo-section">
+                <h2>Animated Menu</h2>
+                <p>Smooth slide-in menu animation</p>
+                
+                <div class="animated-menu">
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        Toggle Menu
+                    </button>
+                    <div class="menu-items" id="menuItems">
+                        <div class="menu-item">🏠 Home</div>
+                        <div class="menu-item">👤 About</div>
+                        <div class="menu-item">💼 Services</div>
+                        <div class="menu-item">📞 Contact</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bonus Transform Effects -->
+            <div class="demo-section bonus-section">
+                <h2>Transform Showcase</h2>
+                <p>Hover over each box to see different transform effects</p>
+                
+                <div class="transform-showcase">
+                    <div class="transform-box will-change">Rotate</div>
+                    <div class="transform-box will-change">Skew</div>
+                    <div class="transform-box will-change">3D</div>
+                    <div class="transform-box will-change">Scale</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('open');
+            
+            const button = document.querySelector('.menu-toggle');
+            if (menuItems.classList.contains('open')) {
+                button.textContent = 'Close Menu';
+            } else {
+                button.textContent = 'Toggle Menu';
+            }
+        }
+
+        // Add some extra interactivity
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = 'rgba(102, 126, 234, 0.3)';
+                setTimeout(() => {
+                    this.style.background = '';
+                }, 200);
+            });
+        });
+
+        // Performance optimization - remove will-change after animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.will-change');
+            elements.forEach(el => {
+                el.addEventListener('animationend', () => {
+                    el.style.willChange = 'auto';
+                });
+                el.addEventListener('transitionend', () => {
+                    el.style.willChange = 'auto';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
