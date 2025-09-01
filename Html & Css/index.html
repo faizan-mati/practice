@@ -1,0 +1,160 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        background-color: blueviolet;
+        text-align: center;
+
+        margin: 50px;
+        padding: 50px;
+
+        border: 5px solid black;
+        border-top: 5px dashed red;
+        border-radius: 10px;
+
+        box-sizing: content-box;
+
+    }
+
+    .box1 {
+        width: 200px;
+        padding: 20px;
+        border: 5px solid black;
+        box-sizing: content-box;
+    }
+
+    .box2 {
+        width: 200px;
+        padding: 20px;
+        border: 5px solid black;
+        box-sizing: border-box;
+    }
+
+    div {
+        position: static;
+    }
+
+    .box {
+        background-color: blueviolet;
+        padding: 20px;
+
+        position: relative;
+        top: 10px;
+        left: 20px;
+    }
+
+    .parent {
+        background-color: blueviolet;
+        padding: 20px;
+
+
+        display: inline-block;
+        justify-content: center;
+        align-items: end;
+
+        /* gap: 10px; */
+    }
+
+    .child1,
+    .child3 {
+        background-color: rgb(171, 226, 43);
+        padding: 10px;
+        flex: 0 0 20%;
+    }
+
+    .child2,
+    .child4 {
+        background-color: rgb(43, 61, 226);
+        padding: 10px;
+        flex: 0 0 20%;
+
+    }
+
+    .underline-hover {
+     position: relative;
+     display: inline-block;
+
+    }
+
+    .underline-hover::before {
+       content: '';
+       position: absolute;
+       left: 0;
+       bottom: 0;
+       width: 50px;
+       height: 2px;
+       background-color: blue;
+    }
+
+    .underline-hover:hover::before {
+       
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <h1>IM BATMAN</h1>
+    </div>
+    <div class="box1"></div>
+    <br>
+    <div class="box2"></div>
+
+    <div class="box"></div>
+
+    <br>
+
+    <div class="parent">
+
+        <div class="child1">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptatem quibusdam dolorem laborum
+                optio provident quas eius culpa, odio eligendi cupiditate. Officiis libero dolor qui, adipisci
+                exercitationem.</p>
+        </div>
+
+        <div class="child2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa facere distinctio accusantium nihil,
+                magni omnis modi culpa corrupti quisquam fugiat doloremque praesentium minima, sunt atque fuga velit,
+                eius
+                nesciunt.</p>
+        </div>
+
+        <div class="child3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa facere distinctio accusantium nihil,
+                magni omnis modi culpa corrupti quisquam fugiat doloremque praesentium minima, sunt atque fuga velit,
+                eius
+                nesciunt.</p>
+        </div>
+
+        <div class="child4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa facere distinctio accusantium nihil,
+                magni omnis modi culpa corrupti quisquam fugiat doloremque praesentium minima, sunt atque fuga velit,
+                eius
+                nesciunt.</p>
+        </div>
+
+
+    </div>
+
+    <br>
+    <div class="child4">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa facere distinctio accusantium nihil,
+            magni omnis modi culpa corrupti quisquam fugiat doloremque praesentium minima, sunt atque fuga velit,
+            eius
+            nesciunt.</p>
+    </div>
+
+    <p class="underline-hover">Hover Me</p>
+
+
+
+
+</body>
+
+</html>
