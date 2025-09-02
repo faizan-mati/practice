@@ -3,9 +3,874 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bootstrap 5 Complete Guide</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS for demonstration -->
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 0.375rem;
+        }
+        .demo-container {
+            background-color: #e9ecef;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px dashed #6c757d;
+        }
+        .demo-box {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin: 0.25rem 0;
+            border-radius: 0.25rem;
+        }
+        .breakpoint-demo {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin: 0.5rem 0;
+            border-radius: 0.5rem;
+        }
+        .highlight-code {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- HEADER SECTION -->
+    <header class="bg-primary text-white py-4 mb-4">
+        <div class="container">
+            <h1 class="display-4">Bootstrap 5 Complete Guide</h1>
+            <p class="lead">CDN Setup, Containers, Breakpoints & Real-World Examples</p>
+        </div>
+    </header>
+
+    <!-- SECTION 1: GETTING STARTED WITH CDN -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="text-primary mb-3">🚀 Getting Started with Bootstrap 5 CDN</h2>
+            
+            <div class="alert alert-info">
+                <h5>What is CDN?</h5>
+                <p>CDN (Content Delivery Network) allows you to use Bootstrap without downloading files. Just include these links in your HTML:</p>
+            </div>
+            
+            <div class="highlight-code">
+                <strong>CSS CDN (in &lt;head&gt;):</strong><br>
+                &lt;link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"&gt;<br><br>
+                
+                <strong>JavaScript CDN (before &lt;/body&gt;):</strong><br>
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+            </div>
+            
+            <div class="alert alert-success">
+                <strong>Benefits:</strong> No downloads, always updated, fast loading, works offline after first load
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CONTAINERS EXPLAINED -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="text-primary mb-3">📦 Bootstrap Containers Explained</h2>
+            
+            <h4>1. Regular Container (.container)</h4>
+            <p>Fixed-width container that changes at breakpoints:</p>
+            
+            <div class="demo-container">
+                <div class="container">
+                    <div class="demo-box">
+                        .container - I have max-width that changes at breakpoints!
+                        <br><small>Try resizing your browser to see me change width</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-code">
+                <strong>Widths by breakpoint:</strong><br>
+                • Extra small (&lt;576px): 100% width<br>
+                • Small (≥576px): max-width 540px<br>
+                • Medium (≥768px): max-width 720px<br>
+                • Large (≥992px): max-width 960px<br>
+                • X-Large (≥1200px): max-width 1140px<br>
+                • XX-Large (≥1400px): max-width 1320px
+            </div>
+
+            <h4 class="mt-4">2. Fluid Container (.container-fluid)</h4>
+            <p>Always takes 100% width of the viewport:</p>
+            
+            <div class="demo-container">
+                <div class="container-fluid">
+                    <div class="demo-box">
+                        .container-fluid - I always take 100% width!
+                        <br><small>I stretch to fill the entire screen width</small>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-4">3. Responsive Containers</h4>
+            <p>Fluid until specific breakpoint, then fixed-width:</p>
+            
+            <div class="demo-container">
+                <div class="container-md">
+                    <div class="demo-box">
+                        .container-md - Fluid until medium breakpoint (768px)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-container">
+                <div class="container-lg">
+                    <div class="demo-box">
+                        .container-lg - Fluid until large breakpoint (992px)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BREAKPOINTS SYSTEM -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="text-primary mb-3">📱 Bootstrap 5 Breakpoint System</h2>
+            
+            <div class="alert alert-warning">
+                <strong>Mobile-First Approach:</strong> Bootstrap is designed mobile-first, meaning styles apply to small screens first, then scale up.
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <h4>All Breakpoints:</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Breakpoint</th>
+                                    <th>Class infix</th>
+                                    <th>Dimensions</th>
+                                    <th>Container max-width</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Extra small</td>
+                                    <td><em>None</em></td>
+                                    <td>&lt;576px</td>
+                                    <td>None (auto)</td>
+                                </tr>
+                                <tr>
+                                    <td>Small</td>
+                                    <td><code>sm</code></td>
+                                    <td>≥576px</td>
+                                    <td>540px</td>
+                                </tr>
+                                <tr>
+                                    <td>Medium</td>
+                                    <td><code>md</code></td>
+                                    <td>≥768px</td>
+                                    <td>720px</td>
+                                </tr>
+                                <tr>
+                                    <td>Large</td>
+                                    <td><code>lg</code></td>
+                                    <td>≥992px</td>
+                                    <td>960px</td>
+                                </tr>
+                                <tr>
+                                    <td>Extra large</td>
+                                    <td><code>xl</code></td>
+                                    <td>≥1200px</td>
+                                    <td>1140px</td>
+                                </tr>
+                                <tr>
+                                    <td>Extra extra large</td>
+                                    <td><code>xxl</code></td>
+                                    <td>≥1400px</td>
+                                    <td>1320px</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: RESPONSIVE BREAKPOINT DEMONSTRATIONS -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🎯 Live Breakpoint Demonstrations</h2>
+            
+            <div class="alert alert-info">
+                <strong>Instructions:</strong> Resize your browser window to see how these elements respond at different breakpoints!
+            </div>
+            
+            <!-- Text Size Responsive Demo -->
+            <div class="breakpoint-demo">
+                <h3 class="display-6 display-md-4 display-lg-2">Responsive Text Size</h3>
+                <p class="fs-6 fs-md-5 fs-lg-4">This text gets larger as screen size increases!</p>
+                <small class="text-light">
+                    Classes used: display-6 display-md-4 display-lg-2 | fs-6 fs-md-5 fs-lg-4
+                </small>
+            </div>
+
+            <!-- Visibility Demo -->
+            <div class="row g-2 mt-3">
+                <div class="col-12">
+                    <div class="breakpoint-demo d-block d-md-none">
+                        📱 Only visible on SMALL screens (d-block d-md-none)
+                    </div>
+                    <div class="breakpoint-demo d-none d-md-block d-lg-none">
+                        💻 Only visible on MEDIUM screens (d-none d-md-block d-lg-none)
+                    </div>
+                    <div class="breakpoint-demo d-none d-lg-block">
+                        🖥️ Only visible on LARGE+ screens (d-none d-lg-block)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Layout Demo -->
+            <div class="row g-2 mt-3">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="breakpoint-demo">
+                        <strong>Column 1</strong><br>
+                        Mobile: 100% width<br>
+                        Tablet: 50% width<br>
+                        Desktop: 33.3% width
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="breakpoint-demo">
+                        <strong>Column 2</strong><br>
+                        Mobile: 100% width<br>
+                        Tablet: 50% width<br>
+                        Desktop: 33.3% width
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="breakpoint-demo">
+                        <strong>Column 3</strong><br>
+                        Mobile: 100% width<br>
+                        Tablet: 50% width<br>
+                        Desktop: 33.3% width
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: PRACTICAL EXAMPLES -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">💼 Real-World Practical Examples</h2>
+            
+            <!-- Navigation Example -->
+            <div class="mb-4">
+                <h4>1. Responsive Navigation</h4>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">MyWebsite</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Card Layout Example -->
+            <div class="mb-4">
+                <h4>2. Responsive Card Layout</h4>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Service 1</h5>
+                                <p class="card-text">This card adapts: 1 column on mobile, 2 on tablet, 3 on desktop.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Service 2</h5>
+                                <p class="card-text">Equal height cards using h-100 class for professional layouts.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Service 3</h5>
+                                <p class="card-text">Responsive grid system makes layouts look great on all devices.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section Example -->
+            <div class="mb-4">
+                <h4>3. Responsive Hero Section</h4>
+                <div class="container-fluid bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="container">
+                        <div class="row align-items-center py-5">
+                            <div class="col-12 col-lg-6">
+                                <h1 class="display-5 display-md-4 display-lg-3 text-white fw-bold">
+                                    Welcome to Our Platform
+                                </h1>
+                                <p class="lead text-white-50 mb-4">
+                                    Build amazing responsive websites with Bootstrap 5's powerful grid system and components.
+                                </p>
+                                <div class="d-grid d-md-flex gap-2">
+                                    <button class="btn btn-light btn-lg">Get Started</button>
+                                    <button class="btn btn-outline-light btn-lg">Learn More</button>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                                <div class="text-center">
+                                    <div class="bg-white rounded p-4">
+                                        <h5>Responsive Demo Box</h5>
+                                        <p class="mb-0">This content area adapts beautifully to different screen sizes!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTAINER COMPARISON -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🔍 Container Types Comparison</h2>
+            
+            <!-- Regular Container -->
+            <h5>Regular Container (.container)</h5>
+            <div class="container demo-container">
+                <div class="demo-box">
+                    Fixed-width container - I have maximum widths at each breakpoint
+                </div>
+            </div>
+            
+            <!-- Fluid Container -->
+            <h5 class="mt-4">Fluid Container (.container-fluid)</h5>
+            <div class="container-fluid demo-container">
+                <div class="demo-box">
+                    Fluid container - I always take 100% of the available width
+                </div>
+            </div>
+            
+            <!-- Responsive Containers -->
+            <h5 class="mt-4">Responsive Containers</h5>
+            <div class="container-sm demo-container">
+                <div class="demo-box">.container-sm - Fluid until small breakpoint (576px)</div>
+            </div>
+            <div class="container-md demo-container">
+                <div class="demo-box">.container-md - Fluid until medium breakpoint (768px)</div>
+            </div>
+            <div class="container-lg demo-container">
+                <div class="demo-box">.container-lg - Fluid until large breakpoint (992px)</div>
+            </div>
+            <div class="container-xl demo-container">
+                <div class="demo-box">.container-xl - Fluid until extra large breakpoint (1200px)</div>
+            </div>
+            <div class="container-xxl demo-container">
+                <div class="demo-box">.container-xxl - Fluid until extra extra large breakpoint (1400px)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: GRID SYSTEM EXAMPLES -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🏗️ Grid System & Breakpoint Examples</h2>
+            
+            <h4>Example 1: Basic Responsive Layout</h4>
+            <div class="row g-3">
+                <div class="col-12 col-md-8">
+                    <div class="demo-box">
+                        Main Content Area<br>
+                        <small>Mobile: 100% width | Desktop: 66.6% width</small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="demo-box">
+                        Sidebar<br>
+                        <small>Mobile: 100% width | Desktop: 33.3% width</small>
+                    </div>
+                </div>
+            </div>
+            
+            <h4 class="mt-4">Example 2: Complex Multi-Breakpoint Layout</h4>
+            <div class="row g-2">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>
+                            XS: 50%<br>
+                            SM: 33.3%<br>
+                            MD: 25%<br>
+                            LG+: 16.6%
+                        </small>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>Responsive</small>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>Grid</small>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>Layout</small>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>System</small>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="demo-box">
+                        <small>Demo</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: UTILITY CLASSES -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🛠️ Responsive Utility Classes</h2>
+            
+            <h4>Spacing (Margin & Padding)</h4>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="demo-box p-2 p-md-4 p-lg-5">
+                        Responsive Padding<br>
+                        <small>p-2 p-md-4 p-lg-5</small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="demo-box m-2 m-md-3 m-lg-4">
+                        Responsive Margin<br>
+                        <small>m-2 m-md-3 m-lg-4</small>
+                    </div>
+                </div>
+            </div>
+            
+            <h4 class="mt-4">Text Alignment</h4>
+            <div class="demo-box text-center text-md-start text-lg-end">
+                <strong>Responsive Text Alignment</strong><br>
+                Mobile: Center | Tablet: Left | Desktop: Right<br>
+                <small>Classes: text-center text-md-start text-lg-end</small>
+            </div>
+            
+            <h4 class="mt-4">Flexbox Utilities</h4>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="demo-box flex-fill">Item 1</div>
+                <div class="demo-box flex-fill">Item 2</div>
+                <div class="demo-box flex-fill">Item 3</div>
+            </div>
+            <small class="text-muted">Mobile: Stacked vertically | Tablet+: Horizontal row</small>
+        </div>
+    </section>
+
+    <!-- SECTION 9: COMPLETE LANDING PAGE EXAMPLE -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🌟 Complete Landing Page Example</h2>
+            
+            <!-- Features Section -->
+            <div class="container-fluid bg-light py-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="display-5">Why Choose Bootstrap?</h2>
+                        <p class="lead text-muted">Powerful features for modern web development</p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="text-center">
+                                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem;">
+                                    <span class="fs-4">📱</span>
+                                </div>
+                                <h5 class="mt-3">Mobile First</h5>
+                                <p class="text-muted">Designed for mobile devices from the ground up</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="text-center">
+                                <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem;">
+                                    <span class="fs-4">⚡</span>
+                                </div>
+                                <h5 class="mt-3">Fast Setup</h5>
+                                <p class="text-muted">Get started quickly with CDN links</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="text-center">
+                                <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem;">
+                                    <span class="fs-4">🎨</span>
+                                </div>
+                                <h5 class="mt-3">Customizable</h5>
+                                <p class="text-muted">Extensive utility classes and components</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="text-center">
+                                <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem;">
+                                    <span class="fs-4">📊</span>
+                                </div>
+                                <h5 class="mt-3">Responsive</h5>
+                                <p class="text-muted">Perfect layouts on all screen sizes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div class="py-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-5">Responsive Pricing Cards</h2>
+                    <p class="lead text-muted">See how containers and breakpoints work together</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card border-0 shadow h-100">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title">Basic Plan</h5>
+                                <div class="display-6 text-primary fw-bold">$9</div>
+                                <small class="text-muted">per month</small>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✅ 5 Projects</li>
+                                    <li class="mb-2">✅ 1GB Storage</li>
+                                    <li class="mb-2">✅ Email Support</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card border-primary shadow h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="badge bg-primary mb-2">Most Popular</div>
+                                <h5 class="card-title">Pro Plan</h5>
+                                <div class="display-6 text-primary fw-bold">$29</div>
+                                <small class="text-muted">per month</small>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✅ Unlimited Projects</li>
+                                    <li class="mb-2">✅ 50GB Storage</li>
+                                    <li class="mb-2">✅ Priority Support</li>
+                                    <li class="mb-2">✅ Advanced Features</li>
+                                </ul>
+                                <button class="btn btn-primary w-100">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card border-0 shadow h-100">
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title">Enterprise</h5>
+                                <div class="display-6 text-primary fw-bold">$99</div>
+                                <small class="text-muted">per month</small>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✅ Everything in Pro</li>
+                                    <li class="mb-2">✅ Unlimited Storage</li>
+                                    <li class="mb-2">✅ 24/7 Phone Support</li>
+                                    <li class="mb-2">✅ Custom Integrations</li>
+                                </ul>
+                                <button class="btn btn-outline-primary w-100">Contact Sales</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: CODE EXAMPLES -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">💻 Essential Code Examples</h2>
+            
+            <div class="accordion" id="codeAccordion">
+                <!-- Basic HTML Structure -->
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#utilityExamples">
+                            Responsive Utility Classes
+                        </button>
+                    </h2>
+                    <div id="utilityExamples" class="accordion-collapse collapse" data-bs-parent="#codeAccordion">
+                        <div class="accordion-body">
+                            <div class="highlight-code">
+&lt;!-- Responsive Display --&gt;
+&lt;div class="d-none d-md-block"&gt;Hidden on mobile, visible on tablet+&lt;/div&gt;
+&lt;div class="d-block d-lg-none"&gt;Visible on mobile/tablet, hidden on desktop&lt;/div&gt;
+
+&lt;!-- Responsive Text --&gt;
+&lt;h1 class="display-6 display-md-4 display-lg-2"&gt;Responsive heading&lt;/h1&gt;
+&lt;p class="text-center text-md-start text-lg-end"&gt;Responsive alignment&lt;/p&gt;
+
+&lt;!-- Responsive Spacing --&gt;
+&lt;div class="p-2 p-md-4 p-lg-5"&gt;Responsive padding&lt;/div&gt;
+&lt;div class="m-1 m-md-3 m-lg-5"&gt;Responsive margin&lt;/div&gt;
+
+&lt;!-- Responsive Flexbox --&gt;
+&lt;div class="d-flex flex-column flex-md-row"&gt;
+    &lt;div&gt;Item 1&lt;/div&gt;
+    &lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: BEST PRACTICES -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">✅ Best Practices & Tips</h2>
+            
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                    <div class="card border-success h-100">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">✅ DO's</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✅ Always include viewport meta tag</li>
+                                <li class="mb-2">✅ Use mobile-first approach</li>
+                                <li class="mb-2">✅ Test on multiple screen sizes</li>
+                                <li class="mb-2">✅ Use semantic HTML elements</li>
+                                <li class="mb-2">✅ Combine utility classes effectively</li>
+                                <li class="mb-2">✅ Use appropriate container types</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card border-danger h-100">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">❌ DON'Ts</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">❌ Don't nest containers inside containers</li>
+                                <li class="mb-2">❌ Don't use rows without containers</li>
+                                <li class="mb-2">❌ Don't mix Bootstrap grid with CSS Grid</li>
+                                <li class="mb-2">❌ Don't override core Bootstrap classes</li>
+                                <li class="mb-2">❌ Don't forget to include JavaScript for components</li>
+                                <li class="mb-2">❌ Don't use col- without row parent</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: RESPONSIVE DEBUGGING -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">🔧 Responsive Debugging Helper</h2>
+            
+            <div class="alert alert-info">
+                <h5>Current Screen Size Indicator</h5>
+                <p class="mb-0">Use these classes to debug responsive layouts:</p>
+            </div>
+            
+            <div class="text-center py-3">
+                <span class="badge bg-danger fs-6 d-inline d-sm-none">📱 Extra Small (&lt;576px)</span>
+                <span class="badge bg-warning fs-6 d-none d-sm-inline d-md-none">📱 Small (≥576px)</span>
+                <span class="badge bg-info fs-6 d-none d-md-inline d-lg-none">💻 Medium (≥768px)</span>
+                <span class="badge bg-success fs-6 d-none d-lg-inline d-xl-none">💻 Large (≥992px)</span>
+                <span class="badge bg-primary fs-6 d-none d-xl-inline d-xxl-none">🖥️ Extra Large (≥1200px)</span>
+                <span class="badge bg-dark fs-6 d-none d-xxl-inline">🖥️ Extra Extra Large (≥1400px)</span>
+            </div>
+            
+            <div class="highlight-code">
+&lt;!-- Screen Size Debug Helper --&gt;
+&lt;div class="d-block d-sm-none"&gt;XS screen&lt;/div&gt;
+&lt;div class="d-none d-sm-block d-md-none"&gt;SM screen&lt;/div&gt;
+&lt;div class="d-none d-md-block d-lg-none"&gt;MD screen&lt;/div&gt;
+&lt;div class="d-none d-lg-block d-xl-none"&gt;LG screen&lt;/div&gt;
+&lt;div class="d-none d-xl-block d-xxl-none"&gt;XL screen&lt;/div&gt;
+&lt;div class="d-none d-xxl-block"&gt;XXL screen&lt;/div&gt;
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 13: QUICK REFERENCE -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-primary mb-3">📚 Quick Reference Cheat Sheet</h2>
+            
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Container Classes</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm mb-0">
+                                <tbody>
+                                    <tr><td><code>.container</code></td><td>Responsive fixed-width</td></tr>
+                                    <tr><td><code>.container-fluid</code></td><td>100% width always</td></tr>
+                                    <tr><td><code>.container-sm</code></td><td>Fluid until 576px</td></tr>
+                                    <tr><td><code>.container-md</code></td><td>Fluid until 768px</td></tr>
+                                    <tr><td><code>.container-lg</code></td><td>Fluid until 992px</td></tr>
+                                    <tr><td><code>.container-xl</code></td><td>Fluid until 1200px</td></tr>
+                                    <tr><td><code>.container-xxl</code></td><td>Fluid until 1400px</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">Breakpoint Prefixes</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm mb-0">
+                                <tbody>
+                                    <tr><td><strong>xs</strong> (no prefix)</td><td>&lt;576px</td></tr>
+                                    <tr><td><strong>sm</strong></td><td>≥576px</td></tr>
+                                    <tr><td><strong>md</strong></td><td>≥768px</td></tr>
+                                    <tr><td><strong>lg</strong></td><td>≥992px</td></tr>
+                                    <tr><td><strong>xl</strong></td><td>≥1200px</td></tr>
+                                    <tr><td><strong>xxl</strong></td><td>≥1400px</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0">Common Responsive Patterns</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="highlight-code">
+&lt;!-- Mobile: Stack, Desktop: Side by side --&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-12 col-md-6"&gt;Content 1&lt;/div&gt;
+    &lt;div class="col-12 col-md-6"&gt;Content 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Mobile: 2 columns, Tablet: 3 columns, Desktop: 4 columns --&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-6 col-md-4 col-lg-3"&gt;Item&lt;/div&gt;
+    &lt;div class="col-6 col-md-4 col-lg-3"&gt;Item&lt;/div&gt;
+    &lt;div class="col-6 col-md-4 col-lg-3"&gt;Item&lt;/div&gt;
+    &lt;div class="col-6 col-md-4 col-lg-3"&gt;Item&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Hide/Show at different breakpoints --&gt;
+&lt;div class="d-block d-md-none"&gt;Mobile only&lt;/div&gt;
+&lt;div class="d-none d-md-block d-lg-none"&gt;Tablet only&lt;/div&gt;
+&lt;div class="d-none d-lg-block"&gt;Desktop only&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h5>Bootstrap 5 Mastery</h5>
+                    <p class="text-muted">This guide demonstrates all essential Bootstrap concepts with working examples.</p>
+                </div>
+                <div class="col-12 col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Built with Bootstrap 5.3.2</p>
+                    <small class="text-muted">Resize your browser to see responsive magic! ✨</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Custom JavaScript for demonstrations -->
+    <script>
+        // Add some interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for demo boxes
+            const demoBoxes = document.querySelectorAll('.demo-box');
+            demoBoxes.forEach(box => {
+                box.style.cursor = 'pointer';
+                box.addEventListener('click', function() {
+                    this.style.transform = this.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+            });
+            
+            // Screen size indicator update
+            function updateScreenIndicator() {
+                const width = window.innerWidth;
+                console.log(`Current screen width: ${width}px`);
+            }
+            
+            window.addEventListener('resize', updateScreenIndicator);
+            updateScreenIndicator(); // Initial call
+        });
+    </script>
+
 </body>
 </html>

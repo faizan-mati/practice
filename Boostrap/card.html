@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Cards & Badges Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .code-example {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <header class="text-center mb-5">
+            <h1 class="display-4 text-primary">Bootstrap Cards & Badges</h1>
+            <p class="lead">Complete guide with real-time examples</p>
+        </header>
+
+        <!-- Bootstrap Cards Section -->
+        <div class="demo-section">
+            <h2 class="text-success mb-4"><i class="fas fa-id-card"></i> Bootstrap Cards</h2>
+
+            <!-- Basic Card -->
+            <h3 class="h4 mb-3">1. Basic Card Structure</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Card Header</h5>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <p class="card-text">This is the basic card body content. Cards are flexible content
+                                containers.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Card Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="code-example">
+                        &lt;div class="card"&gt;
+                        &lt;div class="card-header"&gt;
+                        &lt;h5 class="card-title mb-0"&gt;Header&lt;/h5&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card-body"&gt;
+                        &lt;h5 class="card-title"&gt;Title&lt;/h5&gt;
+                        &lt;p class="card-text"&gt;Content...&lt;/p&gt;
+                        &lt;a href="#" class="btn btn-primary"&gt;Button&lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class="card-footer"&gt;Footer&lt;/div&gt;
+                        &lt;/div&gt;
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card with Image Top -->
+            <h3 class="h4 mb-3">2. Card with Image Top (card-img-top)</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="data:image/jpeg;base64,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"
+                            class="card-img-top" alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">Product Card</h5>
+                            <p class="card-text">This card demonstrates the card-img-top class which makes the image
+                                span the full width of the card.</p>
+                            <p class="card-text">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h4 text-success mb-0">$29.99</span>
+                                <button class="btn btn-success">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="code-example">
+                        &lt;div class="card"&gt;
+                        &lt;img src="image.jpg"
+                        class="card-img-top"
+                        alt="Card image"&gt;
+                        &lt;div class="card-body"&gt;
+                        &lt;h5 class="card-title"&gt;Product Card&lt;/h5&gt;
+                        &lt;p class="card-text"&gt;Description...&lt;/p&gt;
+                        &lt;small class="text-muted"&gt;Last updated&lt;/small&gt;
+                        &lt;div class="d-flex justify-content-between"&gt;
+                        &lt;span class="h4 text-success"&gt;$29.99&lt;/span&gt;
+                        &lt;button class="btn btn-success"&gt;Buy&lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Variations -->
+            <h3 class="h4 mb-3">3. Card Variations</h3>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-info-circle"></i> Info Card
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Card with primary border and colored header.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Dark Card</h5>
+                            <p class="card-text">Card with dark background and white text.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Shadow Card</h5>
+                            <p class="card-text">Card with shadow effect and no border.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Badges Section -->
+        <div class="demo-section">
+            <h2 class="text-info mb-4"><i class="fas fa-tags"></i> Bootstrap Badges</h2>
+
+            <!-- Basic Badges -->
+            <h3 class="h4 mb-3">1. Basic Badges</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Badge Colors:</h5>
+                            <span class="badge bg-primary me-2">Primary</span>
+                            <span class="badge bg-secondary me-2">Secondary</span>
+                            <span class="badge bg-success me-2">Success</span>
+                            <span class="badge bg-danger me-2">Danger</span>
+                            <span class="badge bg-warning text-dark me-2">Warning</span>
+                            <span class="badge bg-info me-2">Info</span>
+                            <span class="badge bg-light text-dark me-2">Light</span>
+                            <span class="badge bg-dark me-2">Dark</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="code-example">
+                        &lt;span class="badge bg-primary"&gt;Primary&lt;/span&gt;
+                        &lt;span class="badge bg-secondary"&gt;Secondary&lt;/span&gt;
+                        &lt;span class="badge bg-success"&gt;Success&lt;/span&gt;
+                        &lt;span class="badge bg-danger"&gt;Danger&lt;/span&gt;
+                        &lt;span class="badge bg-warning text-dark"&gt;Warning&lt;/span&gt;
+                        &lt;span class="badge bg-info"&gt;Info&lt;/span&gt;
+                        &lt;span class="badge bg-light text-dark"&gt;Light&lt;/span&gt;
+                        &lt;span class="badge bg-dark"&gt;Dark&lt;/span&gt;
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badge bg-secondary Examples -->
+            <h3 class="h4 mb-3">2. Badge bg-secondary in Real Use Cases</h3>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Article Title
+                                <span class="badge bg-secondary">Draft</span>
+                            </h5>
+                            <p class="card-text">
+                                Tags:
+                                <span class="badge bg-secondary me-1">Bootstrap</span>
+                                <span class="badge bg-secondary me-1">CSS</span>
+                                <span class="badge bg-secondary me-1">Frontend</span>
+                            </p>
+                            <p class="card-text">
+                                Status: <span class="badge bg-secondary">Under Review</span>
+                                Categories: <span class="badge bg-secondary">Technology</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges in Navigation -->
+            <h3 class="h4 mb-3">3. Badges in Navigation & Notifications</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">MyApp</a>
+                            <div class="navbar-nav">
+                                <a class="nav-link" href="#">
+                                    Messages <span class="badge bg-secondary">4</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    Notifications <span class="badge bg-danger">12</span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-6">
+                    <div class="code-example">
+                        &lt;nav class="navbar navbar-light bg-light"&gt;
+                        &lt;a class="navbar-brand"&gt;MyApp&lt;/a&gt;
+                        &lt;div class="navbar-nav"&gt;
+                        &lt;a class="nav-link"&gt;
+                        Messages &lt;span class="badge bg-secondary"&gt;4&lt;/span&gt;
+                        &lt;/a&gt;
+                        &lt;a class="nav-link"&gt;
+                        Notifications &lt;span class="badge bg-danger"&gt;12&lt;/span&gt;
+                        &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;/nav&gt;
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pill Badges -->
+            <h3 class="h4 mb-3">4. Pill Badges</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Regular Badges:</h6>
+                            <span class="badge bg-primary me-2">Regular</span>
+                            <span class="badge bg-secondary me-2">Badge</span>
+                            <br><br>
+                            <h6>Pill Badges:</h6>
+                            <span class="badge rounded-pill bg-primary me-2">Pill</span>
+                            <span class="badge rounded-pill bg-secondary me-2">Badge</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="code-example">
+                        &lt;!-- Regular badges --&gt;
+                        &lt;span class="badge bg-primary"&gt;Regular&lt;/span&gt;
+                        &lt;span class="badge bg-secondary"&gt;Badge&lt;/span&gt;
+
+                        &lt;!-- Pill badges --&gt;
+                        &lt;span class="badge rounded-pill bg-primary"&gt;Pill&lt;/span&gt;
+                        &lt;span class="badge rounded-pill bg-secondary"&gt;Badge&lt;/span&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Use Cases -->
+        <div class="demo-section">
+            <h2 class="text-warning mb-4"><i class="fas fa-star"></i> Real-time Use Cases</h2>
+
+            <!-- E-commerce Product Cards -->
+            <h3 class="h4 mb-3">E-commerce Product Grid</h3>
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <img src="data:image/jpeg;base64,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"
+                            class="card-img-top" alt="Laptop">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Gaming Laptop
+                                <span class="badge bg-secondary">New</span>
+                            </h5>
+                            <p class="card-text flex-grow-1">High-performance gaming laptop with latest GPU.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-success me-1">In Stock</span>
+                                <span class="badge bg-secondary me-1">Gaming</span>
+                                <span class="badge bg-secondary">Electronics</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <h4 class="text-primary mb-0">$1,299</h4>
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <img src="data:image/jpeg;base64,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"
+                            class="card-img-top" alt="Smartphone">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Smartphone Pro
+                                <span class="badge bg-danger">Sale</span>
+                            </h5>
+                            <p class="card-text flex-grow-1">Latest smartphone with advanced camera system.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-warning text-dark me-1">Limited Stock</span>
+                                <span class="badge bg-secondary me-1">Mobile</span>
+                                <span class="badge bg-secondary">Tech</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <div>
+                                    <span class="text-decoration-line-through text-muted">$999</span>
+                                    <h4 class="text-success mb-0">$799</h4>
+                                </div>
+                                <button class="btn btn-success">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <img src="data:image/jpeg;base64,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"
+                            class="card-img-top" alt="Headphones">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                Wireless Headphones
+                                <span class="badge bg-secondary">Popular</span>
+                            </h5>
+                            <p class="card-text flex-grow-1">Premium wireless headphones with noise cancellation.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-danger me-1">Out of Stock</span>
+                                <span class="badge bg-secondary me-1">Audio</span>
+                                <span class="badge bg-secondary">Accessories</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <h4 class="text-primary mb-0">$299</h4>
+                                <button class="btn btn-secondary" disabled>Notify Me</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Profile Card -->
+            <h3 class="h4 mb-3">User Profile Card</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-user"></i> User Profile
+                                <span class="badge bg-secondary ms-2">Premium</span>
+                            </h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="data:image/jpeg;base64,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"
+                                class="rounded-circle mb-3" alt="Profile">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">Full Stack Developer</p>
+                            <div class="mb-3">
+                                <span class="badge bg-secondary me-1">JavaScript</span>
+                                <span class="badge bg-secondary me-1">Python</span>
+                                <span class="badge bg-secondary me-1">React</span>
+                                <span class="badge bg-secondary">Node.js</span>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <strong>150</strong>
+                                    <br>
+                                    <small class="text-muted">Projects</small>
+                                </div>
+                                <div class="col-4">
+                                    <strong>1.2k</strong>
+                                    <br>
+                                    <small class="text-muted">Followers</small>
+                                </div>
+                                <div class="col-4">
+                                    <strong>890</strong>
+                                    <br>
+                                    <small class="text-muted">Following</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary w-100">Follow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats Cards -->
+            <h3 class="h4 mb-3">Dashboard Statistics</h3>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Total Users</h5>
+                                    <h2>1,234</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-users fa-2x"></i>
+                                </div>
+                            </div>
+                            <small>
+                                <span class="badge bg-light text-dark">+12%</span> from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Revenue</h5>
+                                    <h2>$45.2k</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-dollar-sign fa-2x"></i>
+                                </div>
+                            </div>
+                            <small>
+                                <span class="badge bg-light text-dark">+8%</span> from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-white bg-warning">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Orders</h5>
+                                    <h2>892</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-shopping-cart fa-2x"></i>
+                                </div>
+                            </div>
+                            <small>
+                                <span class="badge bg-secondary">-3%</span> from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Visitors</h5>
+                                    <h2>5.67k</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="fas fa-eye fa-2x"></i>
+                                </div>
+                            </div>
+                            <small>
+                                <span class="badge bg-light text-dark">+25%</span> from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Points Summary -->
+        <div class="demo-section bg-primary text-white">
+            <h2 class="mb-4"><i class="fas fa-key"></i> Key Points Summary</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Cards:</h4>
+                    <ul>
+                        <li><strong>card:</strong> Main container class</li>
+                        <li><strong>card-img-top:</strong> Image at top spanning full width</li>
+                        <li><strong>card-body:</strong> Main content area</li>
+                        <li><strong>card-header/footer:</strong> Optional sections</li>
+                        <li><strong>card-title:</strong> Title styling</li>
+                        <li><strong>card-text:</strong> Body text styling</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Badges:</h4>
+                    <ul>
+                        <li><strong>badge:</strong> Base badge class</li>
+                        <li><strong>bg-secondary:</strong> Gray/neutral color</li>
+                        <li><strong>bg-*:</strong> Various color options</li>
+                        <li><strong>rounded-pill:</strong> Pill-shaped badges</li>
+                        <li>Perfect for tags, notifications, status indicators</li>
+                        <li>Can be combined with other Bootstrap components</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

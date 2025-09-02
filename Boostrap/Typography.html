@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Utilities Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .demo-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .code-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 0.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .property-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .example-box {
+            border: 2px dashed #6c757d;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: white;
+        }
+        
+        /* Custom typography examples */
+        .custom-font-size { font-size: 24px; }
+        .custom-line-height { line-height: 2; }
+        .custom-letter-spacing { letter-spacing: 2px; }
+        .custom-word-spacing { word-spacing: 10px; }
+        .custom-text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .custom-text-transform { text-transform: capitalize; }
+        
+        /* Advanced typography */
+        .drop-cap::first-letter {
+            font-size: 3em;
+            float: left;
+            line-height: 1;
+            margin-right: 0.1em;
+            color: #007bff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        
+        .responsive-text {
+            font-size: clamp(1rem, 4vw, 3rem);
+        }
+        
+        .text-columns {
+            column-count: 2;
+            column-gap: 2rem;
+            text-align: justify;
+        }
+        
+        @media (max-width: 768px) {
+            .text-columns {
+                column-count: 1;
+            }
+        }
+        
+        .navigation-tabs {
+            background: #343a40;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-link {
+            color: #adb5bd;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1 class="display-3 fw-bold mb-3">
+                <span class="gradient-text">Typography Utilities</span>
+            </h1>
+            <p class="lead">Complete guide to CSS and Bootstrap typography with real-world examples</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation-tabs">
+            <a href="#basic-css" class="nav-link active">Basic CSS</a>
+            <a href="#bootstrap-typography" class="nav-link">Bootstrap Typography</a>
+            <a href="#advanced-techniques" class="nav-link">Advanced Techniques</a>
+            <a href="#responsive-typography" class="nav-link">Responsive Design</a>
+        </nav>
+
+        <!-- Basic CSS Typography -->
+        <section id="basic-css" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">1. Basic CSS Typography Properties</h2>
+            
+            <div class="property-grid">
+                <div class="property-card">
+                    <h3 class="h5 text-info">Font Family</h3>
+                    <div class="code-demo">font-family: 'Arial', sans-serif;</div>
+                    <div class="example-box" style="font-family: Arial, sans-serif;">
+                        This text uses Arial font family with sans-serif fallback.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Font Size</h3>
+                    <div class="code-demo">font-size: 24px; /* or rem, em, % */</div>
+                    <div class="example-box custom-font-size">
+                        This text is 24px in size.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Font Weight</h3>
+                    <div class="code-demo">font-weight: 700; /* or bold */</div>
+                    <div class="example-box" style="font-weight: 700;">
+                        This text is bold (700 weight).
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Font Style</h3>
+                    <div class="code-demo">font-style: italic;</div>
+                    <div class="example-box" style="font-style: italic;">
+                        This text is italicized.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Line Height</h3>
+                    <div class="code-demo">line-height: 2;</div>
+                    <div class="example-box custom-line-height">
+                        This text has double line spacing. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Letter Spacing</h3>
+                    <div class="code-demo">letter-spacing: 2px;</div>
+                    <div class="example-box custom-letter-spacing">
+                        SPACED OUT TEXT
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Word Spacing</h3>
+                    <div class="code-demo">word-spacing: 10px;</div>
+                    <div class="example-box custom-word-spacing">
+                        Words are spaced apart here.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Text Transform</h3>
+                    <div class="code-demo">text-transform: uppercase;</div>
+                    <div class="example-box" style="text-transform: uppercase;">
+                        this becomes uppercase
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Text Decoration</h3>
+                    <div class="code-demo">text-decoration: underline wavy red;</div>
+                    <div class="example-box" style="text-decoration: underline wavy red;">
+                        This text has a wavy red underline.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Text Align</h3>
+                    <div class="code-demo">text-align: center;</div>
+                    <div class="example-box" style="text-align: center;">
+                        This text is centered.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Text Shadow</h3>
+                    <div class="code-demo">text-shadow: 2px 2px 4px rgba(0,0,0,0.3);</div>
+                    <div class="example-box custom-text-shadow">
+                        This text has a shadow effect.
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3 class="h5 text-info">Text Overflow</h3>
+                    <div class="code-demo">text-overflow: ellipsis; overflow: hidden;</div>
+                    <div class="example-box" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 200px;">
+                        This is a very long text that will be truncated with ellipsis...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap Typography -->
+        <section id="bootstrap-typography" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">2. Bootstrap Typography Classes</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Headings & Display Classes</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="h6 text-muted">Standard Headings:</h4>
+                        <h1 class="h1">H1 Heading</h1>
+                        <h2 class="h2">H2 Heading</h2>
+                        <h3 class="h3">H3 Heading</h3>
+                        <h4 class="h4">H4 Heading</h4>
+                        <h5 class="h5">H5 Heading</h5>
+                        <h6 class="h6">H6 Heading</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="h6 text-muted">Display Classes:</h4>
+                        <p class="display-1">Display 1</p>
+                        <p class="display-2">Display 2</p>
+                        <p class="display-3">Display 3</p>
+                        <p class="display-4">Display 4</p>
+                    </div>
+                </div>
+                <div class="code-demo">
+                    &lt;h1 class="h1"&gt;H1 Heading&lt;/h1&gt;
+                    &lt;p class="display-1"&gt;Display 1&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Sizes</h3>
+                <p class="fs-1">Font size 1 (.fs-1)</p>
+                <p class="fs-2">Font size 2 (.fs-2)</p>
+                <p class="fs-3">Font size 3 (.fs-3)</p>
+                <p class="fs-4">Font size 4 (.fs-4)</p>
+                <p class="fs-5">Font size 5 (.fs-5)</p>
+                <p class="fs-6">Font size 6 (.fs-6)</p>
+                <div class="code-demo">
+                    &lt;p class="fs-1"&gt;Font size 1&lt;/p&gt;
+                    &lt;p class="fs-6"&gt;Font size 6&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Font Weights</h3>
+                <p class="fw-bold">Bold text (.fw-bold)</p>
+                <p class="fw-bolder">Bolder text (.fw-bolder)</p>
+                <p class="fw-semibold">Semibold text (.fw-semibold)</p>
+                <p class="fw-medium">Medium text (.fw-medium)</p>
+                <p class="fw-normal">Normal text (.fw-normal)</p>
+                <p class="fw-light">Light text (.fw-light)</p>
+                <p class="fw-lighter">Lighter text (.fw-lighter)</p>
+                <div class="code-demo">
+                    &lt;p class="fw-bold"&gt;Bold text&lt;/p&gt;
+                    &lt;p class="fw-light"&gt;Light text&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Colors</h3>
+                <p class="text-primary">Primary color text</p>
+                <p class="text-secondary">Secondary color text</p>
+                <p class="text-success">Success color text</p>
+                <p class="text-danger">Danger color text</p>
+                <p class="text-warning">Warning color text</p>
+                <p class="text-info">Info color text</p>
+                <p class="text-dark">Dark color text</p>
+                <p class="text-muted">Muted color text</p>
+                <div class="code-demo">
+                    &lt;p class="text-primary"&gt;Primary color&lt;/p&gt;
+                    &lt;p class="text-danger"&gt;Danger color&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Alignment</h3>
+                <p class="text-start">Left aligned text (.text-start)</p>
+                <p class="text-center">Center aligned text (.text-center)</p>
+                <p class="text-end">Right aligned text (.text-end)</p>
+                <p class="text-justify">Justified text that stretches across the full width of the container for better readability (.text-justify)</p>
+                <div class="code-demo">
+                    &lt;p class="text-center"&gt;Centered text&lt;/p&gt;
+                    &lt;p class="text-end"&gt;Right aligned&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Transform</h3>
+                <p class="text-lowercase">LOWERCASE TEXT (.text-lowercase)</p>
+                <p class="text-uppercase">uppercase text (.text-uppercase)</p>
+                <p class="text-capitalize">capitalize each word (.text-capitalize)</p>
+                <div class="code-demo">
+                    &lt;p class="text-uppercase"&gt;uppercase text&lt;/p&gt;
+                    &lt;p class="text-capitalize"&gt;capitalize words&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Decoration</h3>
+                <p class="text-decoration-none"><a href="#">Link with no decoration (.text-decoration-none)</a></p>
+                <p class="text-decoration-underline">Underlined text (.text-decoration-underline)</p>
+                <p class="text-decoration-line-through">Strikethrough text (.text-decoration-line-through)</p>
+                <div class="code-demo">
+                    &lt;a class="text-decoration-none"&gt;No underline&lt;/a&gt;
+                    &lt;p class="text-decoration-line-through"&gt;Strikethrough&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Line Height</h3>
+                <p class="lh-1">Line height 1 (.lh-1) - This text has tight line spacing that makes it more compact.</p>
+                <p class="lh-sm">Line height small (.lh-sm) - This text has smaller than normal line spacing.</p>
+                <p class="lh-base">Line height base (.lh-base) - This text has the default line spacing.</p>
+                <p class="lh-lg">Line height large (.lh-lg) - This text has larger line spacing for better readability.</p>
+                <div class="code-demo">
+                    &lt;p class="lh-1"&gt;Tight spacing&lt;/p&gt;
+                    &lt;p class="lh-lg"&gt;Large spacing&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Font Style & Variant</h3>
+                <p class="fst-italic">Italic text (.fst-italic)</p>
+                <p class="fst-normal">Normal text (.fst-normal)</p>
+                <p class="font-monospace">Monospace text (.font-monospace)</p>
+                <div class="code-demo">
+                    &lt;p class="fst-italic"&gt;Italic text&lt;/p&gt;
+                    &lt;p class="font-monospace"&gt;Monospace&lt;/p&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Typography Techniques -->
+        <section id="advanced-techniques" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">3. Advanced Typography Techniques</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Drop Cap Effect</h3>
+                <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <div class="code-demo">
+                    .drop-cap::first-letter {
+                        font-size: 3em;
+                        float: left;
+                        line-height: 1;
+                        margin-right: 0.1em;
+                        color: #007bff;
+                    }
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Gradient Text</h3>
+                <p class="gradient-text">Amazing Gradient Text!</p>
+                <div class="code-demo">
+                    .gradient-text {
+                        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    }
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Multi-Column Text</h3>
+                <div class="text-columns">
+                    <p>This text is laid out in multiple columns for better readability in wide containers. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="code-demo">
+                    .text-columns {
+                        column-count: 2;
+                        column-gap: 2rem;
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Typography -->
+        <section id="responsive-typography" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">4. Responsive Typography</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Bootstrap Responsive Text Alignment</h3>
+                <p class="text-start text-md-center text-lg-end">
+                    This text is left-aligned on small screens, centered on medium screens, and right-aligned on large screens.
+                </p>
+                <div class="code-demo">
+                    &lt;p class="text-start text-md-center text-lg-end"&gt;
+                        Responsive alignment
+                    &lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">CSS Clamp for Fluid Typography</h3>
+                <p class="responsive-text">
+                    This text scales fluidly with viewport size!
+                </p>
+                <div class="code-demo">
+                    .responsive-text {
+                        font-size: clamp(1rem, 4vw, 3rem);
+                    }
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Bootstrap Display Responsive Classes</h3>
+                <p class="d-none d-md-block">This text only appears on medium screens and larger</p>
+                <p class="d-block d-md-none">This text only appears on small screens</p>
+                <div class="code-demo">
+                    &lt;p class="d-none d-md-block"&gt;Medium+ only&lt;/p&gt;
+                    &lt;p class="d-block d-md-none"&gt;Small only&lt;/p&gt;
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Examples -->
+        <section id="real-world" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">5. Real-World Typography Examples</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Article Layout</h3>
+                <article class="border p-4 bg-white rounded">
+                    <header class="mb-4">
+                        <h1 class="display-4 fw-bold mb-2">The Future of Web Typography</h1>
+                        <p class="lead text-muted">Exploring modern techniques and best practices</p>
+                        <div class="d-flex align-items-center text-sm text-muted">
+                            <span class="me-3">By John Doe</span>
+                            <span>March 15, 2024</span>
+                        </div>
+                    </header>
+                    <div class="article-content">
+                        <p class="fs-5 lh-lg">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed.</p>
+                        <p>Modern web typography has evolved significantly with the introduction of web fonts, variable fonts, and CSS improvements.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Card Component with Typography</h3>
+                <div class="card" style="max-width: 400px;">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0 fw-semibold">Product Feature</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Advanced Analytics</h6>
+                        <p class="card-text">Get detailed insights with our advanced analytics dashboard.</p>
+                        <span class="badge bg-primary">New</span>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Navigation Typography</h3>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand fw-bold fs-4" href="#">BrandName</a>
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="#">Contact</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Form Typography</h3>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Message</label>
+                        <textarea class="form-control" rows="4" placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary fw-medium">Submit Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Typography Hierarchy -->
+        <section id="hierarchy" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">6. Typography Hierarchy Best Practices</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Establishing Visual Hierarchy</h3>
+                <div class="example-box">
+                    <h1 class="display-5 fw-bold mb-3">Main Title</h1>
+                    <p class="lead mb-4">This is a lead paragraph that introduces the content and draws attention.</p>
+                    <h2 class="h3 fw-semibold mb-3 text-primary">Section Heading</h2>
+                    <p class="mb-3">Regular body text with normal weight and size for optimal readability.</p>
+                    <h3 class="h5 fw-medium mb-2 text-secondary">Subsection</h3>
+                    <p class="mb-2">Smaller body text for less important information.</p>
+                    <p class="small text-muted">Fine print or additional details in smaller, muted text.</p>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Interactive Typography States</h3>
+                <div class="example-box">
+                    <a href="#" class="text-decoration-none fw-medium" 
+                       onmouseover="this.style.color='#0056b3'; this.style.textDecoration='underline'"
+                       onmouseout="this.style.color='#007bff'; this.style.textDecoration='none'">
+                        Interactive Link with Hover Effects
+                    </a>
+                    <br><br>
+                    <button class="btn btn-outline-primary" 
+                            onmouseover="this.classList.add('btn-primary'); this.classList.remove('btn-outline-primary')"
+                            onmouseout="this.classList.add('btn-outline-primary'); this.classList.remove('btn-primary')">
+                        Hover Me!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Reference Table -->
+        <section id="reference" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">7. Quick Reference</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Bootstrap Typography Classes Summary</h3>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Category</th>
+                                <th>Classes</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-semibold">Font Size</td>
+                                <td><code>.fs-1</code> to <code>.fs-6</code></td>
+                                <td>Control text size (1 = largest, 6 = smallest)</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Font Weight</td>
+                                <td><code>.fw-bold, .fw-light, .fw-normal</code></td>
+                                <td>Control text weight/thickness</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Text Color</td>
+                                <td><code>.text-primary, .text-danger, .text-muted</code></td>
+                                <td>Apply theme colors to text</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Text Align</td>
+                                <td><code>.text-start, .text-center, .text-end</code></td>
+                                <td>Control text alignment</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Line Height</td>
+                                <td><code>.lh-1, .lh-sm, .lh-base, .lh-lg</code></td>
+                                <td>Control spacing between lines</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Display</td>
+                                <td><code>.display-1</code> to <code>.display-6</code></td>
+                                <td>Large, prominent heading styles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Tips -->
+        <section id="performance" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">8. Performance & Accessibility Tips</h2>
+            
+            <div class="alert alert-info">
+                <h4 class="alert-heading">Web Font Performance</h4>
+                <p class="mb-2">When using custom fonts, consider these optimization techniques:</p>
+                <ul class="mb-0">
+                    <li>Use <code>font-display: swap;</code> for faster loading</li>
+                    <li>Preload critical fonts with <code>&lt;link rel="preload"&gt;</code></li>
+                    <li>Use system fonts for faster rendering</li>
+                    <li>Implement font fallbacks properly</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-success">
+                <h4 class="alert-heading">Accessibility Guidelines</h4>
+                <p class="mb-2">Ensure your typography is accessible:</p>
+                <ul class="mb-0">
+                    <li>Maintain color contrast ratio of at least 4.5:1</li>
+                    <li>Use relative units (rem, em) for scalability</li>
+                    <li>Provide sufficient line spacing (1.4-1.6)</li>
+                    <li>Avoid using color alone to convey meaning</li>
+                    <li>Test with screen readers</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Examples -->
+        <section id="interactive" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">9. Interactive Typography Examples</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Typography Controls Demo</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Font Size Control</h5>
+                        <input type="range" class="form-range" min="12" max="48" value="16" 
+                               onchange="document.getElementById('demo-text').style.fontSize = this.value + 'px'">
+                        <label class="form-label">Size: <span id="size-value">16px</span></label>
+                        
+                        <h5 class="mt-3">Font Weight</h5>
+                        <select class="form-select" onchange="document.getElementById('demo-text').style.fontWeight = this.value">
+                            <option value="300">Light (300)</option>
+                            <option value="400" selected>Normal (400)</option>
+                            <option value="500">Medium (500)</option>
+                            <option value="700">Bold (700)</option>
+                            <option value="900">Black (900)</option>
+                        </select>
+                        
+                        <h5 class="mt-3">Text Transform</h5>
+                        <select class="form-select" onchange="document.getElementById('demo-text').style.textTransform = this.value">
+                            <option value="none">None</option>
+                            <option value="uppercase">UPPERCASE</option>
+                            <option value="lowercase">lowercase</option>
+                            <option value="capitalize">Capitalize</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="example-box">
+                            <p id="demo-text" class="mb-0">
+                                This is sample text that changes based on the controls. 
+                                Watch how different typography properties affect readability and visual impact.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Text Animation Examples</h3>
+                <div class="example-box">
+                    <p class="text-center mb-3">
+                        <span style="animation: fadeIn 2s ease-in-out infinite alternate;">Fading Text</span>
+                    </p>
+                    <p class="text-center mb-3">
+                        <span style="animation: slideIn 3s ease-in-out infinite;">Sliding Text</span>
+                    </p>
+                </div>
+                <div class="code-demo">
+                    @keyframes fadeIn {
+                        from { opacity: 0.3; }
+                        to { opacity: 1; }
+                    }
+                    
+                    @keyframes slideIn {
+                        0% { transform: translateX(-100%); }
+                        50% { transform: translateX(0); }
+                        100% { transform: translateX(100%); }
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Variables for Typography -->
+        <section id="css-variables" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">10. CSS Custom Properties (Variables) for Typography</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Typography System with CSS Variables</h3>
+                <div class="example-box" style="
+                    --font-size-base: 16px;
+                    --font-size-lg: 18px;
+                    --font-size-sm: 14px;
+                    --line-height-base: 1.5;
+                    --font-weight-normal: 400;
+                    --font-weight-bold: 700;
+                    --color-text: #212529;
+                    --color-text-muted: #6c757d;
+                ">
+                    <p style="font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-text);">
+                        Large Bold Text using CSS Variables
+                    </p>
+                    <p style="font-size: var(--font-size-base); line-height: var(--line-height-base); color: var(--color-text);">
+                        Normal text with base font size and line height.
+                    </p>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">
+                        Small muted text for less important information.
+                    </p>
+                </div>
+                <div class="code-demo">
+                    :root {
+                        --font-size-base: 16px;
+                        --font-size-lg: 18px;
+                        --font-weight-bold: 700;
+                        --color-text: #212529;
+                    }
+                    
+                    .text-large {
+                        font-size: var(--font-size-lg);
+                        font-weight: var(--font-weight-bold);
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Best Practices -->
+        <section id="best-practices" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">11. Typography Best Practices</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-primary">
+                        <h4 class="alert-heading">Do's</h4>
+                        <ul class="mb-0">
+                            <li>Use consistent spacing and rhythm</li>
+                            <li>Limit font families to 2-3 max</li>
+                            <li>Ensure proper contrast ratios</li>
+                            <li>Use relative units for scalability</li>
+                            <li>Establish clear hierarchy</li>
+                            <li>Test on multiple devices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-warning">
+                        <h4 class="alert-heading">Don'ts</h4>
+                        <ul class="mb-0">
+                            <li>Don't use too many font weights</li>
+                            <li>Avoid very light text on light backgrounds</li>
+                            <li>Don't use excessive decorative fonts</li>
+                            <li>Avoid all caps for long text</li>
+                            <li>Don't ignore mobile typography</li>
+                            <li>Avoid fixed pixel sizes for body text</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern CSS Features -->
+        <section id="modern-css" class="mb-5">
+            <h2 class="h2 mb-4 text-primary">12. Modern CSS Typography Features</h2>
+            
+            <div class="demo-section">
+                <h3 class="h4 mb-3">CSS Grid Typography Layout</h3>
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start;">
+                    <div>
+                        <h4 class="h5 fw-bold">Sidebar Content</h4>
+                        <p class="small">This content uses CSS Grid for layout with different typography scales.</p>
+                    </div>
+                    <div>
+                        <h4 class="h3 fw-bold">Main Content Area</h4>
+                        <p>This main content area has larger typography to emphasize its importance in the layout hierarchy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3 class="h4 mb-3">Container Queries (Future)</h3>
+                <div class="example-box">
+                    <div style="width: 300px; border: 1px solid #dee2e6; padding: 1rem;">
+                        <p style="font-size: clamp(14px, 3cqw, 18px);">
+                            This text adapts to its container size using container query units (cqw).
+                        </p>
+                    </div>
+                </div>
+                <div class="code-demo">
+                    /* Container query units */
+                    .responsive-container-text {
+                        font-size: clamp(14px, 3cqw, 18px);
+                    }
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-4 border-top">
+            <p class="text-muted mb-0">Typography is the foundation of great web design. Master these utilities to create engaging, readable content!</p>
+        </footer>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+
+    <script>
+        // Update size value display
+        document.querySelector('input[type="range"]').addEventListener('input', function() {
+            document.getElementById('size-value').textContent = this.value + 'px';
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Dynamic typography demo
+        function createTypographyShowcase() {
+            const showcase = document.createElement('div');
+            showcase.className = 'demo-section';
+            showcase.innerHTML = `
+                <h3 class="h4 mb-3">Live Typography Playground</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Font Family:</label>
+                            <select class="form-select" id="fontFamily">
+                                <option value="Arial, sans-serif">Arial</option>
+                                <option value="Georgia, serif">Georgia</option>
+                                <option value="'Courier New', monospace">Courier New</option>
+                                <option value="'Times New Roman', serif">Times New Roman</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Text Color:</label>
+                            <input type="color" class="form-control form-control-color" id="textColor" value="#212529">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Background Color:</label>
+                            <input type="color" class="form-control form-control-color" id="bgColor" value="#ffffff">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="example-box">
+                            <p id="playground-text">
+                                This is your typography playground! Experiment with different settings to see how they affect readability and visual appeal. Typography is both an art and a science.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Insert before the footer
+            const footer = document.querySelector('footer');
+            footer.parentNode.insertBefore(showcase, footer);
+            
+            // Add event listeners
+            document.getElementById('fontFamily').addEventListener('change', updatePlayground);
+            document.getElementById('textColor').addEventListener('change', updatePlayground);
+            document.getElementById('bgColor').addEventListener('change', updatePlayground);
+            
+            function updatePlayground() {
+                const text = document.getElementById('playground-text');
+                const fontFamily = document.getElementById('fontFamily').value;
+                const textColor = document.getElementById('textColor').value;
+                const bgColor = document.getElementById('bgColor').value;
+                
+                text.style.fontFamily = fontFamily;
+                text.style.color = textColor;
+                text.parentElement.style.backgroundColor = bgColor;
+            }
+        }
+        
+        // Initialize the playground
+        document.addEventListener('DOMContentLoaded', function() {
+            createTypographyShowcase();
+        });
+    </script>
+</body>
+</html>

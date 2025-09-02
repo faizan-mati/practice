@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Navbar & Navigation Demo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 80px; }
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .feature-highlight {
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .navbar-demo {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Fixed Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-code me-2"></i>Bootstrap Demo
+            </a>
+            
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#basic">Basic Navbar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#advanced">Advanced</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Components
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#dropdowns">Dropdowns</a></li>
+                            <li><a class="dropdown-item" href="#forms">Forms</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#utilities">Utilities</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Right-aligned items -->
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Account
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center mb-5">Bootstrap Navbar & Navigation Complete Guide</h1>
+        
+        <!-- Basic Navbar Section -->
+        <section id="basic" class="demo-section">
+            <h2 class="text-primary">1. Basic Navbar Structure</h2>
+            <div class="feature-highlight">
+                <strong>Key Components:</strong> navbar, navbar-brand, navbar-nav, nav-item, nav-link
+            </div>
+            
+            <div class="navbar-demo">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Brand</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="code-block">
+&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Brand&lt;/a&gt;
+    &lt;ul class="navbar-nav"&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;About&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+            </div>
+        </section>
+
+        <!-- Navbar Toggler Section -->
+        <section class="demo-section">
+            <h2 class="text-primary">2. Navbar Toggler (Mobile Responsive)</h2>
+            <div class="feature-highlight">
+                <strong>Purpose:</strong> Collapses navbar on small screens. Uses data-bs-toggle and data-bs-target attributes.
+            </div>
+            
+            <div class="navbar-demo">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Responsive Brand</a>
+                        
+                        <!-- Toggler Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsiveNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <!-- Collapsible Content -->
+                        <div class="collapse navbar-collapse" id="responsiveNav">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Orders</a>
+                                </li>
+                            </ul>
+                            <span class="navbar-text">
+                                Resize window to see collapse effect
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="code-block">
+&lt;nav class="navbar navbar-expand-lg navbar-dark bg-success"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Brand&lt;/a&gt;
+    
+    &lt;!-- Toggler Button --&gt;
+    &lt;button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav"&gt;
+      &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    
+    &lt;!-- Collapsible Content --&gt;
+    &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
+      &lt;ul class="navbar-nav"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+            </div>
+        </section>
+
+        <!-- Dropdown Menus Section -->
+        <section id="dropdowns" class="demo-section">
+            <h2 class="text-primary">3. Dropdown Menus</h2>
+            <div class="feature-highlight">
+                <strong>Features:</strong> dropdown-toggle, dropdown-menu, dropdown-item, dropdown-divider
+            </div>
+            
+            <div class="navbar-demo">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+                    <div class="container-fluid">
+                        <a class="navbar-brand text-dark" href="#">Dropdown Demo</a>
+                        
+                        <ul class="navbar-nav">
+                            <!-- Basic Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Web Development</a></li>
+                                    <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+                                    <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Consulting</a></li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Dropdown with Icons -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-tools"></i> Tools
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-calculator me-2"></i>Calculator
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-chart-bar me-2"></i>Analytics
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-download me-2"></i>Downloads
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <!-- Right-aligned Dropdown -->
+                            <li class="nav-item dropdown ms-auto">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">
+                                    More Options
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><h6 class="dropdown-header">Account Settings</h6></li>
+                                    <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#">Delete Account</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="code-block">
+&lt;li class="nav-item dropdown"&gt;
+  &lt;a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"&gt;
+    Services
+  &lt;/a&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Web Development&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Mobile Apps&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Consulting&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;
+            </div>
+        </section>
+
+        <!-- Advanced Features Section -->
+        <section id="advanced" class="demo-section">
+            <h2 class="text-primary">4. Advanced Navbar Features</h2>
+            
+            <!-- Navbar with Forms -->
+            <h4 class="mt-4">Navbar with Search Form</h4>
+            <div class="navbar-demo">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">SearchApp</a>
+                        
+                        <form class="d-flex me-auto ms-3">
+                            <input class="form-control me-2" type="search" placeholder="Search products..." style="width: 250px;">
+                            <button class="btn btn-outline-light" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-shopping-cart"></i> Cart (3)
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <!-- Different Navbar Colors and Styles -->
+            <h4 class="mt-4">Different Navbar Styles</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Light Navbar -->
+                    <nav class="navbar navbar-light bg-light border mb-3">
+                        <div class="container-fluid">
+                            <span class="navbar-brand mb-0 h1">Light Theme</span>
+                            <ul class="navbar-nav flex-row">
+                                <li class="nav-item me-3">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-6">
+                    <!-- Dark Navbar -->
+                    <nav class="navbar navbar-dark bg-dark mb-3">
+                        <div class="container-fluid">
+                            <span class="navbar-brand mb-0 h1">Dark Theme</span>
+                            <ul class="navbar-nav flex-row">
+                                <li class="nav-item me-3">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-time Use Cases -->
+        <section class="demo-section">
+            <h2 class="text-primary">5. Real-Time Use Cases</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>E-commerce Navbar</h5>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+                        <div class="container-fluid">
+                            <a class="navbar-brand fw-bold text-primary" href="#">ShopNow</a>
+                            
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Electronics</a></li>
+                                        <li><a class="dropdown-item" href="#">Clothing</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fas fa-heart"></i> <span class="badge bg-danger">2</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fas fa-shopping-cart"></i> <span class="badge bg-primary">5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Admin Dashboard Navbar</h5>
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Admin Panel</a>
+                            
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Users</a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                        <i class="fas fa-user"></i> Admin
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Classes Reference -->
+        <section class="demo-section">
+            <h2 class="text-primary">6. Key Bootstrap Classes Reference</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Navbar Structure Classes</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>.navbar</code> - Main navbar container</li>
+                        <li class="list-group-item"><code>.navbar-expand-{size}</code> - Responsive breakpoints</li>
+                        <li class="list-group-item"><code>.navbar-brand</code> - Brand/logo area</li>
+                        <li class="list-group-item"><code>.navbar-nav</code> - Navigation list container</li>
+                        <li class="list-group-item"><code>.nav-item</code> - Individual navigation item</li>
+                        <li class="list-group-item"><code>.nav-link</code> - Navigation link styling</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Dropdown Classes</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>.dropdown</code> - Dropdown container</li>
+                        <li class="list-group-item"><code>.dropdown-toggle</code> - Dropdown trigger</li>
+                        <li class="list-group-item"><code>.dropdown-menu</code> - Dropdown menu container</li>
+                        <li class="list-group-item"><code>.dropdown-item</code> - Individual dropdown item</li>
+                        <li class="list-group-item"><code>.dropdown-divider</code> - Separator line</li>
+                        <li class="list-group-item"><code>.dropdown-header</code> - Section header</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="demo-section">
+            <h2 class="text-primary">7. Interactive Demo</h2>
+            <p>Try clicking the buttons below to see different navbar configurations:</p>
+            
+            <div class="mb-3">
+                <button class="btn btn-primary me-2" onclick="changeNavbarTheme('light')">Light Theme</button>
+                <button class="btn btn-dark me-2" onclick="changeNavbarTheme('dark')">Dark Theme</button>
+                <button class="btn btn-success me-2" onclick="changeNavbarTheme('success')">Success Theme</button>
+                <button class="btn btn-warning" onclick="toggleNavbarSize()">Toggle Size</button>
+            </div>
+            
+            <div id="dynamicNavbar">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border" id="demoNavbar">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Dynamic Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dynamicNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="dynamicNav">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Development</a></li>
+                                        <li><a class="dropdown-item" href="#">Design</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeNavbarTheme(theme) {
+            const navbar = document.getElementById('demoNavbar');
+            const brand = navbar.querySelector('.navbar-brand');
+            
+            // Remove existing theme classes
+            navbar.className = navbar.className.replace(/navbar-(light|dark)/g, '');
+            navbar.className = navbar.className.replace(/bg-\w+/g, '');
+            
+            if (theme === 'light') {
+                navbar.classList.add('navbar-light', 'bg-light');
+                brand.style.color = '';
+            } else if (theme === 'dark') {
+                navbar.classList.add('navbar-dark', 'bg-dark');
+                brand.style.color = 'white';
+            } else if (theme === 'success') {
+                navbar.classList.add('navbar-dark', 'bg-success');
+                brand.style.color = 'white';
+            }
+        }
+        
+        let isLarge = true;
+        function toggleNavbarSize() {
+            const navbar = document.getElementById('demoNavbar');
+            const container = navbar.querySelector('.container-fluid');
+            
+            if (isLarge) {
+                container.className = 'container';
+                isLarge = false;
+            } else {
+                container.className = 'container-fluid';
+                isLarge = true;
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

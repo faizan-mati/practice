@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Buttons & Groups Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px 0;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            color: #495057;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #007bff;
+        }
+
+        .demo-row {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+
+        .code-snippet {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+
+        .use-case {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .feature-highlight {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .interactive-demo {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-white font-weight-bold">Bootstrap Buttons & Groups</h1>
+            <p class="lead text-light">Complete Guide with Real-World Examples</p>
+        </div>
+
+        <!-- Basic Buttons -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-mouse-pointer"></i> Basic Button Classes</h2>
+
+            <div class="demo-row">
+                <h5>Standard Buttons (.btn)</h5>
+                <button type="button" class="btn btn-primary me-2">Primary</button>
+                <button type="button" class="btn btn-secondary me-2">Secondary</button>
+                <button type="button" class="btn btn-success me-2">Success</button>
+                <button type="button" class="btn btn-danger me-2">Danger</button>
+                <button type="button" class="btn btn-warning me-2">Warning</button>
+                <button type="button" class="btn btn-info me-2">Info</button>
+                <button type="button" class="btn btn-light me-2">Light</button>
+                <button type="button" class="btn btn-dark me-2">Dark</button>
+                <button type="button" class="btn btn-link">Link</button>
+
+                <div class="code-snippet">
+                    &lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+                    &lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+                    &lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Primary for main actions (Save, Submit), Success for confirmations,
+                    Danger for deletions, Warning for important notices.
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <h5>Outline Buttons (.btn-outline-*)</h5>
+                <button type="button" class="btn btn-outline-primary me-2">Primary</button>
+                <button type="button" class="btn btn-outline-secondary me-2">Secondary</button>
+                <button type="button" class="btn btn-outline-success me-2">Success</button>
+                <button type="button" class="btn btn-outline-danger me-2">Danger</button>
+                <button type="button" class="btn btn-outline-warning me-2">Warning</button>
+                <button type="button" class="btn btn-outline-info me-2">Info</button>
+                <button type="button" class="btn btn-outline-light me-2">Light</button>
+                <button type="button" class="btn btn-outline-dark">Dark</button>
+
+                <div class="code-snippet">
+                    &lt;button class="btn btn-outline-primary"&gt;Outline Primary&lt;/button&gt;
+                    &lt;button class="btn btn-outline-success"&gt;Outline Success&lt;/button&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Secondary actions, ghost buttons for minimalist designs,
+                    call-to-action buttons that need less visual weight.
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-expand-arrows-alt"></i> Button Sizes</h2>
+
+            <div class="demo-row">
+                <h5>Size Variations</h5>
+                <button type="button" class="btn btn-primary btn-lg me-2">Large Button</button>
+                <button type="button" class="btn btn-primary me-2">Default Button</button>
+                <button type="button" class="btn btn-primary btn-sm me-2">Small Button</button>
+
+                <div class="code-snippet">
+                    &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
+                    &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
+                    &lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Large for hero sections, small for compact interfaces like tables
+                    or cards.
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <h5>Block Buttons</h5>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="button">Block Button</button>
+                    <button class="btn btn-outline-secondary" type="button">Another Block Button</button>
+                </div>
+
+                <div class="code-snippet">
+                    &lt;div class="d-grid gap-2"&gt;
+                    &lt;button class="btn btn-primary"&gt;Block Button&lt;/button&gt;
+                    &lt;/div&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Mobile interfaces, form submissions, call-to-action sections.
+                </div>
+            </div>
+        </div>
+
+        <!-- Button States -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-toggle-on"></i> Button States</h2>
+
+            <div class="demo-row">
+                <h5>Interactive States</h5>
+                <button type="button" class="btn btn-primary me-2">Normal</button>
+                <button type="button" class="btn btn-primary active me-2">Active</button>
+                <button type="button" class="btn btn-primary me-2" disabled>Disabled</button>
+                <button type="button" class="btn btn-primary me-2" data-bs-toggle="button">Toggle</button>
+
+                <div class="code-snippet">
+                    &lt;button class="btn btn-primary active"&gt;Active&lt;/button&gt;
+                    &lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;
+                    &lt;button class="btn btn-primary" data-bs-toggle="button"&gt;Toggle&lt;/button&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Active for current page/selection, disabled during
+                    loading/processing, toggle for settings switches.
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Groups -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Button Groups (.btn-group)</h2>
+
+            <div class="demo-row">
+                <h5>Basic Button Group</h5>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
+
+                <div class="code-snippet">
+                    &lt;div class="btn-group" role="group"&gt;
+                    &lt;button type="button" class="btn btn-primary"&gt;Left&lt;/button&gt;
+                    &lt;button type="button" class="btn btn-primary"&gt;Middle&lt;/button&gt;
+                    &lt;button type="button" class="btn btn-primary"&gt;Right&lt;/button&gt;
+                    &lt;/div&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Navigation tabs, view toggles (List/Grid), text formatting tools
+                    (Bold/Italic/Underline).
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <h5>Mixed Button Group with Outline</h5>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary"><i class="fas fa-align-left"></i></button>
+                    <button type="button" class="btn btn-outline-primary"><i class="fas fa-align-center"></i></button>
+                    <button type="button" class="btn btn-outline-primary"><i class="fas fa-align-right"></i></button>
+                    <button type="button" class="btn btn-outline-primary"><i class="fas fa-align-justify"></i></button>
+                </div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Text alignment tools, image editing controls, dashboard view
+                    options.
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <h5>Button Group with Dropdown</h5>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-success">Actions</button>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Duplicate</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="#"><i
+                                        class="fas fa-trash me-2"></i>Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Action menus in data tables, context menus, admin panels.
+                </div>
+            </div>
+        </div>
+
+        <!-- Vertical Button Groups -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-bars"></i> Vertical Button Groups</h2>
+
+            <div class="demo-row">
+                <h5>Vertical Layout</h5>
+                <div class="btn-group-vertical" role="group">
+                    <button type="button" class="btn btn-outline-dark"><i
+                            class="fas fa-home me-2"></i>Dashboard</button>
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-users me-2"></i>Users</button>
+                    <button type="button" class="btn btn-outline-dark"><i
+                            class="fas fa-chart-bar me-2"></i>Analytics</button>
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-cog me-2"></i>Settings</button>
+                </div>
+
+                <div class="code-snippet">
+                    &lt;div class="btn-group-vertical" role="group"&gt;
+                    &lt;button type="button" class="btn btn-outline-dark"&gt;Dashboard&lt;/button&gt;
+                    &lt;button type="button" class="btn btn-outline-dark"&gt;Users&lt;/button&gt;
+                    &lt;button type="button" class="btn btn-outline-dark"&gt;Analytics&lt;/button&gt;
+                    &lt;/div&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Sidebar navigation, mobile menus, vertical toolbars.
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Toolbar -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Button Toolbar</h2>
+
+            <div class="demo-row">
+                <h5>Multiple Button Groups</h5>
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group me-2" role="group">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-bold"></i></button>
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-italic"></i></button>
+                        <button type="button" class="btn btn-outline-secondary"><i
+                                class="fas fa-underline"></i></button>
+                    </div>
+                    <div class="btn-group me-2" role="group">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-cut"></i></button>
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-paste"></i></button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-undo"></i></button>
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+
+                <div class="code-snippet">
+                    &lt;div class="btn-toolbar" role="toolbar"&gt;
+                    &lt;div class="btn-group me-2" role="group"&gt;
+                    &lt;button class="btn btn-outline-secondary"&gt;Bold&lt;/button&gt;
+                    &lt;button class="btn btn-outline-secondary"&gt;Italic&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class="btn-group" role="group"&gt;
+                    &lt;button class="btn btn-outline-secondary"&gt;Cut&lt;/button&gt;
+                    &lt;button class="btn btn-outline-secondary"&gt;Copy&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;</div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Text editors, image editing software, admin dashboards, development
+                    tools.
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Demo -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-play"></i> Interactive Examples</h2>
+
+            <div class="interactive-demo">
+                <h5><i class="fas fa-star text-warning"></i> E-commerce Product Actions</h5>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</button>
+                    <button class="btn btn-outline-danger"><i class="fas fa-heart me-2"></i>Wishlist</button>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-secondary">Share</button>
+                        <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown"></button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fab fa-facebook me-2"></i>Facebook</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h5><i class="fas fa-table text-info"></i> Data Table Actions</h5>
+                <div class="btn-toolbar mb-3" role="toolbar">
+                    <div class="btn-group me-2" role="group">
+                        <button class="btn btn-outline-primary btn-sm"><i class="fas fa-plus me-1"></i>New</button>
+                        <button class="btn btn-outline-success btn-sm"><i class="fas fa-edit me-1"></i>Edit</button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash me-1"></i>Delete</button>
+                    </div>
+                    <div class="btn-group me-2" role="group">
+                        <button class="btn btn-outline-secondary btn-sm active"><i
+                                class="fas fa-list me-1"></i>List</button>
+                        <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-th me-1"></i>Grid</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h5><i class="fas fa-mobile-alt text-success"></i> Mobile App Navigation</h5>
+                <div class="d-grid gap-2">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary active"><i class="fas fa-home me-2"></i>Home</button>
+                        <button class="btn btn-outline-primary"><i class="fas fa-search me-2"></i>Search</button>
+                        <button class="btn btn-outline-primary"><i class="fas fa-user me-2"></i>Profile</button>
+                        <button class="btn btn-outline-primary"><i class="fas fa-cog me-2"></i>Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Features -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> Advanced Features & Tips</h2>
+
+            <div class="demo-row">
+                <h5>Loading States <span class="feature-highlight">UX Enhancement</span></h5>
+                <button class="btn btn-primary me-2" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    Loading...
+                </button>
+                <button class="btn btn-success me-2">
+                    <i class="fas fa-check me-2"></i>Completed
+                </button>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Form submissions, file uploads, API calls, payment processing.
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <h5>Responsive Button Groups</h5>
+                <div class="btn-group d-none d-md-flex" role="group">
+                    <button class="btn btn-outline-info">Desktop View</button>
+                    <button class="btn btn-outline-info">Full Options</button>
+                    <button class="btn btn-outline-info">Available</button>
+                </div>
+                <div class="btn-group-vertical d-flex d-md-none" role="group">
+                    <button class="btn btn-outline-info">Mobile</button>
+                    <button class="btn btn-outline-info">Stacked</button>
+                </div>
+
+                <div class="use-case">
+                    <strong>Real-World Use:</strong> Responsive design patterns, mobile-first approaches, adaptive UI.
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="demo-section">
+            <h2 class="section-title"><i class="fas fa-lightbulb"></i> Key Takeaways</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>✅ Best Practices</h5>
+                    <ul>
+                        <li>Use semantic button classes for meaning</li>
+                        <li>Group related actions with btn-group</li>
+                        <li>Implement loading states for async operations</li>
+                        <li>Consider mobile responsiveness</li>
+                        <li>Use appropriate sizes for context</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>🎯 Common Use Cases</h5>
+                    <ul>
+                        <li>E-commerce: Add to cart, wishlist, share</li>
+                        <li>Admin panels: CRUD operations</li>
+                        <li>Text editors: Formatting toolbars</li>
+                        <li>Navigation: Tab switching, pagination</li>
+                        <li>Forms: Submit, reset, cancel actions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add some interactive behavior
+        document.querySelectorAll('[data-bs-toggle="button"]').forEach(button => {
+            button.addEventListener('click', function () {
+                if (this.classList.contains('active')) {
+                    this.innerHTML = '<i class="fas fa-toggle-off me-2"></i>Off';
+                } else {
+                    this.innerHTML = '<i class="fas fa-toggle-on me-2"></i>On';
+                }
+            });
+        });
+
+        // Simulate loading state
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadingBtn = document.querySelector('.spinner-border').parentElement;
+            setTimeout(() => {
+                loadingBtn.disabled = false;
+                loadingBtn.innerHTML = '<i class="fas fa-check me-2"></i>Success!';
+                loadingBtn.classList.remove('btn-primary');
+                loadingBtn.classList.add('btn-success');
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

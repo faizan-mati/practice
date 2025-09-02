@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Colors & Backgrounds Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+        }
+        .color-demo {
+            padding: 0.75rem;
+            margin: 0.25rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        .gradient-demo {
+            height: 100px;
+            border-radius: 0.375rem;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-5 text-primary">Bootstrap Colors & Backgrounds Complete Guide</h1>
+        
+        <!-- Text Colors Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Text Colors</h2>
+            <p class="mb-3">Bootstrap provides semantic color classes for text:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Primary Colors:</h5>
+                    <p class="text-primary">Primary text (.text-primary)</p>
+                    <p class="text-secondary">Secondary text (.text-secondary)</p>
+                    <p class="text-success">Success text (.text-success)</p>
+                    <p class="text-danger">Danger text (.text-danger)</p>
+                    <p class="text-warning">Warning text (.text-warning)</p>
+                    <p class="text-info">Info text (.text-info)</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Neutral Colors:</h5>
+                    <p class="text-light bg-dark p-2 rounded">Light text (.text-light)</p>
+                    <p class="text-dark">Dark text (.text-dark)</p>
+                    <p class="text-body">Body text (.text-body)</p>
+                    <p class="text-muted">Muted text (.text-muted)</p>
+                    <p class="text-white bg-dark p-2 rounded">White text (.text-white)</p>
+                    <p class="text-black-50">Black 50% (.text-black-50)</p>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-3">
+                <strong>Real-time Use:</strong> Use text colors for status messages, highlighting important information, or creating visual hierarchy in forms and content.
+            </div>
+        </div>
+
+        <!-- Background Colors Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Background Colors</h2>
+            <p class="mb-3">Bootstrap background color classes for containers and components:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="color-demo bg-primary text-white">.bg-primary</div>
+                    <div class="color-demo bg-secondary text-white">.bg-secondary</div>
+                    <div class="color-demo bg-success text-white">.bg-success</div>
+                    <div class="color-demo bg-danger text-white">.bg-danger</div>
+                    <div class="color-demo bg-warning text-dark">.bg-warning</div>
+                    <div class="color-demo bg-info text-white">.bg-info</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="color-demo bg-light text-dark">.bg-light</div>
+                    <div class="color-demo bg-dark text-white">.bg-dark</div>
+                    <div class="color-demo bg-body text-dark">.bg-body</div>
+                    <div class="color-demo bg-white text-dark border">.bg-white</div>
+                    <div class="color-demo bg-transparent border text-dark">.bg-transparent</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Opacity Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Background Opacity</h2>
+            <p class="mb-3">Control background opacity with utility classes:</p>
+            
+            <div class="position-relative">
+                <img src="https://via.placeholder.com/800x200/6c757d/ffffff?text=Background+Image" class="img-fluid rounded" alt="Background">
+                <div class="position-absolute top-0 start-0 w-100 h-100">
+                    <div class="row h-100">
+                        <div class="col-3 bg-primary bg-opacity-100 d-flex align-items-center justify-content-center text-white">
+                            <span>100%</span>
+                        </div>
+                        <div class="col-3 bg-primary bg-opacity-75 d-flex align-items-center justify-content-center text-white">
+                            <span>75%</span>
+                        </div>
+                        <div class="col-3 bg-primary bg-opacity-50 d-flex align-items-center justify-content-center text-white">
+                            <span>50%</span>
+                        </div>
+                        <div class="col-3 bg-primary bg-opacity-25 d-flex align-items-center justify-content-center text-dark">
+                            <span>25%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-3">
+                <code>.bg-opacity-10, .bg-opacity-25, .bg-opacity-50, .bg-opacity-75, .bg-opacity-100</code>
+            </div>
+        </div>
+
+        <!-- Gradient Backgrounds Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Gradient Backgrounds</h2>
+            <p class="mb-3">Add gradients to any background color:</p>
+            
+            <div class="gradient-demo bg-primary bg-gradient">.bg-primary.bg-gradient</div>
+            <div class="gradient-demo bg-success bg-gradient">.bg-success.bg-gradient</div>
+            <div class="gradient-demo bg-danger bg-gradient">.bg-danger.bg-gradient</div>
+            <div class="gradient-demo bg-warning bg-gradient text-dark">.bg-warning.bg-gradient</div>
+            <div class="gradient-demo bg-info bg-gradient">.bg-info.bg-gradient</div>
+            <div class="gradient-demo bg-dark bg-gradient">.bg-dark.bg-gradient</div>
+        </div>
+
+        <!-- Color Variants Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. Color Variants (Subtle Backgrounds)</h2>
+            <p class="mb-3">Subtle background colors with appropriate text contrast:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis border border-primary-subtle rounded">
+                        Primary subtle background
+                    </div>
+                    <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle rounded">
+                        Secondary subtle background
+                    </div>
+                    <div class="p-3 mb-2 bg-success-subtle text-success-emphasis border border-success-subtle rounded">
+                        Success subtle background
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis border border-danger-subtle rounded">
+                        Danger subtle background
+                    </div>
+                    <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded">
+                        Warning subtle background
+                    </div>
+                    <div class="p-3 mb-2 bg-info-subtle text-info-emphasis border border-info-subtle rounded">
+                        Info subtle background
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-world Examples Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">6. Real-world Examples</h2>
+            
+            <!-- Alert Examples -->
+            <h5>Status Alerts:</h5>
+            <div class="alert alert-success" role="alert">
+                <i class="bi bi-check-circle-fill"></i> <strong>Success!</strong> Your account has been created successfully.
+            </div>
+            <div class="alert alert-warning" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i> <strong>Warning!</strong> Your session will expire in 5 minutes.
+            </div>
+            <div class="alert alert-danger" role="alert">
+                <i class="bi bi-x-circle-fill"></i> <strong>Error!</strong> Please check your internet connection.
+            </div>
+
+            <!-- Badge Examples -->
+            <h5 class="mt-4">Status Badges:</h5>
+            <span class="badge bg-success me-2">Active</span>
+            <span class="badge bg-warning text-dark me-2">Pending</span>
+            <span class="badge bg-danger me-2">Inactive</span>
+            <span class="badge bg-info me-2">New</span>
+            <span class="badge bg-secondary me-2">Archive</span>
+
+            <!-- Card Examples -->
+            <h5 class="mt-4">Dashboard Cards:</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Users</h5>
+                            <h2>1,234</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Revenue</h5>
+                            <h2>$45,678</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Pending</h5>
+                            <h2 class="text-dark">89</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Issues</h5>
+                            <h2>12</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Colors Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">7. Button Colors</h2>
+            <p class="mb-3">Bootstrap button color variations:</p>
+            
+            <h5>Solid Buttons:</h5>
+            <button type="button" class="btn btn-primary me-2">Primary</button>
+            <button type="button" class="btn btn-secondary me-2">Secondary</button>
+            <button type="button" class="btn btn-success me-2">Success</button>
+            <button type="button" class="btn btn-danger me-2">Danger</button>
+            <button type="button" class="btn btn-warning me-2">Warning</button>
+            <button type="button" class="btn btn-info me-2">Info</button>
+            <button type="button" class="btn btn-light me-2">Light</button>
+            <button type="button" class="btn btn-dark me-2">Dark</button>
+
+            <h5 class="mt-4">Outline Buttons:</h5>
+            <button type="button" class="btn btn-outline-primary me-2">Primary</button>
+            <button type="button" class="btn btn-outline-secondary me-2">Secondary</button>
+            <button type="button" class="btn btn-outline-success me-2">Success</button>
+            <button type="button" class="btn btn-outline-danger me-2">Danger</button>
+            <button type="button" class="btn btn-outline-warning me-2">Warning</button>
+            <button type="button" class="btn btn-outline-info me-2">Info</button>
+        </div>
+
+        <!-- Border Colors Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">8. Border Colors</h2>
+            <p class="mb-3">Add colored borders to elements:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-3 mb-2 border border-primary rounded">Primary border</div>
+                    <div class="p-3 mb-2 border border-success rounded">Success border</div>
+                    <div class="p-3 mb-2 border border-danger rounded">Danger border</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 mb-2 border border-warning rounded">Warning border</div>
+                    <div class="p-3 mb-2 border border-info rounded">Info border</div>
+                    <div class="p-3 mb-2 border border-dark rounded">Dark border</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Examples Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">9. Interactive Examples</h2>
+            
+            <!-- Theme Switcher -->
+            <h5>Theme Switcher Example:</h5>
+            <div class="mb-4">
+                <button onclick="changeTheme('light')" class="btn btn-light border me-2">Light Theme</button>
+                <button onclick="changeTheme('dark')" class="btn btn-dark me-2">Dark Theme</button>
+                <button onclick="changeTheme('primary')" class="btn btn-primary me-2">Primary Theme</button>
+            </div>
+            
+            <div id="themeDemo" class="p-4 rounded bg-light">
+                <h6>Sample Content Area</h6>
+                <p class="mb-0">This content changes background based on theme selection above.</p>
+            </div>
+
+            <!-- Status Indicator -->
+            <h5 class="mt-4">Status Indicator Example:</h5>
+            <div class="mb-3">
+                <button onclick="updateStatus('online')" class="btn btn-sm btn-outline-success me-2">Set Online</button>
+                <button onclick="updateStatus('away')" class="btn btn-sm btn-outline-warning me-2">Set Away</button>
+                <button onclick="updateStatus('offline')" class="btn btn-sm btn-outline-secondary me-2">Set Offline</button>
+            </div>
+            
+            <div id="statusIndicator" class="d-flex align-items-center">
+                <span class="badge bg-secondary me-2">●</span>
+                <span id="statusText">Status: Offline</span>
+            </div>
+        </div>
+
+        <!-- Advanced Color Utilities -->
+        <div class="demo-section">
+            <h2 class="mb-4">10. Advanced Color Utilities</h2>
+            
+            <h5>Text Color with Opacity:</h5>
+            <div class="mb-3">
+                <p class="text-primary text-opacity-100">Primary text 100% opacity</p>
+                <p class="text-primary text-opacity-75">Primary text 75% opacity</p>
+                <p class="text-primary text-opacity-50">Primary text 50% opacity</p>
+                <p class="text-primary text-opacity-25">Primary text 25% opacity</p>
+            </div>
+
+            <h5>Link Colors:</h5>
+            <div class="mb-3">
+                <a href="#" class="link-primary me-3">Primary link</a>
+                <a href="#" class="link-secondary me-3">Secondary link</a>
+                <a href="#" class="link-success me-3">Success link</a>
+                <a href="#" class="link-danger me-3">Danger link</a>
+            </div>
+        </div>
+
+        <!-- Practical Use Cases -->
+        <div class="demo-section">
+            <h2 class="mb-4">11. Practical Use Cases</h2>
+            
+            <!-- E-commerce Product Card -->
+            <h5>E-commerce Product Status:</h5>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Wireless Headphones</h6>
+                            <p class="card-text text-muted">Premium audio quality</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-success mb-0">$99.99</span>
+                                <span class="badge bg-success">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Smart Watch</h6>
+                            <p class="card-text text-muted">Track your fitness</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-warning mb-0">$199.99</span>
+                                <span class="badge bg-warning text-dark">Low Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Gaming Mouse</h6>
+                            <p class="card-text text-muted">High precision gaming</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-muted mb-0"><s>$79.99</s></span>
+                                <span class="badge bg-danger">Out of Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification System -->
+            <h5>Notification System:</h5>
+            <div class="mb-3">
+                <button onclick="showNotification('success')" class="btn btn-sm btn-success me-2">Success</button>
+                <button onclick="showNotification('error')" class="btn btn-sm btn-danger me-2">Error</button>
+                <button onclick="showNotification('info')" class="btn btn-sm btn-info me-2">Info</button>
+            </div>
+            <div id="notificationArea"></div>
+
+            <!-- Progress Indicators -->
+            <h5 class="mt-4">Progress Indicators:</h5>
+            <div class="mb-2">
+                <label class="form-label">Download Progress</label>
+                <div class="progress">
+                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 75%">75%</div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Upload Progress</label>
+                <div class="progress">
+                    <div class="progress-bar bg-info" style="width: 45%">45%</div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Server Load</label>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" style="width: 85%">85% - High Load</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Customization -->
+        <div class="demo-section">
+            <h2 class="mb-4">12. CSS Custom Properties (Advanced)</h2>
+            <p class="mb-3">Bootstrap uses CSS custom properties that you can override:</p>
+            
+            <div class="bg-light p-3 rounded">
+                <code>
+:root {<br>
+&nbsp;&nbsp;--bs-primary: #0d6efd;<br>
+&nbsp;&nbsp;--bs-success: #198754;<br>
+&nbsp;&nbsp;--bs-danger: #dc3545;<br>
+&nbsp;&nbsp;--bs-warning: #ffc107;<br>
+&nbsp;&nbsp;--bs-info: #0dcaf0;<br>
+}
+                </code>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="demo-section bg-light">
+            <h2 class="mb-4">13. Best Practices & Tips</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-success">✓ Do:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">• Use semantic colors (success for positive actions)</li>
+                        <li class="mb-2">• Maintain sufficient contrast for accessibility</li>
+                        <li class="mb-2">• Use subtle variants for backgrounds</li>
+                        <li class="mb-2">• Combine with appropriate text colors</li>
+                        <li class="mb-2">• Use opacity for layered effects</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-danger">✗ Avoid:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">• Overusing bright colors</li>
+                        <li class="mb-2">• Poor color contrast combinations</li>
+                        <li class="mb-2">• Using colors without semantic meaning</li>
+                        <li class="mb-2">• Mixing too many different color schemes</li>
+                        <li class="mb-2">• Ignoring color accessibility guidelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="demo-section">
+            <h2 class="mb-4">14. Quick Reference</h2>
+            
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Category</th>
+                            <th>Classes</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Text Colors</td>
+                            <td><code>.text-primary, .text-success, .text-danger</code></td>
+                            <td>Highlighting text, status messages</td>
+                        </tr>
+                        <tr>
+                            <td>Backgrounds</td>
+                            <td><code>.bg-primary, .bg-light, .bg-dark</code></td>
+                            <td>Cards, headers, sections</td>
+                        </tr>
+                        <tr>
+                            <td>Subtle Backgrounds</td>
+                            <td><code>.bg-primary-subtle, .text-primary-emphasis</code></td>
+                            <td>Alerts, notifications, highlights</td>
+                        </tr>
+                        <tr>
+                            <td>Opacity</td>
+                            <td><code>.bg-opacity-25, .text-opacity-50</code></td>
+                            <td>Overlays, subtle effects</td>
+                        </tr>
+                        <tr>
+                            <td>Gradients</td>
+                            <td><code>.bg-gradient</code></td>
+                            <td>Modern UI elements, headers</td>
+                        </tr>
+                        <tr>
+                            <td>Borders</td>
+                            <td><code>.border-primary, .border-success</code></td>
+                            <td>Form validation, emphasis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme switcher functionality
+        function changeTheme(theme) {
+            const themeDemo = document.getElementById('themeDemo');
+            
+            // Remove existing background classes
+            themeDemo.className = themeDemo.className.replace(/bg-\S+/g, '');
+            themeDemo.className = themeDemo.className.replace(/text-\S+/g, '');
+            
+            switch(theme) {
+                case 'light':
+                    themeDemo.classList.add('bg-light', 'text-dark');
+                    break;
+                case 'dark':
+                    themeDemo.classList.add('bg-dark', 'text-white');
+                    break;
+                case 'primary':
+                    themeDemo.classList.add('bg-primary', 'text-white');
+                    break;
+            }
+        }
+
+        // Status indicator functionality
+        function updateStatus(status) {
+            const statusIndicator = document.getElementById('statusIndicator');
+            const statusText = document.getElementById('statusText');
+            const badge = statusIndicator.querySelector('.badge');
+            
+            // Remove existing background classes from badge
+            badge.className = 'badge me-2';
+            
+            switch(status) {
+                case 'online':
+                    badge.classList.add('bg-success');
+                    statusText.textContent = 'Status: Online';
+                    break;
+                case 'away':
+                    badge.classList.add('bg-warning');
+                    statusText.textContent = 'Status: Away';
+                    break;
+                case 'offline':
+                    badge.classList.add('bg-secondary');
+                    statusText.textContent = 'Status: Offline';
+                    break;
+            }
+        }
+
+        // Notification system
+        function showNotification(type) {
+            const notificationArea = document.getElementById('notificationArea');
+            const notification = document.createElement('div');
+            
+            let bgClass, textClass, message;
+            switch(type) {
+                case 'success':
+                    bgClass = 'bg-success-subtle';
+                    textClass = 'text-success-emphasis';
+                    message = 'Operation completed successfully!';
+                    break;
+                case 'error':
+                    bgClass = 'bg-danger-subtle';
+                    textClass = 'text-danger-emphasis';
+                    message = 'An error occurred. Please try again.';
+                    break;
+                case 'info':
+                    bgClass = 'bg-info-subtle';
+                    textClass = 'text-info-emphasis';
+                    message = 'Here\'s some useful information for you.';
+                    break;
+            }
+            
+            notification.className = `alert ${bgClass} ${textClass} alert-dismissible fade show`;
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+            `;
+            
+            notificationArea.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Demo: Dynamic progress bar
+        let progressValue = 0;
+        function animateProgress() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressValue = (progressValue + 10) % 110;
+            
+            progressBars.forEach((bar, index) => {
+                const value = Math.max(0, progressValue - (index * 20));
+                bar.style.width = value + '%';
+                bar.textContent = value + '%';
+                
+                // Change color based on progress
+                bar.className = 'progress-bar';
+                if (value < 30) {
+                    bar.classList.add('bg-danger');
+                } else if (value < 70) {
+                    bar.classList.add('bg-warning');
+                } else {
+                    bar.classList.add('bg-success');
+                }
+            });
+        }
+
+        // Start progress animation
+        setInterval(animateProgress, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid System Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .demo-box-alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .demo-box-green {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .section {
+            margin: 50px 0;
+            padding: 30px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            color: #495057;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .nested-demo {
+            background: rgba(0, 123, 255, 0.1);
+            border: 2px dashed #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 display-4">Bootstrap Grid System Complete Guide</h1>
+
+            <!-- Basic Grid Structure -->
+            <div class="section">
+                <h2>1. Basic Grid Structure (Container → Row → Column)</h2>
+                <p><strong>The grid system follows a hierarchical structure:</strong></p>
+                <ul>x`
+                    <li><code>.container</code> or <code>.container-fluid</code> - Wrapper for responsive layout</li>
+                    <li><code>.row</code> - Creates horizontal groups of columns</li>
+                    <li><code>.col-*</code> - Content goes inside columns</li>
+                </ul>
+
+                <div class="code-example">
+                    &lt;div class="container"&gt;
+                    &lt;div class="row"&gt;
+                    &lt;div class="col-*"&gt;Content&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="demo-box">Column 1</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="demo-box">Column 2</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="demo-box">Column 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column System -->
+            <div class="section">
+                <h2>2. Column System (12-Column Grid)</h2>
+                <p>Bootstrap uses a 12-column system. Columns can span from 1 to 12 units.</p>
+
+                <div class="highlight">
+                    <strong>Key Breakpoints:</strong><br>
+                    • <code>col-xs</code> (extra small) ≥576px<br>
+                    • <code>col-sm</code> (small) ≥576px<br>
+                    • <code>col-md</code> (medium) ≥768px<br>
+                    • <code>col-lg</code> (large) ≥992px<br>
+                    • <code>col-xl</code> (extra large) ≥1200px<br>
+                    • <code>col-xxl</code> (extra extra large) ≥1400px
+                </div>
+
+                <h4>Equal Width Columns:</h4>
+                <div class="row">
+                    <div class="col">
+                        <div class="demo-box">Auto-width</div>
+                    </div>
+                    <div class="col">
+                        <div class="demo-box">Auto-width</div>
+                    </div>
+                    <div class="col">
+                        <div class="demo-box">Auto-width</div>
+                    </div>
+                </div>
+
+                <h4>Specific Width Columns:</h4>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="demo-box">col-3</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box">col-6</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="demo-box">col-3</div>
+                    </div>
+                </div>
+
+                <h4>Responsive Columns:</h4>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="demo-box">Responsive</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="demo-box">Responsive</div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="demo-box">Responsive</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto Columns -->
+            <div class="section">
+                <h2>3. Auto Columns</h2>
+                <p>Auto columns automatically adjust their width based on content or available space.</p>
+
+                <h4>Auto-width based on content:</h4>
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="demo-box">Auto width content</div>
+                    </div>
+                    <div class="col">
+                        <div class="demo-box">Fills remaining space</div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="demo-box">Auto</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    &lt;div class="row"&gt;
+                    &lt;div class="col-auto"&gt;Auto width&lt;/div&gt;
+                    &lt;div class="col"&gt;Fills remaining&lt;/div&gt;
+                    &lt;div class="col-auto"&gt;Auto&lt;/div&gt;
+                    &lt;/div&gt;
+                </div>
+            </div>
+
+            <!-- Fixed Columns -->
+            <div class="section">
+                <h2>4. Fixed Columns</h2>
+                <p>Fixed columns maintain specific widths regardless of screen size (until breakpoint changes).</p>
+
+                <h4>Fixed width examples:</h4>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="demo-box">col-2</div>
+                    </div>
+                    <div class="col-8">
+                        <div class="demo-box">col-8 (Fixed)</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="demo-box">col-2</div>
+                    </div>
+                </div>
+
+                <h4>Mixed fixed and auto:</h4>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="demo-box">Fixed (col-3)</div>
+                    </div>
+                    <div class="col">
+                        <div class="demo-box">Auto (fills rest)</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="demo-box">Fixed (col-2)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gutters: gx-* (Horizontal) -->
+            <div class="section">
+                <h2>5. Horizontal Gutters (gx-*)</h2>
+                <p>Control horizontal spacing between columns. Values range from 0-5.</p>
+
+                <h4>No horizontal gutters (gx-0):</h4>
+                <div class="row gx-0">
+                    <div class="col-4">
+                        <div class="demo-box">No gap</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-box">No gap</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-box">No gap</div>
+                    </div>
+                </div>
+
+                <h4>Large horizontal gutters (gx-5):</h4>
+                <div class="row gx-5">
+                    <div class="col-4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    &lt;div class="row gx-0"&gt;...&lt;/div&gt; &lt;!-- No horizontal gaps --&gt;
+                    &lt;div class="row gx-3"&gt;...&lt;/div&gt; &lt;!-- Default gaps --&gt;
+                    &lt;div class="row gx-5"&gt;...&lt;/div&gt; &lt;!-- Large gaps --&gt;
+                </div>
+            </div>
+
+            <!-- Gutters: gy-* (Vertical) -->
+            <div class="section">
+                <h2>6. Vertical Gutters (gy-*)</h2>
+                <p>Control vertical spacing between rows when columns wrap.</p>
+
+                <h4>Default vertical gutters (gy-3):</h4>
+                <div class="row gy-3">
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 1</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 2</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 3</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 4</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 5</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box-alt">Item 6</div>
+                    </div>
+                </div>
+
+                <h4>Large vertical gutters (gy-5):</h4>
+                <div class="row gy-5">
+                    <div class="col-6">
+                        <div class="demo-box-green">Large vertical gap</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-green">Large vertical gap</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-green">Large vertical gap</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-green">Large vertical gap</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combined Gutters -->
+            <div class="section">
+                <h2>7. Combined Gutters (g-*)</h2>
+                <p>Use <code>g-*</code> to set both horizontal and vertical gutters, or combine <code>gx-*</code> and
+                    <code>gy-*</code> for different spacing.</p>
+
+                <h4>Combined gutters (g-4):</h4>
+                <div class="row g-4">
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">g-4</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">g-4</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">g-4</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">g-4</div>
+                    </div>
+                </div>
+
+                <h4>Different horizontal and vertical gutters:</h4>
+                <div class="row gx-2 gy-5">
+                    <div class="col-6 col-md-4">
+                        <div class="demo-box-alt">gx-2 gy-5</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="demo-box-alt">gx-2 gy-5</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="demo-box-alt">gx-2 gy-5</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="demo-box-alt">gx-2 gy-5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-world Examples -->
+            <div class="section">
+                <h2>8. Real-World Examples</h2>
+
+                <h4>Example 1: Product Card Grid</h4>
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Product 1</h5>
+                                <p class="card-text">Responsive product card that adapts to screen size.</p>
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Product 2</h5>
+                                <p class="card-text">Mobile: full width, Tablet: 2 per row, Desktop: 3 per row.</p>
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Product 3</h5>
+                                <p class="card-text">Perfect for e-commerce layouts.</p>
+                                <button class="btn btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-5">Example 2: Dashboard Layout</h4>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>Column Sizes</h6>
+                            </div>
+                            <div class="card-body">
+                                <code>col-1</code> to <code>col-12</code><br>
+                                <code>col-sm-1</code> to <code>col-sm-12</code><br>
+                                <code>col-md-1</code> to <code>col-md-12</code><br>
+                                <code>col-lg-1</code> to <code>col-lg-12</code><br>
+                                <code>col-xl-1</code> to <code>col-xl-12</code><br>
+                                <code>col-xxl-1</code> to <code>col-xxl-12</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>Gutter Sizes</h6>
+                            </div>
+                            <div class="card-body">
+                                <code>g-0</code> = 0px (no gutters)<br>
+                                <code>g-1</code> = 0.25rem (4px)<br>
+                                <code>g-2</code> = 0.5rem (8px)<br>
+                                <code>g-3</code> = 1rem (16px) - Default<br>
+                                <code>g-4</code> = 1.5rem (24px)<br>
+                                <code>g-5</code> = 3rem (48px)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Demo -->
+            <div class="section">
+                <h2>13. Interactive Grid Demo</h2>
+                <p>Try resizing your browser window to see how the grid responds!</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="demo-box">
+                            <small>XS:12 SM:6 MD:4 LG:3 XL:2</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <strong>Resize Behavior:</strong><br>
+                    • Mobile (XS): 1 column per row<br>
+                    • Small (SM): 2 columns per row<br>
+                    • Medium (MD): 3 columns per row<br>
+                    • Large (LG): 4 columns per row<br>
+                    • Extra Large (XL): 6 columns per row
+                </div>
+            </div>
+
+            <!-- Form Example -->
+            <div class="section">
+                <h2>14. Form Layout Example</h2>
+
+                <form class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName">
+                    </div>
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city">
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-3">
+                        <label for="state" class="form-label">State</label>
+                        <select class="form-select" id="state">
+                            <option>Choose...</option>
+                            <option>Sindh</option>
+                            <option>Punjab</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-2 col-md-2">
+                        <label for="zip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="zip">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Performance Tips -->
+            <div class="section">
+                <h2>15. Best Practices & Performance Tips</h2>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
+                        <div class="card border-success">
+                            <div class="card-header bg-success text-white">
+                                <h6>✅ Do's</h6>
+                            </div>
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li>Always wrap columns in <code>.row</code></li>
+                                    <li>Use mobile-first approach (<code>col-12 col-md-6</code>)</li>
+                                    <li>Combine auto and fixed columns strategically</li>
+                                    <li>Use appropriate gutter spacing for design</li>
+                                    <li>Test on multiple screen sizes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger text-white">
+                                <h6>❌ Don'ts</h6>
+                            </div>
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li>Don't put content directly in <code>.row</code></li>
+                                    <li>Don't exceed 12 columns in a row</li>
+                                    <li>Don't forget to test mobile layouts</li>
+                                    <li>Don't use excessive nesting (max 2-3 levels)</li>
+                                    <li>Don't ignore accessibility considerations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Patterns -->
+            <div class="section">
+                <h2>16. Common Layout Patterns</h2>
+
+                <h4>Pattern 1: Holy Grail Layout</h4>
+                <div class="row g-2">
+                    <div class="col-12">
+                        <div class="demo-box">Header</div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="demo-box-alt">Left Sidebar</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="demo-box-green">Main Content</div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="demo-box-alt">Right Sidebar</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="demo-box">Footer</div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Pattern 2: Image Gallery</h4>
+                <div class="row g-2">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="demo-box">Image 1</div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="demo-box">Image 2</div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="demo-box">Image 3</div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="demo-box">Image 4</div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Pattern 3: Pricing Table</h4>
+                <div class="row g-4">
+                    <div class="col-12 col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <h5>Basic</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2>$9<small class="text-muted">/mo</small></h2>
+                                <ul class="list-unstyled">
+                                    <li>10 users</li>
+                                    <li>2 GB storage</li>
+                                    <li>Email support</li>
+                                </ul>
+                                <button class="btn btn-outline-primary">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card text-center border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <h5>Pro</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2>$29<small class="text-muted">/mo</small></h2>
+                                <ul class="list-unstyled">
+                                    <li>50 users</li>
+                                    <li>10 GB storage</li>
+                                    <li>Priority support</li>
+                                </ul>
+                                <button class="btn btn-primary">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <h5>Enterprise</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2>$99<small class="text-muted">/mo</small></h2>
+                                <ul class="list-unstyled">
+                                    <li>Unlimited users</li>
+                                    <li>Unlimited storage</li>
+                                    <li>Phone support</li>
+                                </ul>
+                                <button class="btn btn-outline-primary">Choose Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="section">
+                <h2>17. Quick Reference Cheat Sheet</h2>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>Essential Classes</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="code-example">
+                                    /* Basic Structure */
+                                    .container /* Fixed width container */
+                                    .container-fluid /* Full width container */
+                                    .row /* Horizontal group of columns */
+                                    .col /* Auto-width column */
+                                    .col-{1-12} /* Fixed width column */
+
+                                    /* Responsive Columns */
+                                    .col-sm-{1-12} /* Small screens ≥576px */
+                                    .col-md-{1-12} /* Medium screens ≥768px */
+                                    .col-lg-{1-12} /* Large screens ≥992px */
+                                    .col-xl-{1-12} /* Extra large ≥1200px */
+                                    .col-xxl-{1-12} /* Extra extra large ≥1400px */
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>Gutter Classes</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="code-example">
+                                    /* Gutters */
+                                    .g-{0-5} /* All gutters */
+                                    .gx-{0-5} /* Horizontal gutters only */
+                                    .gy-{0-5} /* Vertical gutters only */
+
+                                    /* Responsive Gutters */
+                                    .g-sm-{0-5} /* Small screens */
+                                    .g-md-{0-5} /* Medium screens */
+                                    .g-lg-{0-5} /* Large screens */
+                                    .g-xl-{0-5} /* Extra large screens */
+                                    .g-xxl-{0-5} /* Extra extra large screens */
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Layout Demonstration -->
+            <div class="section">
+                <h2>18. Live Responsive Demonstration</h2>
+                <p>This section shows how different grid configurations behave at various screen sizes:</p>
+
+                <h4>Scenario: News Website Layout</h4>
+                <div class="row g-3">
+                    <!-- Main Article -->
+                    <div class="col-12 col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Breaking News Article</h5>
+                                <p class="text-muted">Published 2 hours ago</p>
+                                <p>This main article takes full width on mobile and tablets, but 8/12 columns on desktop
+                                    screens, providing optimal reading experience across devices.</p>
+
+                                <!-- Related articles in sub-grid -->
+                                <h6 class="mt-4">Related Articles</h6>
+                                <div class="row g-2">
+                                    <div class="col-6 col-md-4">
+                                        <div class="demo-box-alt">Related 1</div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="demo-box-alt">Related 2</div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="demo-box-alt">Related 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-12 col-lg-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6>Trending Topics</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="demo-box-green mb-2">Topic 1</div>
+                                        <div class="demo-box-green mb-2">Topic 2</div>
+                                        <div class="demo-box-green">Topic 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6>Advertisement</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="demo-box">Ad Space</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Gutter Examples -->
+            <div class="section">
+                <h2>19. Advanced Gutter Techniques</h2>
+
+                <h4>Responsive Gutters:</h4>
+                <div class="row g-1 g-md-3 g-lg-5">
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">Responsive Gutters</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">Small on mobile</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">Medium on tablet</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="demo-box">Large on desktop</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    &lt;div class="row g-1 g-md-3 g-lg-5"&gt;
+                    &lt;!-- Small gutters on mobile, medium on tablet, large on desktop --&gt;
+                    &lt;/div&gt;
+                </div>
+
+                <h4 class="mt-4">Asymmetric Gutters:</h4>
+                <div class="row gx-1 gy-4">
+                    <div class="col-6">
+                        <div class="demo-box-alt">Tight horizontal</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-alt">Loose vertical</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-alt">Tight horizontal</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="demo-box-alt">Loose vertical</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="section bg-primary text-white">
+                <h2 class="text-white border-bottom border-light">Summary</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <h5>Grid Fundamentals:</h5>
+                        <ul>
+                            <li><strong>Container:</strong> Wrapper for responsive layout</li>
+                            <li><strong>Row:</strong> Horizontal grouping of columns</li>
+                            <li><strong>Column:</strong> Content containers (1-12 units)</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h5>Key Features:</h5>
+                        <ul>
+                            <li><strong>Auto Columns:</strong> Flexible, content-based width</li>
+                            <li><strong>Fixed Columns:</strong> Precise width control</li>
+                            <li><strong>Gutters:</strong> Spacing control (gx, gy, g)</li>
+                            <li><strong>Responsive:</strong> Adapts to screen sizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add interactive features
+        document.addEventListener('DOMContentLoaded', function () {
+            // Show current screen size
+            function updateScreenSize() {
+                const width = window.innerWidth;
+                let size = 'XS';
+                if (width >= 1400) size = 'XXL';
+                else if (width >= 1200) size = 'XL';
+                else if (width >= 992) size = 'LG';
+                else if (width >= 768) size = 'MD';
+                else if (width >= 576) size = 'SM';
+
+                // Create or update size indicator
+                let indicator = document.getElementById('size-indicator');
+                if (!indicator) {
+                    indicator = document.createElement('div');
+                    indicator.id = 'size-indicator';
+                    indicator.style.position = 'fixed';
+                    indicator.style.top = '10px';
+                    indicator.style.right = '10px';
+                    indicator.style.background = '#007bff';
+                    indicator.style.color = 'white';
+                    indicator.style.padding = '10px 15px';
+                    indicator.style.borderRadius = '5px';
+                    indicator.style.zIndex = '1000';
+                    indicator.style.fontWeight = 'bold';
+                    document.body.appendChild(indicator);
+                }
+                indicator.textContent = `Screen: ${size} (${width}px)`;
+            }
+
+            updateScreenSize();
+            window.addEventListener('resize', updateScreenSize);
+        });
+    </script>
+</body>
+
+</html>

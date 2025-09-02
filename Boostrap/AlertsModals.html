@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Alerts, Modals & Tooltips Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid #0d6efd;
+            background-color: #f8f9fa;
+        }
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+        .feature-card {
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg gradient-bg">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">
+                <i class="fas fa-code"></i> Bootstrap Components Guide
+            </span>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary">Bootstrap Components Mastery</h1>
+            <p class="lead text-muted">Complete guide to Alerts, Modals, and Tooltips with real-world examples</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header gradient-bg">
+                        <h5 class="mb-0"><i class="fas fa-list"></i> Table of Contents</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6>1. Alerts</h6>
+                                <ul class="list-unstyled">
+                                    <li>• Basic Alerts</li>
+                                    <li>• Dismissible Alerts</li>
+                                    <li>• Alert Links</li>
+                                    <li>• Dynamic Alerts</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>2. Modals</h6>
+                                <ul class="list-unstyled">
+                                    <li>• Basic Modal</li>
+                                    <li>• Modal Sizes</li>
+                                    <li>• Modal Events</li>
+                                    <li>• Nested Modals</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>3. Tooltips</h6>
+                                <ul class="list-unstyled">
+                                    <li>• Basic Tooltips</li>
+                                    <li>• Tooltip Positions</li>
+                                    <li>• HTML Tooltips</li>
+                                    <li>• Dynamic Tooltips</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALERTS SECTION -->
+        <div class="demo-section">
+            <h2 class="text-primary mb-4"><i class="fas fa-exclamation-triangle"></i> Bootstrap Alerts</h2>
+            <p>Alerts provide contextual feedback messages for typical user actions with flexible alert messages.</p>
+
+            <!-- Basic Alerts -->
+            <h4>1. Basic Alerts</h4>
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert">
+                        <i class="fas fa-info-circle"></i> Primary alert - Important information
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                        <i class="fas fa-cog"></i> Secondary alert - General information
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <i class="fas fa-check-circle"></i> Success alert - Operation completed successfully
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fas fa-times-circle"></i> Danger alert - Critical error occurred
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> Warning alert - Proceed with caution
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle"></i> Info alert - Additional information
+                    </div>
+                    <div class="alert alert-light" role="alert">
+                        Light alert - Subtle information
+                    </div>
+                    <div class="alert alert-dark" role="alert">
+                        Dark alert - Strong contrast information
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+&lt;div class="alert alert-success" role="alert"&gt;
+    &lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Success alert - Operation completed successfully
+&lt;/div&gt;
+            </div>
+
+            <!-- Dismissible Alerts -->
+            <h4>2. Dismissible Alerts</h4>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Warning!</strong> This is a dismissible alert. Click the × to close.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <i class="fas fa-info-circle"></i>
+                <strong>Did you know?</strong> You can dismiss this alert and it will fade out smoothly.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+
+            <div class="code-example">
+&lt;div class="alert alert-warning alert-dismissible fade show" role="alert"&gt;
+    &lt;strong&gt;Warning!&lt;/strong&gt; This is a dismissible alert.
+    &lt;button type="button" class="btn-close" data-bs-dismiss="alert"&gt;&lt;/button&gt;
+&lt;/div&gt;
+            </div>
+
+            <!-- Alert with Links -->
+            <h4>3. Alert Links</h4>
+            <div class="alert alert-primary" role="alert">
+                This is a primary alert with an <a href="#" class="alert-link">example link</a>. Give it a click if you like.
+            </div>
+
+            <!-- Dynamic Alerts -->
+            <h4>4. Dynamic Alerts</h4>
+            <div id="dynamicAlertContainer"></div>
+            <button type="button" class="btn btn-success me-2" onclick="showAlert('success', 'Operation completed successfully!')">
+                <i class="fas fa-plus"></i> Show Success Alert
+            </button>
+            <button type="button" class="btn btn-danger me-2" onclick="showAlert('danger', 'An error occurred!')">
+                <i class="fas fa-exclamation"></i> Show Error Alert
+            </button>
+            <button type="button" class="btn btn-warning" onclick="showAlert('warning', 'Please review your input!')">
+                <i class="fas fa-warning"></i> Show Warning Alert
+            </button>
+        </div>
+
+        <!-- MODALS SECTION -->
+        <div class="demo-section">
+            <h2 class="text-primary mb-4"><i class="fas fa-window-restore"></i> Bootstrap Modals</h2>
+            <p>Modals are dialogs that appear on top of the main content to focus user attention on important information.</p>
+
+            <!-- Basic Modal -->
+            <h4>1. Basic Modal</h4>
+            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#basicModal">
+                <i class="fas fa-external-link-alt"></i> Launch Basic Modal
+            </button>
+
+            <!-- Modal Sizes -->
+            <h4 class="mt-4">2. Modal Sizes</h4>
+            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#smallModal">
+                Small Modal
+            </button>
+            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#largeModal">
+                Large Modal
+            </button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#xlModal">
+                Extra Large Modal
+            </button>
+
+            <!-- Advanced Modal Features -->
+            <h4 class="mt-4">3. Advanced Features</h4>
+            <button type="button" class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#centeredModal">
+                <i class="fas fa-align-center"></i> Vertically Centered
+            </button>
+            <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#scrollableModal">
+                <i class="fas fa-scroll"></i> Scrollable Content
+            </button>
+            <button type="button" class="btn btn-success" onclick="showDynamicModal()">
+                <i class="fas fa-magic"></i> Dynamic Modal
+            </button>
+
+            <div class="code-example mt-3">
+&lt;!-- Modal Trigger --&gt;
+&lt;button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"&gt;
+    Launch Modal
+&lt;/button&gt;
+
+&lt;!-- Modal Structure --&gt;
+&lt;div class="modal fade" id="myModal"&gt;
+    &lt;div class="modal-dialog"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h5 class="modal-title"&gt;Modal Title&lt;/h5&gt;
+                &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;Modal content goes here...&lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;button type="button" class="btn btn-secondary" data-bs-dismiss="modal"&gt;Close&lt;/button&gt;
+                &lt;button type="button" class="btn btn-primary"&gt;Save Changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+        </div>
+
+        <!-- TOOLTIPS SECTION -->
+        <div class="demo-section">
+            <h2 class="text-primary mb-4"><i class="fas fa-comment"></i> Bootstrap Tooltips</h2>
+            <p>Tooltips display informative text when users hover over, focus on, or tap an element.</p>
+
+            <!-- Basic Tooltips -->
+            <h4>1. Basic Tooltips</h4>
+            <p>
+                <button type="button" class="btn btn-primary me-2" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="This is a top tooltip">
+                    <i class="fas fa-arrow-up"></i> Top Tooltip
+                </button>
+
+                <button type="button" class="btn btn-secondary me-2" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        title="This is a right tooltip">
+                    <i class="fas fa-arrow-right"></i> Right Tooltip
+                </button>
+
+                <button type="button" class="btn btn-success me-2" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="bottom" 
+                        title="This is a bottom tooltip">
+                    <i class="fas fa-arrow-down"></i> Bottom Tooltip
+                </button>
+
+                <button type="button" class="btn btn-warning" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="left" 
+                        title="This is a left tooltip">
+                    <i class="fas fa-arrow-left"></i> Left Tooltip
+                </button>
+            </p>
+
+            <!-- HTML Tooltips -->
+            <h4>2. HTML Content Tooltips</h4>
+            <p>
+                <button type="button" class="btn btn-info me-2" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-html="true" 
+                        title="<strong>Bold text</strong><br><em>Italic text</em><br><u>Underlined text</u>">
+                    HTML Tooltip
+                </button>
+
+                <span class="d-inline-block" 
+                      data-bs-toggle="tooltip" 
+                      title="Tooltip on disabled element">
+                    <button class="btn btn-danger" disabled>Disabled Button</button>
+                </span>
+            </p>
+
+            <!-- Interactive Elements with Tooltips -->
+            <h4>3. Various Elements with Tooltips</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card" 
+                         data-bs-toggle="tooltip" 
+                         title="This is a feature card with tooltip">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star fa-2x text-warning mb-2"></i>
+                            <h6>Feature Card</h6>
+                            <small class="text-muted">Hover for tooltip</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card" 
+                         data-bs-toggle="tooltip" 
+                         title="Advanced tooltip with more information">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cog fa-2x text-primary mb-2"></i>
+                            <h6>Settings Card</h6>
+                            <small class="text-muted">Hover for tooltip</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card" 
+                         data-bs-toggle="tooltip" 
+                         title="User management features">
+                        <div class="card-body text-center">
+                            <i class="fas fa-users fa-2x text-success mb-2"></i>
+                            <h6>Users Card</h6>
+                            <small class="text-muted">Hover for tooltip</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example mt-3">
+&lt;!-- Basic Tooltip --&gt;
+&lt;button type="button" class="btn btn-primary" 
+        data-bs-toggle="tooltip" 
+        data-bs-placement="top" 
+        title="Tooltip text"&gt;
+    Hover me
+&lt;/button&gt;
+
+&lt;!-- HTML Tooltip --&gt;
+&lt;button type="button" class="btn btn-info" 
+        data-bs-toggle="tooltip" 
+        data-bs-html="true" 
+        title="&lt;strong&gt;Bold&lt;/strong&gt; content"&gt;
+    HTML Tooltip
+&lt;/button&gt;
+
+&lt;script&gt;
+// Initialize tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+&lt;/script&gt;
+            </div>
+
+            <!-- Dynamic Tooltips -->
+            <h4>4. Dynamic Tooltips</h4>
+            <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary me-2" id="dynamicTooltipBtn">
+                    <i class="fas fa-sync"></i> Dynamic Tooltip
+                </button>
+                <button type="button" class="btn btn-outline-secondary" onclick="updateTooltip()">
+                    <i class="fas fa-edit"></i> Update Tooltip Text
+                </button>
+            </div>
+        </div>
+
+        <!-- Real-world Usage Examples -->
+        <div class="demo-section">
+            <h2 class="text-primary mb-4"><i class="fas fa-rocket"></i> Real-World Usage Examples</h2>
+            
+            <h4>User Dashboard Example</h4>
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Dashboard</h5>
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary" 
+                                data-bs-toggle="tooltip" 
+                                title="Refresh dashboard data">
+                            <i class="fas fa-sync"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#settingsModal"
+                                data-bs-toggle="tooltip" 
+                                title="Open settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="userAlertContainer">
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Welcome back!</strong> You have 3 new notifications.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card text-center" 
+                                 data-bs-toggle="tooltip" 
+                                 title="Total users registered this month">
+                                <div class="card-body">
+                                    <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                                    <h3>1,234</h3>
+                                    <small class="text-muted">Total Users</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center" 
+                                 data-bs-toggle="tooltip" 
+                                 title="Revenue generated this month">
+                                <div class="card-body">
+                                    <i class="fas fa-dollar-sign fa-2x text-success mb-2"></i>
+                                    <h3>$12.5K</h3>
+                                    <small class="text-muted">Revenue</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center" 
+                                 data-bs-toggle="tooltip" 
+                                 title="Total orders processed">
+                                <div class="card-body">
+                                    <i class="fas fa-shopping-cart fa-2x text-warning mb-2"></i>
+                                    <h3>856</h3>
+                                    <small class="text-muted">Orders</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center" 
+                                 data-bs-toggle="tooltip" 
+                                 title="System uptime percentage">
+                                <div class="card-body">
+                                    <i class="fas fa-server fa-2x text-info mb-2"></i>
+                                    <h3>99.9%</h3>
+                                    <small class="text-muted">Uptime</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <button class="btn btn-primary me-2" onclick="showUserAlert('success', 'Data refreshed successfully!')">
+                            <i class="fas fa-check"></i> Simulate Success
+                        </button>
+                        <button class="btn btn-danger me-2" onclick="showUserAlert('danger', 'Connection error occurred!')">
+                            <i class="fas fa-times"></i> Simulate Error
+                        </button>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#helpModal">
+                            <i class="fas fa-question-circle"></i> Need Help?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DEFINITIONS -->
+
+    <!-- Basic Modal -->
+    <div class="modal fade" id="basicModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header gradient-bg">
+                    <h5 class="modal-title"><i class="fas fa-info-circle"></i> Basic Modal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a basic modal example. It contains:</p>
+                    <ul>
+                        <li>A header with title and close button</li>
+                        <li>A body with content</li>
+                        <li>A footer with action buttons</li>
+                    </ul>
+                    <div class="alert alert-info">
+                        <i class="fas fa-lightbulb"></i> 
+                        <strong>Tip:</strong> You can close this modal by clicking outside, pressing Escape, or using the close buttons.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small Modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Small Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    This is a small modal (modal-sm class).
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Large Modal -->
+    <div class="modal fade" id="largeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Large Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Left Column</h6>
+                            <p>This is a large modal (modal-lg class) that provides more space for content.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Right Column</h6>
+                            <p>You can use the extra space for forms, images, or complex layouts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Extra Large Modal -->
+    <div class="modal fade" id="xlModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extra Large Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Column 1</h6>
+                            <p>Extra large modal (modal-xl) for maximum content space.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Column 2</h6>
+                            <p>Perfect for dashboards, reports, or detailed forms.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Column 3</h6>
+                            <p>Utilizes almost the full viewport width.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered Modal -->
+    <div class="modal fade" id="centeredModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Vertically Centered Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                    <h4>Perfect Centering!</h4>
+                    <p>This modal is perfectly centered vertically and horizontally using <code>modal-dialog-centered</code>.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Awesome!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable Modal -->
+    <div class="modal fade" id="scrollableModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Scrollable Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Long Content Example</h6>
+                    <p>This modal has scrollable content. When content exceeds the modal height, a scrollbar appears in the body.</p>
+                    <div class="alert alert-info">This is some additional content to demonstrate scrolling.</div>
+                    <div class="alert alert-warning">More content here...</div>
+                    <div class="alert alert-success">Even more content...</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="alert alert-primary">This content should be scrollable!</div>
+                    <p>More content to make it scrollable...</p>
+                    <p>Even more content...</p>
+                    <p>And more...</p>
+                    <p>Keep scrolling...</p>
+                    <div class="alert alert-secondary">You've reached the end of the scrollable content!</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-cog"></i> Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Theme</label>
+                            <select class="form-select">
+                                <option>Light</option>
+                                <option>Dark</option>
+                                <option>Auto</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="notifications">
+                                <label class="form-check-label" for="notifications">
+                                    Enable notifications
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="autoSave" checked>
+                                <label class="form-check-label" for="autoSave">
+                                    Auto-save changes
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header gradient-bg">
+                    <h5 class="modal-title"><i class="fas fa-question-circle"></i> Help & Documentation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Getting Started</h6>
+                            <ul>
+                                <li>Click on tooltips to see information</li>
+                                <li>Use modals for detailed actions</li>
+                                <li>Pay attention to alert messages</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Keyboard Shortcuts</h6>
+                            <ul>
+                                <li><kbd>Esc</kbd> - Close modals</li>
+                                <li><kbd>Tab</kbd> - Navigate elements</li>
+                                <li><kbd>Enter</kbd> - Activate buttons</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Pro Tip:</strong> All components are fully accessible and keyboard navigable!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Modal Container -->
+    <div id="dynamicModalContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Dynamic Alert Function
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('dynamicAlertContainer');
+            const alertId = 'alert-' + Date.now();
+            
+            const alertHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert" id="${alertId}">
+                    <i class="fas fa-${getIconForType(type)}"></i>
+                    <strong>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            alertContainer.insertAdjacentHTML('beforeend', alertHTML);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                const alertElement = document.getElementById(alertId);
+                if (alertElement) {
+                    const alert = new bootstrap.Alert(alertElement);
+                    alert.close();
+                }
+            }, 5000);
+        }
+
+        // User Dashboard Alert Function
+        function showUserAlert(type, message) {
+            const alertContainer = document.getElementById('userAlertContainer');
+            const alertId = 'user-alert-' + Date.now();
+            
+            const alertHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert" id="${alertId}">
+                    <i class="fas fa-${getIconForType(type)}"></i>
+                    <strong>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            // Clear existing alerts first
+            alertContainer.innerHTML = '';
+            alertContainer.insertAdjacentHTML('beforeend', alertHTML);
+        }
+
+        // Get appropriate icon for alert type
+        function getIconForType(type) {
+            const icons = {
+                'success': 'check-circle',
+                'danger': 'times-circle',
+                'warning': 'exclamation-triangle',
+                'info': 'info-circle',
+                'primary': 'info-circle',
+                'secondary': 'cog'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        // Dynamic Modal Function
+        function showDynamicModal() {
+            const modalId = 'dynamicModal-' + Date.now();
+            const modalHTML = `
+                <div class="modal fade" id="${modalId}" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header gradient-bg">
+                                <h5 class="modal-title">
+                                    <i class="fas fa-magic"></i> Dynamic Modal - ${new Date().toLocaleTimeString()}
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    <i class="fas fa-rocket fa-3x text-primary mb-3"></i>
+                                    <h4>Dynamically Created!</h4>
+                                    <p>This modal was created and shown programmatically using JavaScript.</p>
+                                    <div class="alert alert-success">
+                                        <i class="fas fa-code"></i> 
+                                        <strong>Created at:</strong> ${new Date().toLocaleString()}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="showAlert('success', 'Button clicked in dynamic modal!')">
+                                    <i class="fas fa-thumbs-up"></i> Cool!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const container = document.getElementById('dynamicModalContainer');
+            container.insertAdjacentHTML('beforeend', modalHTML);
+            
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+            
+            // Clean up modal after it's hidden
+            document.getElementById(modalId).addEventListener('hidden.bs.modal', function () {
+                this.remove();
+            });
+        }
+
+        // Dynamic Tooltip Management
+        let tooltipCounter = 0;
+        const tooltipTexts = [
+            'Default tooltip text',
+            'Updated tooltip content!',
+            'Another tooltip message',
+            'Dynamic tooltip #' + Math.floor(Math.random() * 1000),
+            'Tooltip updated at ' + new Date().toLocaleTimeString()
+        ];
+
+        // Initialize dynamic tooltip
+        const dynamicTooltipBtn = document.getElementById('dynamicTooltipBtn');
+        let dynamicTooltip = new bootstrap.Tooltip(dynamicTooltipBtn, {
+            title: tooltipTexts[0]
+        });
+
+        function updateTooltip() {
+            tooltipCounter = (tooltipCounter + 1) % tooltipTexts.length;
+            const newTitle = tooltipTexts[tooltipCounter] + ' (Updated: ' + new Date().toLocaleTimeString() + ')';
+            
+            // Dispose of the old tooltip and create a new one
+            dynamicTooltip.dispose();
+            dynamicTooltipBtn.setAttribute('data-bs-original-title', newTitle);
+            dynamicTooltipBtn.setAttribute('title', newTitle);
+            dynamicTooltip = new bootstrap.Tooltip(dynamicTooltipBtn);
+            
+            // Show a success alert
+            showAlert('info', 'Tooltip text updated successfully!');
+        }
+
+        // Modal Event Listeners for demonstrations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Listen for modal events
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.addEventListener('show.bs.modal', function (event) {
+                    console.log('Modal is about to show:', event.target.id);
+                });
+                
+                modal.addEventListener('shown.bs.modal', function (event) {
+                    console.log('Modal is now visible:', event.target.id);
+                });
+                
+                modal.addEventListener('hide.bs.modal', function (event) {
+                    console.log('Modal is about to hide:', event.target.id);
+                });
+                
+                modal.addEventListener('hidden.bs.modal', function (event) {
+                    console.log('Modal is now hidden:', event.target.id);
+                });
+            });
+
+            // Alert event listeners
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.addEventListener('close.bs.alert', function () {
+                    console.log('Alert is about to be closed');
+                });
+                
+                alert.addEventListener('closed.bs.alert', function () {
+                    console.log('Alert has been closed');
+                });
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            // Press 'h' to show help modal
+            if (event.key === 'h' && !event.ctrlKey && !event.altKey) {
+                const helpModal = new bootstrap.Modal(document.getElementById('helpModal'));
+                helpModal.show();
+            }
+            
+            // Press 's' to show settings modal
+            if (event.key === 's' && !event.ctrlKey && !event.altKey) {
+                const settingsModal = new bootstrap.Modal(document.getElementById('settingsModal'));
+                settingsModal.show();
+            }
+        });
+
+        // Performance monitoring
+        const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach((entry) => {
+                if (entry.entryType === 'measure') {
+                    console.log(`${entry.name}: ${entry.duration}ms`);
+                }
+            });
+        });
+        observer.observe({entryTypes: ['measure']});
+
+        // Add some interactive features
+        setTimeout(() => {
+            if (Math.random() > 0.7) {
+                showAlert('info', 'Welcome! This demo shows Bootstrap components in action.');
+            }
+        }, 2000);
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h6>Key Takeaways:</h6>
+                    <ul class="list-unstyled">
+                        <li>• <strong>Alerts:</strong> Use for user feedback and notifications</li>
+                        <li>• <strong>Modals:</strong> Perfect for forms, confirmations, and detailed content</li>
+                        <li>• <strong>Tooltips:</strong> Provide contextual help without cluttering the UI</li>
+                        <li>• <strong>data-bs-toggle:</strong> The key attribute for Bootstrap JavaScript components</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>Quick Reference:</h6>
+                    <div class="small">
+                        <code>data-bs-toggle="alert"</code><br>
+                        <code>data-bs-toggle="modal"</code><br>
+                        <code>data-bs-toggle="tooltip"</code><br>
+                        <code>data-bs-target="#elementId"</code>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <small class="text-muted">
+                    Bootstrap 5.3 Components Demo - Press 'h' for help, 's' for settings
+                </small>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
