@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Flex & Grid Utilities Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-box {
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 8px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        .demo-container {
+            border: 2px dashed #dee2e6;
+            min-height: 120px;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            position: relative;
+        }
+        .demo-container::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: #fff;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 500;
+        }
+        .code-section {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .section-title {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .real-world-example {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .navbar-example {
+            background: #343a40;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .card-example {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .responsive-demo {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-5">Bootstrap Flex & Grid Utilities Complete Guide</h1>
+                
+                <!-- Display Utilities Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">1. Display Utilities (d-flex, d-grid, d-block, etc.)</h2>
+                    
+                    <div class="code-section">
+                        <h5>Available Display Classes:</h5>
+                        <ul>
+                            <li><code>.d-none, .d-inline, .d-inline-block, .d-block</code></li>
+                            <li><code>.d-table, .d-table-cell, .d-table-row</code></li>
+                            <li><code>.d-flex, .d-inline-flex</code></li>
+                            <li><code>.d-grid, .d-inline-grid</code></li>
+                        </ul>
+                        <p><strong>Responsive variants:</strong> <code>.d-{breakpoint}-{value}</code> where breakpoint is sm, md, lg, xl, xxl</p>
+                    </div>
+
+                    <h4>Basic Display Examples</h4>
+                    <div class="demo-container" data-label="d-flex">
+                        <div class="d-flex">
+                            <div class="demo-box">Item 1</div>
+                            <div class="demo-box">Item 2</div>
+                            <div class="demo-box">Item 3</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="d-grid">
+                        <div class="d-grid gap-2">
+                            <div class="demo-box">Grid Item 1</div>
+                            <div class="demo-box">Grid Item 2</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="d-inline-flex">
+                        <div class="d-inline-flex me-3">
+                            <div class="demo-box">Inline</div>
+                            <div class="demo-box">Flex</div>
+                        </div>
+                        <div class="d-inline-flex">
+                            <div class="demo-box">Another</div>
+                            <div class="demo-box">Set</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flexbox Direction Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">2. Flexbox Direction</h2>
+                    
+                    <div class="code-section">
+                        <h5>Direction Classes:</h5>
+                        <ul>
+                            <li><code>.flex-row</code> (default) - left to right</li>
+                            <li><code>.flex-row-reverse</code> - right to left</li>
+                            <li><code>.flex-column</code> - top to bottom</li>
+                            <li><code>.flex-column-reverse</code> - bottom to top</li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="flex-row">
+                                <div class="d-flex flex-row">
+                                    <div class="demo-box">1</div>
+                                    <div class="demo-box">2</div>
+                                    <div class="demo-box">3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="flex-column">
+                                <div class="d-flex flex-column">
+                                    <div class="demo-box">1</div>
+                                    <div class="demo-box">2</div>
+                                    <div class="demo-box">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Justify Content Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">3. Justify Content (Main Axis Alignment)</h2>
+                    
+                    <div class="code-section">
+                        <h5>Justify Content Classes:</h5>
+                        <ul>
+                            <li><code>.justify-content-start</code> - align to start (default)</li>
+                            <li><code>.justify-content-end</code> - align to end</li>
+                            <li><code>.justify-content-center</code> - center alignment</li>
+                            <li><code>.justify-content-between</code> - space between items</li>
+                            <li><code>.justify-content-around</code> - space around items</li>
+                            <li><code>.justify-content-evenly</code> - even space distribution</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-container" data-label="justify-content-start">
+                        <div class="d-flex justify-content-start">
+                            <div class="demo-box">A</div>
+                            <div class="demo-box">B</div>
+                            <div class="demo-box">C</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="justify-content-center">
+                        <div class="d-flex justify-content-center">
+                            <div class="demo-box">A</div>
+                            <div class="demo-box">B</div>
+                            <div class="demo-box">C</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="justify-content-end">
+                        <div class="d-flex justify-content-end">
+                            <div class="demo-box">A</div>
+                            <div class="demo-box">B</div>
+                            <div class="demo-box">C</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="justify-content-between">
+                        <div class="d-flex justify-content-between">
+                            <div class="demo-box">A</div>
+                            <div class="demo-box">B</div>
+                            <div class="demo-box">C</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="justify-content-around">
+                        <div class="d-flex justify-content-around">
+                            <div class="demo-box">A</div>
+                            <div class="demo-box">B</div>
+                            <div class="demo-box">C</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Align Items Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">4. Align Items (Cross Axis Alignment)</h2>
+                    
+                    <div class="code-section">
+                        <h5>Align Items Classes:</h5>
+                        <ul>
+                            <li><code>.align-items-start</code> - align to start</li>
+                            <li><code>.align-items-end</code> - align to end</li>
+                            <li><code>.align-items-center</code> - center alignment</li>
+                            <li><code>.align-items-baseline</code> - baseline alignment</li>
+                            <li><code>.align-items-stretch</code> - stretch to fill (default)</li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="align-items-start" style="min-height: 150px;">
+                                <div class="d-flex align-items-start">
+                                    <div class="demo-box">Start</div>
+                                    <div class="demo-box" style="min-height: 120px;">Tall</div>
+                                    <div class="demo-box">Start</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="align-items-center" style="min-height: 150px;">
+                                <div class="d-flex align-items-center">
+                                    <div class="demo-box">Center</div>
+                                    <div class="demo-box" style="min-height: 120px;">Tall</div>
+                                    <div class="demo-box">Center</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="align-items-end" style="min-height: 150px;">
+                                <div class="d-flex align-items-end">
+                                    <div class="demo-box">End</div>
+                                    <div class="demo-box" style="min-height: 120px;">Tall</div>
+                                    <div class="demo-box">End</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="demo-container" data-label="align-items-stretch" style="min-height: 150px;">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="demo-box">Stretch</div>
+                                    <div class="demo-box">Stretch</div>
+                                    <div class="demo-box">Stretch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flex Wrap Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">5. Flex Wrap</h2>
+                    
+                    <div class="code-section">
+                        <h5>Flex Wrap Classes:</h5>
+                        <ul>
+                            <li><code>.flex-nowrap</code> - no wrapping (default)</li>
+                            <li><code>.flex-wrap</code> - wrap items</li>
+                            <li><code>.flex-wrap-reverse</code> - wrap in reverse order</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-container" data-label="flex-wrap">
+                        <div class="d-flex flex-wrap">
+                            <div class="demo-box" style="min-width: 150px;">Item 1</div>
+                            <div class="demo-box" style="min-width: 150px;">Item 2</div>
+                            <div class="demo-box" style="min-width: 150px;">Item 3</div>
+                            <div class="demo-box" style="min-width: 150px;">Item 4</div>
+                            <div class="demo-box" style="min-width: 150px;">Item 5</div>
+                            <div class="demo-box" style="min-width: 150px;">Item 6</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Align Self Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">6. Align Self</h2>
+                    
+                    <div class="code-section">
+                        <h5>Align Self Classes:</h5>
+                        <ul>
+                            <li><code>.align-self-start, .align-self-end, .align-self-center</code></li>
+                            <li><code>.align-self-baseline, .align-self-stretch</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-container" data-label="align-self examples" style="min-height: 180px;">
+                        <div class="d-flex">
+                            <div class="demo-box align-self-start">Start</div>
+                            <div class="demo-box align-self-center">Center</div>
+                            <div class="demo-box align-self-end">End</div>
+                            <div class="demo-box align-self-stretch">Stretch</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flex Grow/Shrink Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">7. Flex Grow and Shrink</h2>
+                    
+                    <div class="code-section">
+                        <h5>Flex Classes:</h5>
+                        <ul>
+                            <li><code>.flex-grow-0, .flex-grow-1</code> - control growing</li>
+                            <li><code>.flex-shrink-0, .flex-shrink-1</code> - control shrinking</li>
+                            <li><code>.flex-fill</code> - equal width columns</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-container" data-label="flex-grow and flex-fill">
+                        <div class="d-flex">
+                            <div class="demo-box">Normal</div>
+                            <div class="demo-box flex-grow-1">Grows</div>
+                            <div class="demo-box">Normal</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="flex-fill">
+                        <div class="d-flex">
+                            <div class="demo-box flex-fill">Equal</div>
+                            <div class="demo-box flex-fill">Equal</div>
+                            <div class="demo-box flex-fill">Equal</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Grid System Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">8. CSS Grid Utilities</h2>
+                    
+                    <div class="code-section">
+                        <h5>Grid Classes:</h5>
+                        <ul>
+                            <li><code>.d-grid</code> - creates a grid container</li>
+                            <li><code>.gap-{size}</code> - controls gap between grid items</li>
+                            <li>Grid template columns with Bootstrap's column system</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-container" data-label="d-grid with gap">
+                        <div class="d-grid gap-3" style="grid-template-columns: repeat(3, 1fr);">
+                            <div class="demo-box">Grid 1</div>
+                            <div class="demo-box">Grid 2</div>
+                            <div class="demo-box">Grid 3</div>
+                            <div class="demo-box">Grid 4</div>
+                            <div class="demo-box">Grid 5</div>
+                            <div class="demo-box">Grid 6</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-container" data-label="Auto-fit grid">
+                        <div class="d-grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                            <div class="demo-box">Auto 1</div>
+                            <div class="demo-box">Auto 2</div>
+                            <div class="demo-box">Auto 3</div>
+                            <div class="demo-box">Auto 4</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Real World Examples Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">9. Real-World Use Cases & Examples</h2>
+                    
+                    <!-- Navigation Bar Example -->
+                    <div class="real-world-example">
+                        <h4 class="text-white mb-3">1. Navigation Bar Layout</h4>
+                        <div class="navbar-example d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #007bff; padding: 8px 12px; border-radius: 4px; margin-right: 15px;">Logo</div>
+                                <div class="d-flex">
+                                    <span class="me-3">Home</span>
+                                    <span class="me-3">About</span>
+                                    <span class="me-3">Services</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="me-3">Search</span>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                        <div class="code-section mt-3">
+                            <code>&lt;nav class="d-flex justify-content-between align-items-center"&gt;...&lt;/nav&gt;</code>
+                        </div>
+                    </div>
+
+                    <!-- Card Layout Example -->
+                    <div class="real-world-example">
+                        <h4 class="text-white mb-3">2. Card Layout with Equal Heights</h4>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="card-example d-flex flex-column" style="max-width: 250px;">
+                                <h5>Product 1</h5>
+                                <p class="flex-grow-1">Short description here.</p>
+                                <button class="btn btn-primary align-self-start">Buy Now</button>
+                            </div>
+                            <div class="card-example d-flex flex-column" style="max-width: 250px;">
+                                <h5>Product 2</h5>
+                                <p class="flex-grow-1">This is a much longer description that takes up more space in the card.</p>
+                                <button class="btn btn-primary align-self-start">Buy Now</button>
+                            </div>
+                            <div class="card-example d-flex flex-column" style="max-width: 250px;">
+                                <h5>Product 3</h5>
+                                <p class="flex-grow-1">Medium length description.</p>
+                                <button class="btn btn-primary align-self-start">Buy Now</button>
+                            </div>
+                        </div>
+                        <div class="code-section mt-3">
+                            <code>&lt;div class="d-flex flex-column"&gt;&lt;p class="flex-grow-1"&gt;...&lt;/p&gt;&lt;/div&gt;</code>
+                        </div>
+                    </div>
+
+                    <!-- Centered Content Example -->
+                    <div class="real-world-example">
+                        <h4 class="text-white mb-3">3. Perfect Centering (Login Form)</h4>
+                        <div class="d-flex justify-content-center align-items-center" style="min-height: 200px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                            <div class="card-example text-center" style="max-width: 300px;">
+                                <h5>Login</h5>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <button class="btn btn-primary w-100">Login</button>
+                            </div>
+                        </div>
+                        <div class="code-section mt-3">
+                            <code>&lt;div class="d-flex justify-content-center align-items-center"&gt;...&lt;/div&gt;</code>
+                        </div>
+                    </div>
+
+                    <!-- Responsive Layout Example -->
+                    <div class="real-world-example">
+                        <h4 class="text-white mb-3">4. Responsive Flex Layout</h4>
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch">
+                            <div class="demo-box responsive-demo flex-fill me-md-2 mb-2 mb-md-0">Sidebar</div>
+                            <div class="demo-box responsive-demo flex-fill mx-md-2 mb-2 mb-md-0">Main Content</div>
+                            <div class="demo-box responsive-demo flex-fill ms-md-2">Aside</div>
+                        </div>
+                        <div class="code-section mt-3">
+                            <code>&lt;div class="d-flex flex-column flex-md-row"&gt;...&lt;/div&gt;</code>
+                        </div>
+                    </div>
+
+                    <!-- Footer Example -->
+                    <div class="real-world-example">
+                        <h4 class="text-white mb-3">5. Footer Layout</h4>
+                        <div style="background: #343a40; color: white; padding: 20px; border-radius: 8px;">
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                <div class="mb-3 mb-md-0">
+                                    <div>© 2024 Company Name</div>
+                                </div>
+                                <div class="d-flex flex-column flex-md-row align-items-center">
+                                    <span class="me-md-3 mb-2 mb-md-0">Privacy</span>
+                                    <span class="me-md-3 mb-2 mb-md-0">Terms</span>
+                                    <span>Contact</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-section mt-3">
+                            <code>&lt;footer class="d-flex flex-column flex-md-row justify-content-between align-items-center"&gt;...&lt;/footer&gt;</code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Responsive Utilities Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">10. Responsive Flexbox Utilities</h2>
+                    
+                    <div class="code-section">
+                        <h5>Responsive Patterns:</h5>
+                        <ul>
+                            <li><code>.d-flex .d-md-block</code> - flex on mobile, block on desktop</li>
+                            <li><code>.justify-content-center .justify-content-md-start</code></li>
+                            <li><code>.flex-column .flex-md-row</code> - stack on mobile, row on desktop</li>
+                            <li><code>.align-items-center .align-items-md-end</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <h6>Breakpoint Reference:</h6>
+                        <ul class="mb-0">
+                            <li><strong>xs</strong>: &lt;576px (no infix needed)</li>
+                            <li><strong>sm</strong>: ≥576px (.d-sm-*)</li>
+                            <li><strong>md</strong>: ≥768px (.d-md-*)</li>
+                            <li><strong>lg</strong>: ≥992px (.d-lg-*)</li>
+                            <li><strong>xl</strong>: ≥1200px (.d-xl-*)</li>
+                            <li><strong>xxl</strong>: ≥1400px (.d-xxl-*)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Common Patterns Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">11. Common Flexbox Patterns</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Equal Height Columns</h5>
+                            <div class="demo-container" data-label="Equal Height Pattern">
+                                <div class="d-flex">
+                                    <div class="demo-box flex-fill">Column 1</div>
+                                    <div class="demo-box flex-fill">Column 2 with more content</div>
+                                    <div class="demo-box flex-fill">Column 3</div>
+                                </div>
+                            </div>
+                            <code>.d-flex > .flex-fill</code>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Sticky Footer</h5>
+                            <div class="demo-container" data-label="Sticky Footer" style="min-height: 200px;">
+                                <div class="d-flex flex-column h-100">
+                                    <div class="demo-box">Header</div>
+                                    <div class="demo-box flex-grow-1">Content that grows</div>
+                                    <div class="demo-box">Footer</div>
+                                </div>
+                            </div>
+                            <code>.d-flex .flex-column .h-100 > .flex-grow-1</code>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Center Everything</h5>
+                            <div class="demo-container" data-label="Perfect Centering" style="min-height: 150px;">
+                                <div class="d-flex justify-content-center align-items-center h-100">
+                                    <div class="demo-box">Perfectly Centered</div>
+                                </div>
+                            </div>
+                            <code>.d-flex .justify-content-center .align-items-center</code>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Space Between with Alignment</h5>
+                            <div class="demo-container" data-label="Space Between">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="demo-box">Logo</div>
+                                    <div class="demo-box">Navigation</div>
+                                    <div class="demo-box">CTA</div>
+                                </div>
+                            </div>
+                            <code>.d-flex .justify-content-between .align-items-center</code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Performance Tips Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">12. Best Practices & Tips</h2>
+                    
+                    <div class="alert alert-success">
+                        <h6>✅ Best Practices:</h6>
+                        <ul class="mb-0">
+                            <li>Use <code>d-flex</code> for one-dimensional layouts</li>
+                            <li>Use <code>d-grid</code> for two-dimensional layouts</li>
+                            <li>Combine with responsive utilities for mobile-first design</li>
+                            <li>Use <code>flex-fill</code> for equal-width columns</li>
+                            <li>Use <code>align-items-center</code> for vertical centering</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <h6>⚠️ Common Mistakes:</h6>
+                        <ul class="mb-0">
+                            <li>Forgetting to add <code>d-flex</code> before flexbox utilities</li>
+                            <li>Not understanding the difference between main axis and cross axis</li>
+                            <li>Overusing flexbox when CSS Grid would be better</li>
+                            <li>Not testing responsive behavior across breakpoints</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="text-center mt-5">
+                    <p class="text-muted">Resize your browser window to see responsive flexbox utilities in action!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Interactive demonstration
+        function toggleDemo(element) {
+            const container = element.nextElementSibling;
+            const isVisible = container.style.display !== 'none';
+            container.style.display = isVisible ? 'none' : 'block';
+            element.textContent = isVisible ? 'Show Demo' : 'Hide Demo';
+        }
+
+        // Add interactive buttons to toggle demonstrations
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoContainers = document.querySelectorAll('.demo-container');
+            demoContainers.forEach(container => {
+                container.style.transition = 'all 0.3s ease';
+                
+                // Add hover effect
+                container.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,123,255,0.2)';
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Add copy code functionality
+            const codeElements = document.querySelectorAll('code');
+            codeElements.forEach(code => {
+                code.style.cursor = 'pointer';
+                code.title = 'Click to copy';
+                
+                code.addEventListener('click', function() {
+                    navigator.clipboard.writeText(this.textContent).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+                        this.style.background = '#28a745';
+                        this.style.color = 'white';
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.style.background = '';
+                            this.style.color = '';
+                        }, 1000);
+                    });
+                });
+            });
+
+            // Add dynamic resize information
+            function updateScreenInfo() {
+                const width = window.innerWidth;
+                let breakpoint = 'xs';
+                if (width >= 1400) breakpoint = 'xxl';
+                else if (width >= 1200) breakpoint = 'xl';
+                else if (width >= 992) breakpoint = 'lg';
+                else if (width >= 768) breakpoint = 'md';
+                else if (width >= 576) breakpoint = 'sm';
+                
+                const infoBar = document.getElementById('screen-info');
+                if (infoBar) {
+                    infoBar.textContent = `Current breakpoint: ${breakpoint} (${width}px)`;
+                }
+            }
+
+            // Create screen info bar
+            const infoBar = document.createElement('div');
+            infoBar.id = 'screen-info';
+            infoBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #007bff;
+                color: white;
+                padding: 5px 10px;
+                font-size: 12px;
+                z-index: 1000;
+                border-radius: 0 0 0 8px;
+            `;
+            document.body.appendChild(infoBar);
+
+            updateScreenInfo();
+            window.addEventListener('resize', updateScreenInfo);
+        });
+    </script>
+</body>
+</html>

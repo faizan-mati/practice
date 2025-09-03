@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Responsive Helpers Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-box {
+            background: linear-gradient(45deg, #007bff, #6f42c1);
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .demo-section {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+
+        .breakpoint-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .order-demo {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="breakpoint-indicator d-block d-sm-none">XS (Extra Small)</div>
+    <div class="breakpoint-indicator d-none d-sm-block d-md-none">SM (Small)</div>
+    <div class="breakpoint-indicator d-none d-md-block d-lg-none">MD (Medium)</div>
+    <div class="breakpoint-indicator d-none d-lg-block d-xl-none">LG (Large)</div>
+    <div class="breakpoint-indicator d-none d-xl-block d-xxl-none">XL (Extra Large)</div>
+    <div class="breakpoint-indicator d-none d-xxl-block">XXL (Extra Extra Large)</div>
+
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1 class="display-4 text-primary">Bootstrap Responsive Helper Classes</h1>
+            <p class="lead">Master d-none, d-md-block, order-md-1 and more responsive utilities</p>
+        </header>
+
+        <!-- Display Utilities Section -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">📱 Display Utilities (d-*)</h2>
+
+            <h4>Basic Display Classes</h4>
+            <div class="code-example">
+                .d-none → display: none
+                .d-block → display: block
+                .d-inline → display: inline
+                .d-inline-block → display: inline-block
+                .d-flex → display: flex
+                .d-grid → display: grid
+            </div>
+
+            <div class="demo-box d-block">
+                <strong>d-block:</strong> Always visible as block element
+            </div>
+
+            <div class="demo-box d-none d-md-block">
+                <strong>d-none d-md-block:</strong> Hidden on mobile (XS, SM), visible from MD and up
+            </div>
+
+            <div class="demo-box d-block d-lg-none">
+                <strong>d-block d-lg-none:</strong> Visible on mobile/tablet, hidden on large screens
+            </div>
+
+            <h4 class="mt-4">Responsive Display Examples</h4>
+            <div class="row">
+                <div class="col-12">
+                    <div class="demo-box d-none d-sm-block d-md-none">
+                        <strong>d-none d-sm-block d-md-none:</strong> Only visible on SM breakpoint
+                    </div>
+                    <div class="demo-box d-none d-md-flex d-lg-grid d-xl-inline-block">
+                        <strong>Multiple breakpoints:</strong> Flex on MD, Grid on LG, Inline-block on XL
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flex Order Section -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">🔄 Flex Order Utilities (order-*)</h2>
+
+            <h4>Order Classes</h4>
+            <div class="code-example">
+                .order-first → order: -1 (first)
+                .order-0 → order: 0
+                .order-1 → order: 1
+                .order-2 → order: 2
+                .order-3 → order: 3
+                .order-4 → order: 4
+                .order-5 → order: 5
+                .order-last → order: 13 (last)
+
+                /* Responsive variants */
+                .order-sm-1, .order-md-1, .order-lg-1, .order-xl-1, .order-xxl-1
+            </div>
+
+            <h4 class="mt-4">Responsive Order Demo</h4>
+            <p class="text-muted">Resize your browser to see the order change at different breakpoints</p>
+
+            <div class="d-flex flex-wrap">
+                <div class="order-demo flex-fill order-3 order-md-1">
+                    <strong>Box A</strong><br>
+                    order-3 order-md-1<br>
+                    <small>3rd on mobile, 1st on desktop</small>
+                </div>
+                <div class="order-demo flex-fill order-1 order-md-2">
+                    <strong>Box B</strong><br>
+                    order-1 order-md-2<br>
+                    <small>1st on mobile, 2nd on desktop</small>
+                </div>
+                <div class="order-demo flex-fill order-2 order-md-3">
+                    <strong>Box C</strong><br>
+                    order-2 order-md-3<br>
+                    <small>2nd on mobile, 3rd on desktop</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-World Examples Section -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">🌟 Real-World Use Cases</h2>
+
+            <h4>1. Navigation Menu</h4>
+            <div class="code-example">
+                &lt;nav class="navbar"&gt;
+                &lt;!-- Mobile hamburger menu --&gt;
+                &lt;button class="navbar-toggler d-block d-lg-none"&gt;☰&lt;/button&gt;
+
+                &lt;!-- Desktop menu --&gt;
+                &lt;ul class="navbar-nav d-none d-lg-flex"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/nav&gt;
+            </div>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded p-3">
+                <button class="navbar-toggler d-block d-lg-none" type="button">
+                    <span>☰ Menu</span>
+                </button>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <h4 class="mt-4">2. Sidebar Layout</h4>
+            <div class="code-example">
+                &lt;div class="row"&gt;
+                &lt;!-- Sidebar: Hidden on mobile, visible from MD up --&gt;
+                &lt;aside class="col-md-3 d-none d-md-block"&gt;
+                Sidebar Content
+                &lt;/aside&gt;
+
+                &lt;!-- Main content: Full width on mobile, 9 cols on desktop --&gt;
+                &lt;main class="col-12 col-md-9"&gt;
+                Main Content
+                &lt;/main&gt;
+                &lt;/div&gt;
+            </div>
+
+            <div class="row bg-white rounded p-3">
+                <aside class="col-md-3 d-none d-md-block bg-light rounded p-3">
+                    <h5>Sidebar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Menu Item 1</a></li>
+                        <li><a href="#">Menu Item 2</a></li>
+                        <li><a href="#">Menu Item 3</a></li>
+                    </ul>
+                </aside>
+                <main class="col-12 col-md-9 p-3">
+                    <h5>Main Content Area</h5>
+                    <p>This main content takes full width on mobile and 75% width on desktop when sidebar is visible.
+                    </p>
+                </main>
+            </div>
+
+            <h4 class="mt-4">3. Card Layout with Reordering</h4>
+            <div class="code-example">
+                &lt;div class="row"&gt;
+                &lt;div class="col-12 col-md-4 order-2 order-md-1"&gt;
+                &lt;!-- Featured card: 2nd on mobile, 1st on desktop --&gt;
+                &lt;/div&gt;
+                &lt;div class="col-12 col-md-8 order-1 order-md-2"&gt;
+                &lt;!-- Main content: 1st on mobile, 2nd on desktop --&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4 order-2 order-md-1">
+                    <div class="card">
+                        <div class="card-body bg-primary text-white">
+                            <h5 class="card-title">Featured Card</h5>
+                            <p class="card-text">This appears 2nd on mobile but 1st on desktop</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 order-1 order-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Main Content</h5>
+                            <p class="card-text">This appears 1st on mobile but 2nd on desktop. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakpoints Reference -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">📏 Bootstrap Breakpoints Reference</h2>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Breakpoint</th>
+                            <th>Class Infix</th>
+                            <th>Dimensions</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Extra Small</td>
+                            <td><code>(none)</code></td>
+                            <td>&lt; 576px</td>
+                            <td><code>.d-none</code></td>
+                        </tr>
+                        <tr>
+                            <td>Small</td>
+                            <td><code>sm</code></td>
+                            <td>≥ 576px</td>
+                            <td><code>.d-sm-block</code></td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td><code>md</code></td>
+                            <td>≥ 768px</td>
+                            <td><code>.d-md-flex</code></td>
+                        </tr>
+                        <tr>
+                            <td>Large</td>
+                            <td><code>lg</code></td>
+                            <td>≥ 992px</td>
+                            <td><code>.d-lg-grid</code></td>
+                        </tr>
+                        <tr>
+                            <td>Extra Large</td>
+                            <td><code>xl</code></td>
+                            <td>≥ 1200px</td>
+                            <td><code>.d-xl-inline</code></td>
+                        </tr>
+                        <tr>
+                            <td>Extra Extra Large</td>
+                            <td><code>xxl</code></td>
+                            <td>≥ 1400px</td>
+                            <td><code>.d-xxl-block</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">✅ Best Practices & Tips</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-success">✅ DO</h5>
+                    <ul>
+                        <li>Use <code>d-none d-md-block</code> for desktop-only content</li>
+                        <li>Combine multiple breakpoint classes for fine control</li>
+                        <li>Test on actual devices, not just browser resize</li>
+                        <li>Use order classes to improve mobile UX</li>
+                        <li>Consider content hierarchy on different screen sizes</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-danger">❌ DON'T</h5>
+                    <ul>
+                        <li>Hide important content on mobile without alternatives</li>
+                        <li>Over-complicate with too many breakpoint variations</li>
+                        <li>Forget to test middle breakpoints (SM, MD)</li>
+                        <li>Use display utilities for animations (use CSS transitions)</li>
+                        <li>Rely solely on hiding/showing - consider reorganizing content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Demo -->
+        <div class="demo-section">
+            <h2 class="h3 text-success mb-4">🎮 Interactive Demo</h2>
+            <p>Resize your browser window to see these responsive behaviors in action:</p>
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="alert alert-info d-block d-md-none">
+                        📱 <strong>Mobile View:</strong> You're seeing the mobile layout
+                    </div>
+                    <div class="alert alert-success d-none d-md-block d-lg-none">
+                        💻 <strong>Tablet View:</strong> You're seeing the tablet layout
+                    </div>
+                    <div class="alert alert-primary d-none d-lg-block">
+                        🖥️ <strong>Desktop View:</strong> You're seeing the desktop layout
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+                <div class="demo-box d-none d-sm-block">Visible SM+</div>
+                <div class="demo-box d-none d-md-block">Visible MD+</div>
+                <div class="demo-box d-none d-lg-block">Visible LG+</div>
+                <div class="demo-box d-none d-xl-block">Visible XL+</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Utilities Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 10px;
+            display: inline-block;
+        }
+        .demo-text {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #007bff;
+            background: #f8f9fa;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .card-demo {
+            background: white;
+            padding: 15px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center mb-5 text-primary">Bootstrap Utilities Complete Guide</h1>
+        
+        <!-- Shadow Utilities -->
+        <div class="section">
+            <h2 class="text-danger mb-4">🌟 Shadow Utilities</h2>
+            <p class="lead">Create depth and elevation with shadow utilities</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Available Shadow Classes:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.shadow-none</code> - No shadow</li>
+                        <li><code>.shadow-sm</code> - Small shadow</li>
+                        <li><code>.shadow</code> - Regular shadow</li>
+                        <li><code>.shadow-lg</code> - Large shadow</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="d-flex flex-wrap">
+                        <div class="card-demo shadow-none">
+                            <strong>No Shadow</strong>
+                            <p class="small mb-0">shadow-none</p>
+                        </div>
+                        <div class="card-demo shadow-sm">
+                            <strong>Small Shadow</strong>
+                            <p class="small mb-0">shadow-sm</p>
+                        </div>
+                        <div class="card-demo shadow">
+                            <strong>Regular Shadow</strong>
+                            <p class="small mb-0">shadow</p>
+                        </div>
+                        <div class="card-demo shadow-lg">
+                            <strong>Large Shadow</strong>
+                            <p class="small mb-0">shadow-lg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <strong>Real-world Use Cases:</strong>
+                <ul class="mb-0">
+                    <li><strong>Cards:</strong> Use shadow-sm for subtle card elevation</li>
+                    <li><strong>Modals:</strong> Use shadow-lg for prominent overlays</li>
+                    <li><strong>Buttons:</strong> Add shadow on hover for interaction feedback</li>
+                    <li><strong>Navigation:</strong> Use shadow for sticky headers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Rounded Utilities -->
+        <div class="section">
+            <h2 class="text-success mb-4">🔄 Rounded Utilities</h2>
+            <p class="lead">Control border radius with rounded utilities</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Border Radius Classes:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.rounded</code> - All corners rounded</li>
+                        <li><code>.rounded-top</code> - Top corners only</li>
+                        <li><code>.rounded-end</code> - Right corners only</li>
+                        <li><code>.rounded-bottom</code> - Bottom corners only</li>
+                        <li><code>.rounded-start</code> - Left corners only</li>
+                        <li><code>.rounded-circle</code> - Perfect circle</li>
+                        <li><code>.rounded-pill</code> - Pill shape</li>
+                        <li><code>.rounded-0</code> - No rounding</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">Size Variations:</h5>
+                    <ul class="list-unstyled">
+                        <li><code>.rounded-1</code> to <code>.rounded-5</code></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="demo-box rounded"></div>
+                        <div class="demo-box rounded-top"></div>
+                        <div class="demo-box rounded-end"></div>
+                        <div class="demo-box rounded-bottom"></div>
+                        <div class="demo-box rounded-start"></div>
+                        <div class="demo-box rounded-circle"></div>
+                        <div class="demo-box rounded-pill" style="width: 120px;"></div>
+                        <div class="demo-box rounded-0"></div>
+                    </div>
+                    
+                    <h5 class="mt-3">Size Examples:</h5>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="demo-box rounded-1" style="width: 80px; height: 80px;"></div>
+                        <div class="demo-box rounded-3" style="width: 80px; height: 80px;"></div>
+                        <div class="demo-box rounded-5" style="width: 80px; height: 80px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-success mt-4">
+                <strong>Real-world Use Cases:</strong>
+                <ul class="mb-0">
+                    <li><strong>Profile Images:</strong> Use rounded-circle for avatars</li>
+                    <li><strong>Buttons:</strong> Use rounded-pill for modern button styles</li>
+                    <li><strong>Cards:</strong> Use rounded for card containers</li>
+                    <li><strong>Badges:</strong> Use rounded-pill for notification badges</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Overflow Utilities -->
+        <div class="section">
+            <h2 class="text-warning mb-4">📦 Overflow Utilities</h2>
+            <p class="lead">Control how content overflows its container</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Overflow Classes:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.overflow-auto</code> - Auto scrollbars</li>
+                        <li><code>.overflow-hidden</code> - Hide overflow</li>
+                        <li><code>.overflow-visible</code> - Show overflow</li>
+                        <li><code>.overflow-scroll</code> - Always show scrollbars</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">Directional:</h5>
+                    <ul class="list-unstyled">
+                        <li><code>.overflow-x-*</code> - Horizontal only</li>
+                        <li><code>.overflow-y-*</code> - Vertical only</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="example-grid">
+                        <div class="card">
+                            <div class="card-header">overflow-hidden</div>
+                            <div class="card-body overflow-hidden" style="height: 100px;">
+                                <p>This is a very long text that would normally overflow the container, but it's being hidden due to overflow-hidden class. You won't see scrollbars here.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">overflow-auto</div>
+                            <div class="card-body overflow-auto" style="height: 100px;">
+                                <p>This is a very long text that will show scrollbars when needed. The overflow-auto class adds scrollbars only when content overflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-warning mt-4">
+                <strong>Real-world Use Cases:</strong>
+                <ul class="mb-0">
+                    <li><strong>Image Containers:</strong> Use overflow-hidden to crop images</li>
+                    <li><strong>Chat Windows:</strong> Use overflow-y-auto for scrollable message lists</li>
+                    <li><strong>Code Blocks:</strong> Use overflow-x-auto for horizontal scrolling</li>
+                    <li><strong>Modal Bodies:</strong> Use overflow-auto for long content</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Display Utilities -->
+        <div class="section">
+            <h2 class="text-info mb-4">👁️ Display Utilities</h2>
+            <p class="lead">Control the display property of elements</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Display Classes:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.d-none</code> - display: none</li>
+                        <li><code>.d-block</code> - display: block</li>
+                        <li><code>.d-inline</code> - display: inline</li>
+                        <li><code>.d-inline-block</code> - display: inline-block</li>
+                        <li><code>.d-flex</code> - display: flex</li>
+                        <li><code>.d-grid</code> - display: grid</li>
+                    </ul>
+                    
+                    <h5 class="mt-3">Responsive Display:</h5>
+                    <p><code>.d-{breakpoint}-{value}</code></p>
+                    <small>Example: .d-md-none, .d-lg-block</small>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="border p-3">
+                        <div class="d-block bg-primary text-white p-2 mb-2">Block Element</div>
+                        <div class="d-inline-block bg-success text-white p-2 me-2">Inline Block 1</div>
+                        <div class="d-inline-block bg-success text-white p-2">Inline Block 2</div>
+                        <div class="d-flex bg-info text-white p-2 mt-2">
+                            <div class="flex-fill">Flex Item 1</div>
+                            <div class="flex-fill">Flex Item 2</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <button class="btn btn-outline-primary btn-sm" onclick="toggleElement()">
+                            Toggle Hidden Element
+                        </button>
+                        <div id="hiddenElement" class="d-none mt-2 alert alert-success">
+                            This element can be shown/hidden!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spacing Utilities -->
+        <div class="section">
+            <h2 class="text-secondary mb-4">📏 Spacing Utilities</h2>
+            <p class="lead">Control margin and padding with spacing utilities</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Spacing Syntax:</h4>
+                    <p><code>{property}{sides}-{size}</code></p>
+                    
+                    <h5>Properties:</h5>
+                    <ul class="list-unstyled">
+                        <li><code>m</code> - margin</li>
+                        <li><code>p</code> - padding</li>
+                    </ul>
+                    
+                    <h5>Sides:</h5>
+                    <ul class="list-unstyled">
+                        <li><code>t</code> - top</li>
+                        <li><code>b</code> - bottom</li>
+                        <li><code>s</code> - start (left)</li>
+                        <li><code>e</code> - end (right)</li>
+                        <li><code>x</code> - horizontal</li>
+                        <li><code>y</code> - vertical</li>
+                        <li>(blank) - all sides</li>
+                    </ul>
+                    
+                    <h5>Sizes:</h5>
+                    <p><code>0, 1, 2, 3, 4, 5, auto</code></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="border">
+                        <div class="bg-light p-3 m-2">p-3 m-2</div>
+                        <div class="bg-light px-4 py-2 mx-3">px-4 py-2 mx-3</div>
+                        <div class="bg-light p-1 mt-4 mb-2">p-1 mt-4 mb-2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Utilities -->
+        <div class="section">
+            <h2 class="text-dark mb-4">📝 Text Utilities</h2>
+            <p class="lead">Control text appearance and behavior</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Text Alignment:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.text-start</code> - Left align</li>
+                        <li><code>.text-center</code> - Center align</li>
+                        <li><code>.text-end</code> - Right align</li>
+                    </ul>
+                    
+                    <h4>Text Transform:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.text-lowercase</code></li>
+                        <li><code>.text-uppercase</code></li>
+                        <li><code>.text-capitalize</code></li>
+                    </ul>
+                    
+                    <h4>Text Decoration:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.text-decoration-none</code></li>
+                        <li><code>.text-decoration-underline</code></li>
+                        <li><code>.text-decoration-line-through</code></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Examples:</h4>
+                    <div class="demo-text text-start">Left Aligned Text</div>
+                    <div class="demo-text text-center">Center Aligned Text</div>
+                    <div class="demo-text text-end">Right Aligned Text</div>
+                    
+                    <div class="demo-text text-lowercase">LOWERCASE TEXT</div>
+                    <div class="demo-text text-uppercase">uppercase text</div>
+                    <div class="demo-text text-capitalize">capitalized text</div>
+                    
+                    <div class="demo-text">
+                        <a href="#" class="text-decoration-none">No Decoration</a> |
+                        <span class="text-decoration-underline">Underlined</span> |
+                        <span class="text-decoration-line-through">Strike Through</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Utilities -->
+        <div class="section">
+            <h2 class="text-primary mb-4">🎨 Color Utilities</h2>
+            <p class="lead">Apply colors to text and backgrounds</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Text Colors:</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="text-primary me-3">.text-primary</span>
+                        <span class="text-secondary me-3">.text-secondary</span>
+                        <span class="text-success me-3">.text-success</span>
+                        <span class="text-danger me-3">.text-danger</span>
+                        <span class="text-warning me-3">.text-warning</span>
+                        <span class="text-info me-3">.text-info</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Background Colors:</h4>
+                    <div class="d-flex flex-wrap">
+                        <div class="bg-primary text-white p-2 m-1 rounded">.bg-primary</div>
+                        <div class="bg-secondary text-white p-2 m-1 rounded">.bg-secondary</div>
+                        <div class="bg-success text-white p-2 m-1 rounded">.bg-success</div>
+                        <div class="bg-danger text-white p-2 m-1 rounded">.bg-danger</div>
+                        <div class="bg-warning text-dark p-2 m-1 rounded">.bg-warning</div>
+                        <div class="bg-info text-dark p-2 m-1 rounded">.bg-info</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Position Utilities -->
+        <div class="section">
+            <h2 class="text-success mb-4">📍 Position Utilities</h2>
+            <p class="lead">Control element positioning</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Position Classes:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.position-static</code></li>
+                        <li><code>.position-relative</code></li>
+                        <li><code>.position-absolute</code></li>
+                        <li><code>.position-fixed</code></li>
+                        <li><code>.position-sticky</code></li>
+                    </ul>
+                    
+                    <h4>Positioning Helpers:</h4>
+                    <ul class="list-unstyled">
+                        <li><code>.top-0, .top-50, .top-100</code></li>
+                        <li><code>.start-0, .start-50, .start-100</code></li>
+                        <li><code>.end-0, .end-50, .end-100</code></li>
+                        <li><code>.bottom-0, .bottom-50, .bottom-100</code></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Live Example:</h4>
+                    <div class="position-relative bg-light p-4" style="height: 200px;">
+                        <div class="position-absolute top-0 start-0 bg-primary text-white p-2 rounded">
+                            Top Left
+                        </div>
+                        <div class="position-absolute top-50 start-50 translate-middle bg-success text-white p-2 rounded">
+                            Center
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 bg-danger text-white p-2 rounded">
+                            Bottom Right
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-World Example -->
+        <div class="section">
+            <h2 class="text-danger mb-4">🌍 Real-World Example: Modern Card Design</h2>
+            <p class="lead">Combining multiple utilities for a professional card</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-lg border-0 overflow-hidden">
+                        <div class="position-relative">
+                            <div class="bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 120px;"></div>
+                            <div class="position-absolute bottom-0 start-0 translate-middle-y ms-4">
+                                <div class="bg-white rounded-circle p-1 shadow">
+                                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                        <span class="text-white fw-bold fs-2">JD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body pt-5">
+                            <h4 class="card-title text-dark fw-bold">John Doe</h4>
+                            <p class="text-muted text-uppercase small fw-bold mb-3">Senior Developer</p>
+                            <p class="card-text text-secondary">
+                                Passionate about creating amazing web experiences with modern technologies. 
+                                Expert in React, Node.js, and cloud architecture.
+                            </p>
+                            
+                            <div class="d-flex gap-2 mt-4">
+                                <span class="badge bg-primary rounded-pill px-3 py-2">React</span>
+                                <span class="badge bg-success rounded-pill px-3 py-2">Node.js</span>
+                                <span class="badge bg-info rounded-pill px-3 py-2">AWS</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                                <button class="btn btn-primary rounded-pill px-4">Connect</button>
+                                <button class="btn btn-outline-secondary rounded-circle" style="width: 40px; height: 40px;">
+                                    <span>💬</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <h5>Utilities Used in This Card:</h5>
+                <ul class="row list-unstyled">
+                    <li class="col-md-6">• <code>.shadow-lg</code> - Large shadow</li>
+                    <li class="col-md-6">• <code>.border-0</code> - No border</li>
+                    <li class="col-md-6">• <code>.overflow-hidden</code> - Hide overflow</li>
+                    <li class="col-md-6">• <code>.position-relative/absolute</code> - Positioning</li>
+                    <li class="col-md-6">• <code>.rounded-circle</code> - Circle shapes</li>
+                    <li class="col-md-6">• <code>.rounded-pill</code> - Pill shapes</li>
+                    <li class="col-md-6">• <code>.text-*</code> - Text colors</li>
+                    <li class="col-md-6">• <code>.bg-*</code> - Background colors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Performance Tips -->
+        <div class="section">
+            <h2 class="text-warning mb-4">⚡ Performance Tips & Best Practices</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Do's ✅</h4>
+                    <ul>
+                        <li>Use utilities for rapid prototyping</li>
+                        <li>Combine utilities for complex designs</li>
+                        <li>Use responsive variants when needed</li>
+                        <li>Leverage utility classes for consistency</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Don'ts ❌</h4>
+                    <ul>
+                        <li>Don't overuse utilities for complex components</li>
+                        <li>Don't ignore semantic HTML structure</li>
+                        <li>Don't forget about accessibility</li>
+                        <li>Don't use utilities for everything</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleElement() {
+            const element = document.getElementById('hiddenElement');
+            element.classList.toggle('d-none');
+        }
+        
+        // Add interactive hover effects
+        document.querySelectorAll('.card-demo').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('shadow-lg')) {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.transition = 'transform 0.2s ease';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
