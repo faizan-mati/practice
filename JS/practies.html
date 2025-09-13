@@ -1,0 +1,26 @@
+<script>
+
+    const num = [1, 2, 3,4];
+
+    // const newNum = num.filter( num => num > 4)
+
+    // const newArr = [];
+
+    // const newNum = num.forEach((num) => {
+    //     if (num > 4) {
+    //         newArr.push(num)
+    //     }
+    // })
+
+
+    // const newNum = num.map((num) => num + 10)
+
+    const initialvalue = 0;
+    const newNum = num.reduce((accumulator, value) =>
+        accumulator + value, initialvalue
+    )
+
+    console.log("reduce", newNum);
+
+
+</script>

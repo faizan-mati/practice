@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays & Objects Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            color: #444;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-left: 5px solid #667eea;
+        }
+        .output {
+            background: #f0f8ff;
+            border: 2px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .interactive-demo {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .method-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 JavaScript Arrays & Objects Masterclass</h1>
+        
+        <h2>📋 Array Methods</h2>
+        <p>Array methods are powerful tools that help you manipulate and work with arrays efficiently. Let's explore each one with practical examples.</p>
+        
+        <div class="method-card">
+            <h3>1. map() - Transform Each Element</h3>
+            <p><strong>Purpose:</strong> Creates a new array by transforming each element using a function.</p>
+            <p><strong>Returns:</strong> A new array with transformed elements (same length as original)</p>
+            
+            <div class="code-block">
+const numbers = [1, 2, 3, 4, 5];
+
+// Transform each number by multiplying by 2
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// Transform objects
+const users = [
+    { name: 'John', age: 25 },
+    { name: 'Sarah', age: 30 },
+    { name: 'Mike', age: 35 }
+];
+
+const userNames = users.map(user => user.name);
+console.log(userNames); // ['John', 'Sarah', 'Mike']
+
+const userInfo = users.map(user => ({
+    ...user,
+    isAdult: user.age >= 18,
+    category: user.age >= 30 ? 'Senior' : 'Junior'
+}));
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try map() yourself:</h4>
+                <button onclick="demoMap()">Transform Array with map()</button>
+                <div id="mapResult"></div>
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>2. filter() - Select Elements</h3>
+            <p><strong>Purpose:</strong> Creates a new array with elements that pass a test condition.</p>
+            <p><strong>Returns:</strong> A new array with filtered elements (can be shorter than original)</p>
+            
+            <div class="code-block">
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Filter even numbers
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6, 8, 10]
+
+// Filter users by age
+const adults = users.filter(user => user.age >= 30);
+console.log(adults); // [{ name: 'Sarah', age: 30 }, { name: 'Mike', age: 35 }]
+
+// Multiple conditions
+const products = [
+    { name: 'Laptop', price: 1000, inStock: true },
+    { name: 'Phone', price: 500, inStock: false },
+    { name: 'Tablet', price: 300, inStock: true }
+];
+
+const availableAffordable = products.filter(product => 
+    product.inStock && product.price <= 600
+);
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try filter() yourself:</h4>
+                <button onclick="demoFilter()">Filter Array Elements</button>
+                <div id="filterResult"></div>
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>3. reduce() - Combine Elements</h3>
+            <p><strong>Purpose:</strong> Reduces an array to a single value by applying a function cumulatively.</p>
+            <p><strong>Returns:</strong> A single value (can be number, string, object, etc.)</p>
+            
+            <div class="code-block">
+const numbers = [1, 2, 3, 4, 5];
+
+// Sum all numbers
+const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+console.log(sum); // 15
+
+// Find maximum
+const max = numbers.reduce((max, current) => current > max ? current : max);
+console.log(max); // 5
+
+// Group objects by property
+const people = [
+    { name: 'John', department: 'IT' },
+    { name: 'Sarah', department: 'HR' },
+    { name: 'Mike', department: 'IT' },
+    { name: 'Lisa', department: 'HR' }
+];
+
+const groupedByDept = people.reduce((groups, person) => {
+    const dept = person.department;
+    if (!groups[dept]) {
+        groups[dept] = [];
+    }
+    groups[dept].push(person);
+    return groups;
+}, {});
+
+// Count occurrences
+const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+const fruitCount = fruits.reduce((count, fruit) => {
+    count[fruit] = (count[fruit] || 0) + 1;
+    return count;
+}, {});
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try reduce() yourself:</h4>
+                <button onclick="demoReduce()">Reduce Array to Single Value</button>
+                <div id="reduceResult"></div>
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>4. find() - Find First Match</h3>
+            <p><strong>Purpose:</strong> Returns the first element that satisfies a condition.</p>
+            <p><strong>Returns:</strong> The first matching element, or <code>undefined</code> if none found</p>
+            
+            <div class="code-block">
+const users = [
+    { id: 1, name: 'John', age: 25 },
+    { id: 2, name: 'Sarah', age: 30 },
+    { id: 3, name: 'Mike', age: 35 }
+];
+
+// Find user by ID
+const user = users.find(user => user.id === 2);
+console.log(user); // { id: 2, name: 'Sarah', age: 30 }
+
+// Find first adult over 30
+const seniorUser = users.find(user => user.age > 30);
+console.log(seniorUser); // { id: 3, name: 'Mike', age: 35 }
+
+// Find returns undefined if no match
+const youngUser = users.find(user => user.age < 20);
+console.log(youngUser); // undefined
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try find() yourself:</h4>
+                <button onclick="demoFind()">Find Element in Array</button>
+                <div id="findResult"></div>
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>5. some() - Test if Any Element Matches</h3>
+            <p><strong>Purpose:</strong> Tests whether at least one element passes a condition.</p>
+            <p><strong>Returns:</strong> <code>true</code> if any element passes, <code>false</code> otherwise</p>
+            
+            <div class="code-block">
+const numbers = [1, 3, 5, 8, 9];
+
+// Check if any number is even
+const hasEven = numbers.some(num => num % 2 === 0);
+console.log(hasEven); // true (because of 8)
+
+// Check if any user is over 40
+const hasOldUser = users.some(user => user.age > 40);
+console.log(hasOldUser); // false
+
+// Check if any product is expensive
+const products = [
+    { name: 'Laptop', price: 1000 },
+    { name: 'Phone', price: 500 },
+    { name: 'Cable', price: 10 }
+];
+
+const hasExpensive = products.some(product => product.price > 800);
+console.log(hasExpensive); // true
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try some() yourself:</h4>
+                <button onclick="demoSome()">Test Array with some()</button>
+                <div id="someResult"></div>
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>6. every() - Test if All Elements Match</h3>
+            <p><strong>Purpose:</strong> Tests whether all elements pass a condition.</p>
+            <p><strong>Returns:</strong> <code>true</code> if all elements pass, <code>false</code> otherwise</p>
+            
+            <div class="code-block">
+const numbers = [2, 4, 6, 8, 10];
+
+// Check if all numbers are even
+const allEven = numbers.every(num => num % 2 === 0);
+console.log(allEven); // true
+
+// Check if all users are adults
+const allAdults = users.every(user => user.age >= 18);
+console.log(allAdults); // true
+
+// Check if all products are affordable
+const allAffordable = products.every(product => product.price <= 500);
+console.log(allAffordable); // false (laptop costs 1000)
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>🎮 Try every() yourself:</h4>
+                <button onclick="demoEvery()">Test Array with every()</button>
+                <div id="everyResult"></div>
+            </div>
+        </div>
+
+        <h2>🏗️ Object Methods</h2>
+        
+        <div class="method-card">
+            <h3>1. Object.keys() - Get Object Keys</h3>
+            <p><strong>Purpose:</strong> Returns an array of an object's property names (keys).</p>
+            
+            <div class="code-block">
+const person = {
+    name: 'John Doe',
+    age: 30,
+    city: 'New York',
+    profession: 'Developer'
+};
+
+const keys = Object.keys(person);
+console.log(keys); // ['name', 'age', 'city', 'profession']
+
+// Practical use: Loop through object properties
+Object.keys(person).forEach(key => {
+    console.log(`${key}: ${person[key]}`);
+});
+
+// Count properties
+const propertyCount = Object.keys(person).length;
+console.log(propertyCount); // 4
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>2. Object.entries() - Get Key-Value Pairs</h3>
+            <p><strong>Purpose:</strong> Returns an array of [key, value] pairs from an object.</p>
+            
+            <div class="code-block">
+const person = {
+    name: 'John Doe',
+    age: 30,
+    city: 'New York'
+};
+
+const entries = Object.entries(person);
+console.log(entries); 
+// [['name', 'John Doe'], ['age', 30], ['city', 'New York']]
+
+// Convert object to Map
+const personMap = new Map(Object.entries(person));
+
+// Easy iteration with destructuring
+Object.entries(person).forEach(([key, value]) => {
+    console.log(`${key} -> ${value}`);
+});
+
+// Filter object properties
+const filteredEntries = Object.entries(person)
+    .filter(([key, value]) => typeof value === 'string');
+const filteredObject = Object.fromEntries(filteredEntries);
+            </div>
+        </div>
+
+        <div class="method-card">
+            <h3>3. Destructuring - Extract Values Elegantly</h3>
+            <p><strong>Purpose:</strong> Extract values from arrays or objects into distinct variables.</p>
+            
+            <h4>Array Destructuring:</h4>
+            <div class="code-block">
+// Basic array destructuring
+const colors = ['red', 'green', 'blue'];
+const [first, second, third] = colors;
+console.log(first);  // 'red'
+console.log(second); // 'green'
+
+// Skip elements
+const [primary, , tertiary] = colors;
+console.log(primary, tertiary); // 'red', 'blue'
+
+// Default values
+const [a, b, c, d = 'yellow'] = colors;
+console.log(d); // 'yellow'
+
+// Swap variables
+let x = 1, y = 2;
+[x, y] = [y, x]; // x = 2, y = 1
+            </div>
+
+            <h4>Object Destructuring:</h4>
+            <div class="code-block">
+const user = {
+    name: 'John Doe',
+    age: 30,
+    email: 'john@example.com',
+    address: {
+        street: '123 Main St',
+        city: 'New York'
+    }
+};
+
+// Basic object destructuring
+const { name, age, email } = user;
+console.log(name); // 'John Doe'
+
+// Rename variables
+const { name: userName, age: userAge } = user;
+console.log(userName); // 'John Doe'
+
+// Default values
+const { name, profession = 'Unknown' } = user;
+console.log(profession); // 'Unknown'
+
+// Nested destructuring
+const { address: { street, city } } = user;
+console.log(street); // '123 Main St'
+
+// Function parameters
+function greetUser({ name, age }) {
+    return `Hello ${name}, you are ${age} years old`;
+}
+console.log(greetUser(user));
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h3>🎮 Interactive Object Methods Demo</h3>
+            <button onclick="demoObjectMethods()">Try Object Methods</button>
+            <div id="objectResult"></div>
+        </div>
+
+        <h2>🎯 Real-World Examples</h2>
+        <div class="method-card">
+            <h3>Combining Multiple Methods</h3>
+            <div class="code-block">
+// E-commerce example: Process order data
+const orders = [
+    { id: 1, customerId: 101, items: [{ price: 50 }, { price: 30 }], status: 'completed' },
+    { id: 2, customerId: 102, items: [{ price: 100 }], status: 'pending' },
+    { id: 3, customerId: 101, items: [{ price: 25 }, { price: 15 }], status: 'completed' }
+];
+
+// Get total revenue from completed orders
+const completedRevenue = orders
+    .filter(order => order.status === 'completed')  // Only completed orders
+    .map(order => ({                                // Add total to each order
+        ...order,
+        total: order.items.reduce((sum, item) => sum + item.price, 0)
+    }))
+    .reduce((totalRevenue, order) => totalRevenue + order.total, 0);
+
+console.log('Total Revenue:', completedRevenue); // 120
+
+// Group orders by customer
+const ordersByCustomer = orders.reduce((groups, order) => {
+    const customerId = order.customerId;
+    if (!groups[customerId]) {
+        groups[customerId] = [];
+    }
+    groups[customerId].push(order);
+    return groups;
+}, {});
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h3>🎮 Complete Demo</h3>
+            <button onclick="runCompleteDemo()">Run Complete Example</button>
+            <div id="completeResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function demoMap() {
+            const numbers = [1, 2, 3, 4, 5];
+            const squared = numbers.map(n => n * n);
+            document.getElementById('mapResult').innerHTML = `
+                <div class="output">
+                    <strong>Original:</strong> [${numbers.join(', ')}]<br>
+                    <strong>Squared:</strong> [${squared.join(', ')}]<br>
+                    <strong>Code:</strong> numbers.map(n => n * n)
+                </div>
+            `;
+        }
+
+        function demoFilter() {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const evens = numbers.filter(n => n % 2 === 0);
+            document.getElementById('filterResult').innerHTML = `
+                <div class="output">
+                    <strong>Original:</strong> [${numbers.join(', ')}]<br>
+                    <strong>Even numbers:</strong> [${evens.join(', ')}]<br>
+                    <strong>Code:</strong> numbers.filter(n => n % 2 === 0)
+                </div>
+            `;
+        }
+
+        function demoReduce() {
+            const numbers = [1, 2, 3, 4, 5];
+            const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+            const product = numbers.reduce((acc, curr) => acc * curr, 1);
+            document.getElementById('reduceResult').innerHTML = `
+                <div class="output">
+                    <strong>Numbers:</strong> [${numbers.join(', ')}]<br>
+                    <strong>Sum:</strong> ${sum}<br>
+                    <strong>Product:</strong> ${product}<br>
+                    <strong>Codes:</strong><br>
+                    • Sum: numbers.reduce((acc, curr) => acc + curr, 0)<br>
+                    • Product: numbers.reduce((acc, curr) => acc * curr, 1)
+                </div>
+            `;
+        }
+
+        function demoFind() {
+            const users = [
+                { id: 1, name: 'Alice', age: 25 },
+                { id: 2, name: 'Bob', age: 30 },
+                { id: 3, name: 'Charlie', age: 35 }
+            ];
+            const found = users.find(user => user.age > 28);
+            document.getElementById('findResult').innerHTML = `
+                <div class="output">
+                    <strong>Users:</strong> ${JSON.stringify(users, null, 2)}<br>
+                    <strong>First user over 28:</strong> ${JSON.stringify(found, null, 2)}<br>
+                    <strong>Code:</strong> users.find(user => user.age > 28)
+                </div>
+            `;
+        }
+
+        function demoSome() {
+            const numbers = [1, 3, 5, 7, 9];
+            const hasEven = numbers.some(n => n % 2 === 0);
+            const hasLarge = numbers.some(n => n > 5);
+            document.getElementById('someResult').innerHTML = `
+                <div class="output">
+                    <strong>Numbers:</strong> [${numbers.join(', ')}]<br>
+                    <strong>Has even number:</strong> ${hasEven}<br>
+                    <strong>Has number > 5:</strong> ${hasLarge}<br>
+                    <strong>Codes:</strong><br>
+                    • numbers.some(n => n % 2 === 0)<br>
+                    • numbers.some(n => n > 5)
+                </div>
+            `;
+        }
+
+        function demoEvery() {
+            const numbers1 = [2, 4, 6, 8];
+            const numbers2 = [1, 3, 5, 8];
+            const allEven1 = numbers1.every(n => n % 2 === 0);
+            const allEven2 = numbers2.every(n => n % 2 === 0);
+            document.getElementById('everyResult').innerHTML = `
+                <div class="output">
+                    <strong>Array 1:</strong> [${numbers1.join(', ')}] - All even: ${allEven1}<br>
+                    <strong>Array 2:</strong> [${numbers2.join(', ')}] - All even: ${allEven2}<br>
+                    <strong>Code:</strong> array.every(n => n % 2 === 0)
+                </div>
+            `;
+        }
+
+        function demoObjectMethods() {
+            const product = {
+                name: 'Laptop',
+                price: 999,
+                category: 'Electronics',
+                inStock: true
+            };
+
+            const keys = Object.keys(product);
+            const entries = Object.entries(product);
+            const { name, price, ...rest } = product;
+
+            document.getElementById('objectResult').innerHTML = `
+                <div class="output">
+                    <strong>Original object:</strong><br>
+                    ${JSON.stringify(product, null, 2)}<br><br>
+                    
+                    <strong>Object.keys():</strong> [${keys.map(k => `"${k}"`).join(', ')}]<br><br>
+                    
+                    <strong>Object.entries():</strong><br>
+                    ${entries.map(([k, v]) => `["${k}", ${typeof v === 'string' ? `"${v}"` : v}]`).join('<br>')}<br><br>
+                    
+                    <strong>Destructuring:</strong><br>
+                    • name: "${name}"<br>
+                    • price: ${price}<br>
+                    • rest: ${JSON.stringify(rest)}
+                </div>
+            `;
+        }
+
+        function runCompleteDemo() {
+            const students = [
+                { name: 'Alice', scores: [85, 90, 78], grade: 'A' },
+                { name: 'Bob', scores: [70, 75, 80], grade: 'B' },
+                { name: 'Charlie', scores: [95, 88, 92], grade: 'A' },
+                { name: 'Diana', scores: [65, 70, 68], grade: 'C' }
+            ];
+
+            // Calculate average scores and filter high performers
+            const results = students
+                .map(student => ({
+                    ...student,
+                    average: student.scores.reduce((sum, score) => sum + score, 0) / student.scores.length
+                }))
+                .filter(student => student.average >= 75)
+                .map(({ name, average, grade }) => ({ name, average: Math.round(average), grade }));
+
+            // Check if any student has perfect scores
+            const hasPerfectScore = students.some(student => 
+                student.scores.some(score => score === 100)
+            );
+
+            // Check if all students passed (>= 60)
+            const allPassed = students.every(student => 
+                student.scores.every(score => score >= 60)
+            );
+
+            document.getElementById('completeResult').innerHTML = `
+                <div class="output">
+                    <strong>High Performers (avg >= 75):</strong><br>
+                    ${JSON.stringify(results, null, 2)}<br><br>
+                    
+                    <strong>Has perfect score (100):</strong> ${hasPerfectScore}<br>
+                    <strong>All students passed all tests:</strong> ${allPassed}<br><br>
+                    
+                    <strong>Methods used:</strong> map() → filter() → map(), some(), every()
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day 1: Data Types & Functions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding: 10px 15px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #444;
+        }
+        
+        .output {
+            background: #2d5016;
+            color: #90ee90;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #0c5460;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .interactive-demo {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .demo-button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        
+        .demo-button:hover {
+            background: #45a049;
+        }
+        
+        .demo-output {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            min-height: 50px;
+            font-family: monospace;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 JavaScript Day 1</h1>
+            <p>Data Types & Functions - Your Foundation to JS Mastery!</p>
+        </div>
+        
+        <div class="content">
+            <!-- DATA TYPES SECTION -->
+            <div class="section">
+                <h2><span class="emoji">📊</span>Part 1: Data Types & Type Coercion</h2>
+                
+                <h3>🔢 JavaScript Data Types</h3>
+                <p>JavaScript has 8 main data types. Let's see them in action:</p>
+                
+                <div class="code-block">
+// Primitive Types
+let myString = "Hello World";        // String
+let myNumber = 42;                   // Number
+let myBoolean = true;                // Boolean
+let myUndefined;                     // Undefined (no value assigned)
+let myNull = null;                   // Null (intentionally empty)
+let mySymbol = Symbol("id");         // Symbol (unique identifier)
+let myBigInt = 123456789n;          // BigInt (large numbers)
+
+// Non-Primitive Type
+let myObject = { name: "John" };     // Object
+
+// Check types using typeof
+console.log(typeof myString);     // "string"
+console.log(typeof myNumber);     // "number"  
+console.log(typeof myBoolean);    // "boolean"
+console.log(typeof myUndefined);  // "undefined"
+console.log(typeof myNull);       // "object" (this is a famous JS quirk!)
+console.log(typeof mySymbol);     // "symbol"
+console.log(typeof myBigInt);     // "bigint"
+console.log(typeof myObject);     // "object"
+                </div>
+                
+                <div class="important">
+                    <strong>⚠️ Important:</strong> <code>typeof null</code> returns "object" - this is a known bug in JavaScript that's kept for backward compatibility!
+                </div>
+                
+                <h3>🤔 Understanding NaN (Not a Number)</h3>
+                <p>NaN is a special numeric value that represents "Not a Number":</p>
+                
+                <div class="code-block">
+let result1 = "hello" * 2;          // NaN
+let result2 = Math.sqrt(-1);        // NaN
+let result3 = 0 / 0;                // NaN
+
+console.log(result1);               // NaN
+console.log(typeof result1);        // "number" (weird, right?)
+
+// Checking for NaN
+console.log(isNaN(result1));        // true
+console.log(Number.isNaN(result1)); // true (preferred method)
+
+// NaN is not equal to itself!
+console.log(NaN === NaN);           // false
+console.log(NaN == NaN);            // false
+                </div>
+                
+                <div class="tip">
+                    <strong>💡 Pro Tip:</strong> Use <code>Number.isNaN()</code> instead of <code>isNaN()</code> for more accurate NaN checking!
+                </div>
+                
+                <h3>⚖️ == vs === (The Great Equality Debate!)</h3>
+                <p>This is one of the most important concepts in JavaScript:</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>== (Loose Equality)</th>
+                            <th>=== (Strict Equality)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Converts types before comparing</td>
+                            <td>No type conversion</td>
+                        </tr>
+                        <tr>
+                            <td>5 == "5" → true</td>
+                            <td>5 === "5" → false</td>
+                        </tr>
+                        <tr>
+                            <td>Can be unpredictable</td>
+                            <td>Always predictable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="code-block">
+// == (Loose Equality) - Type Coercion happens
+console.log(5 == "5");           // true (string "5" converted to number)
+console.log(true == 1);          // true (true converted to 1)
+console.log(false == 0);         // true (false converted to 0)
+console.log(null == undefined);  // true (special case)
+console.log("" == 0);           // true (empty string converted to 0)
+
+// === (Strict Equality) - No type conversion
+console.log(5 === "5");          // false (different types)
+console.log(true === 1);         // false (different types)
+console.log(false === 0);        // false (different types)
+console.log(null === undefined); // false (different types)
+console.log("" === 0);          // false (different types)
+
+// Same type comparisons work the same way
+console.log(5 === 5);           // true
+console.log("hello" === "hello"); // true
+                </div>
+                
+                <div class="important">
+                    <strong>🎯 Best Practice:</strong> Always use === and !== unless you specifically need type coercion. It makes your code more predictable and easier to debug!
+                </div>
+                
+                <div class="interactive-demo">
+                    <h4>🎮 Try It Yourself!</h4>
+                    <p>Click these buttons to see == vs === in action:</p>
+                    <button class="demo-button" onclick="demoEquality()">Test Equality Comparisons</button>
+                    <button class="demo-button" onclick="demoTypes()">Check Data Types</button>
+                    <div class="demo-output" id="demo-output-1">Results will appear here...</div>
+                </div>
+            </div>
+            
+            <!-- FUNCTIONS SECTION -->
+            <div class="section">
+                <h2><span class="emoji">🔧</span>Part 2: Functions & Scope</h2>
+                
+                <h3>📦 Function Declaration vs Function Expression</h3>
+                
+                <div class="code-block">
+// Function Declaration (Hoisted)
+function sayHello(name) {
+    return "Hello, " + name + "!";
+}
+
+// Function Expression (Not Hoisted)
+const sayGoodbye = function(name) {
+    return "Goodbye, " + name + "!";
+};
+
+// Arrow Function (ES6+)
+const sayHi = (name) => {
+    return "Hi, " + name + "!";
+};
+
+// Arrow Function (Shorter syntax)
+const greet = name => `Hey, ${name}!`;
+
+console.log(sayHello("Alice"));     // "Hello, Alice!"
+console.log(sayGoodbye("Bob"));     // "Goodbye, Bob!"
+console.log(sayHi("Charlie"));      // "Hi, Charlie!"
+console.log(greet("Diana"));        // "Hey, Diana!"
+                </div>
+                
+                <h3>🎈 Hoisting (The Magic Elevator!)</h3>
+                <p>Hoisting means declarations are "moved" to the top of their scope:</p>
+                
+                <div class="code-block">
+// This works because of hoisting!
+console.log(hoistedFunction()); // "I'm hoisted!"
+
+function hoistedFunction() {
+    return "I'm hoisted!";
+}
+
+// But this doesn't work:
+try {
+    console.log(notHoisted()); // TypeError: notHoisted is not a function
+} catch(e) {
+    console.log("Error:", e.message);
+}
+
+var notHoisted = function() {
+    return "I'm not hoisted!";
+};
+
+// Variables are hoisted but not their values
+console.log(myVar); // undefined (not an error!)
+var myVar = "Hello";
+console.log(myVar); // "Hello"
+
+// let and const are hoisted but in "temporal dead zone"
+// console.log(myLet); // ReferenceError
+let myLet = "World";
+                </div>
+                
+                <h3>🔒 Scope (Variable Accessibility)</h3>
+                
+                <div class="code-block">
+// Global Scope
+var globalVar = "I'm global!";
+let globalLet = "I'm also global!";
+
+function scopeDemo() {
+    // Function Scope
+    var functionVar = "I'm in function scope!";
+    let functionLet = "Me too!";
+    
+    if (true) {
+        // Block Scope
+        var blockVar = "I'm var in block";      // Still function scoped!
+        let blockLet = "I'm let in block";      // Block scoped
+        const blockConst = "I'm const in block"; // Block scoped
+        
+        console.log(blockVar);   // Works
+        console.log(blockLet);   // Works  
+        console.log(blockConst); // Works
+    }
+    
+    console.log(blockVar);   // Works (var ignores block scope)
+    // console.log(blockLet);   // ReferenceError
+    // console.log(blockConst); // ReferenceError
+    
+    console.log(globalVar);    // Works
+    console.log(functionVar);  // Works
+}
+
+scopeDemo();
+                </div>
+                
+                <h3>🔐 Closures (Functions Remember!)</h3>
+                <p>A closure gives you access to an outer function's scope from an inner function:</p>
+                
+                <div class="code-block">
+// Simple Closure Example
+function outerFunction(x) {
+    // This is the outer function's variable
+    
+    function innerFunction(y) {
+        // Inner function has access to outer function's variables
+        return x + y; // x is from outer scope!
+    }
+    
+    return innerFunction;
+}
+
+const addFive = outerFunction(5);
+console.log(addFive(3)); // 8 (5 + 3)
+
+// Practical Closure Example - Counter
+function createCounter() {
+    let count = 0; // Private variable
+    
+    return function() {
+        count++; // Inner function can modify outer variable
+        return count;
+    };
+}
+
+const counter1 = createCounter();
+const counter2 = createCounter();
+
+console.log(counter1()); // 1
+console.log(counter1()); // 2
+console.log(counter2()); // 1 (separate counter!)
+console.log(counter1()); // 3
+                </div>
+                
+                <h3>⚡ IIFE (Immediately Invoked Function Expression)</h3>
+                <p>Functions that run immediately and create their own scope:</p>
+                
+                <div class="code-block">
+// Basic IIFE Syntax
+(function() {
+    console.log("I run immediately!");
+})();
+
+// IIFE with parameters
+(function(name) {
+    console.log("Hello, " + name + "!");
+})("JavaScript");
+
+// IIFE with return value
+const result = (function(a, b) {
+    return a + b;
+})(10, 20);
+
+console.log(result); // 30
+
+// Arrow function IIFE
+(() => {
+    console.log("Arrow IIFE!");
+})();
+
+// Why use IIFE? To avoid polluting global scope
+(function() {
+    var privateVar = "I won't pollute global scope!";
+    // This variable is contained within IIFE
+})();
+
+// console.log(privateVar); // ReferenceError
+                </div>
+                
+                <h3>🏹 Arrow Functions (ES6 Magic)</h3>
+                
+                <div class="code-block">
+// Regular function
+function regularAdd(a, b) {
+    return a + b;
+}
+
+// Arrow function equivalents
+const arrowAdd1 = (a, b) => {
+    return a + b;
+};
+
+const arrowAdd2 = (a, b) => a + b; // Implicit return
+
+const square = x => x * x; // Single parameter, no parentheses needed
+
+const sayHello = () => "Hello World!"; // No parameters
+
+// Arrow functions in arrays
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map with arrow function
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// Using filter with arrow function  
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4]
+                </div>
+                
+                <div class="important">
+                    <strong>⚠️ Important:</strong> Arrow functions don't have their own 'this' context - they inherit it from the parent scope. This is great for callbacks but different from regular functions!
+                </div>
+                
+                <div class="interactive-demo">
+                    <h4>🎮 Function Playground!</h4>
+                    <p>Try these function demos:</p>
+                    <button class="demo-button" onclick="demoClosures()">Test Closures</button>
+                    <button class="demo-button" onclick="demoHoisting()">Test Hoisting</button>
+                    <button class="demo-button" onclick="demoArrowFunctions()">Test Arrow Functions</button>
+                    <div class="demo-output" id="demo-output-2">Results will appear here...</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><span class="emoji">🎯</span>Day 1 Summary & Next Steps</h2>
+                <h3>✅ What You've Learned Today:</h3>
+                <ul style="font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>Data Types:</strong> 8 types including primitives and objects</li>
+                    <li><strong>typeof operator:</strong> How to check variable types</li>
+                    <li><strong>NaN:</strong> The tricky "Not a Number" value</li>
+                    <li><strong>== vs ===:</strong> Loose vs strict equality</li>
+                    <li><strong>Functions:</strong> Declaration, expression, and arrow syntax</li>
+                    <li><strong>Hoisting:</strong> How JavaScript "moves" declarations</li>
+                    <li><strong>Scope:</strong> Global, function, and block scope</li>
+                    <li><strong>Closures:</strong> Functions that remember their environment</li>
+                    <li><strong>IIFE:</strong> Self-executing functions</li>
+                </ul>
+                
+                <div class="tip">
+                    <strong>🚀 Tomorrow's Preview:</strong> You'll likely be diving into objects, arrays, and control structures. Practice today's concepts by creating small functions and experimenting with different data types!
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function demoEquality() {
+            const output = document.getElementById('demo-output-1');
+            const tests = [
+                { test: '5 == "5"', result: 5 == "5" },
+                { test: '5 === "5"', result: 5 === "5" },
+                { test: 'true == 1', result: true == 1 },
+                { test: 'true === 1', result: true === 1 },
+                { test: 'null == undefined', result: null == undefined },
+                { test: 'null === undefined', result: null === undefined }
+            ];
+            
+            let html = '<strong>Equality Comparison Results:</strong><br>';
+            tests.forEach(t => {
+                html += `${t.test} → ${t.result}<br>`;
+            });
+            output.innerHTML = html;
+        }
+        
+        function demoTypes() {
+            const output = document.getElementById('demo-output-1');
+            const values = [
+                { value: '"hello"', type: typeof "hello" },
+                { value: '42', type: typeof 42 },
+                { value: 'true', type: typeof true },
+                { value: 'null', type: typeof null },
+                { value: 'undefined', type: typeof undefined },
+                { value: '{name: "John"}', type: typeof {name: "John"} }
+            ];
+            
+            let html = '<strong>Data Types Results:</strong><br>';
+            values.forEach(v => {
+                html += `typeof ${v.value} → "${v.type}"<br>`;
+            });
+            output.innerHTML = html;
+        }
+        
+        function demoClosures() {
+            const output = document.getElementById('demo-output-2');
+            
+            function makeMultiplier(x) {
+                return function(y) {
+                    return x * y;
+                };
+            }
+            
+            const multiplyBy3 = makeMultiplier(3);
+            const multiplyBy5 = makeMultiplier(5);
+            
+            const html = `
+                <strong>Closure Demo - Function Factory:</strong><br>
+                multiplyBy3(4) = ${multiplyBy3(4)}<br>
+                multiplyBy5(4) = ${multiplyBy5(4)}<br>
+                <em>Each function remembers its own 'x' value!</em>
+            `;
+            output.innerHTML = html;
+        }
+        
+        function demoHoisting() {
+            const output = document.getElementById('demo-output-2');
+            
+            let html = '<strong>Hoisting Demo:</strong><br>';
+            
+            try {
+                // This will work due to hoisting
+                html += 'Calling hoisted function: ' + hoistedFunc() + '<br>';
+                
+                function hoistedFunc() {
+                    return "I'm hoisted!";
+                }
+                
+                html += 'myVar before declaration: ' + (typeof myVar) + '<br>';
+                var myVar = "Hello";
+                html += 'myVar after declaration: ' + myVar + '<br>';
+                
+            } catch(e) {
+                html += 'Error: ' + e.message + '<br>';
+            }
+            
+            output.innerHTML = html;
+        }
+        
+        function demoArrowFunctions() {
+            const output = document.getElementById('demo-output-2');
+            
+            const numbers = [1, 2, 3, 4, 5];
+            
+            const doubled = numbers.map(n => n * 2);
+            const evens = numbers.filter(n => n % 2 === 0);
+            const sum = numbers.reduce((acc, n) => acc + n, 0);
+            
+            const html = `
+                <strong>Arrow Functions with Arrays:</strong><br>
+                Original: [${numbers.join(', ')}]<br>
+                Doubled: [${doubled.join(', ')}]<br>
+                Evens only: [${evens.join(', ')}]<br>
+                Sum: ${sum}
+            `;
+            output.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
